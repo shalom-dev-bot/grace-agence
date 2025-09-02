@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Testimonials" %} - Glow Gracious Events{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            <span class="text-gge-yellow">CLIENT</span>
+            <span class="text-white">TESTIMONIALS</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+            {% trans "Hear what our clients have to say about their amazing experiences with us" %}
+        </p>
+        {% if user.is_authenticated %}
+            <a href="{% url 'add_testimonial' %}" class="btn-primary">
+                <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
+                {% trans "Share Your Experience" %}
+            </a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Testimonials Grid -->
+<section class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {% if page_obj %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for testimonial in page_obj %}
+                    <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-gge-yellow/30 transition-all duration-300">
+                        <!-- User Info -->
+                        <div class="flex items-center mb-6">
+                            {% if testimonial.user.profile_picture %}
+                                <img src="{{ testimonial.user.profile_picture.url }}" 
+                                     alt="{{ testimonial.user.first_name }}" 
+                                     class="w-12 h-12 rounded-full object-cover mr-4">
+                            {% else %}
+                                <div class="w-12 h-12 bg-gge-yellow rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-black font-semibold">{{ testimonial.user.first_name.0|upper }}</span>
+                                </div>
+                            {% endif %}
+                            <div>
+                                <h4 class="font-semibold text-white">
+                                    {{ testimonial.user.first_name }} {{ testimonial.user.last_name }}
+                                </h4>
+                                <div class="flex text-gge-yellow">
+                                    {% for i in testimonial.star_range %}
+                                        {% if i <= testimonial.rating %}
+                                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        {% else %}
+                                            <i data-lucide="star" class="w-4 h-4"></i>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial Content -->
+                        <h5 class="text-lg font-semibold text-white mb-3">{{ testimonial.title }}</h5>
+                        <p class="text-gray-400 leading-relaxed">{{ testimonial.content }}</p>
+                        
+                        <!-- Date -->
+                        <div class="mt-6 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">{{ testimonial.created_at|date:"F d, Y" }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Pagination -->
+            {% if page_obj.has_other_pages %}
+                <div class="flex justify-center mt-12">
+                    <nav class="flex space-x-2">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}" 
+                               class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                                {% trans "Previous" %}
+                            </a>
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <span class="px-4 py-2 bg-gge-yellow text-black rounded-lg font-semibold">
+                                    {{ num }}
+                                </span>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <a href="?page={{ num }}" 
+                                   class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                                    {{ num }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" 
+                               class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                                {% trans "Next" %}
+                            </a>
+                        {% endif %}
+                    </nav>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="text-center py-20">
+                <i data-lucide="message-circle" class="w-24 h-24 text-gray-600 mx-auto mb-6"></i>
+                <h3 class="text-2xl font-bold text-gray-400 mb-4">{% trans "No testimonials yet" %}</h3>
+                <p class="text-gray-500 mb-8">{% trans "Be the first to share your experience" %}</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'add_testimonial' %}" class="btn-primary">
+                        {% trans "Add Testimonial" %}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

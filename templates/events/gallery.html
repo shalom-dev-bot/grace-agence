@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Gallery" %} - Glow Gracious Events{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            <span class="text-gge-yellow">EVENT</span>
+            <span class="text-white">GALLERY</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            {% trans "Explore our portfolio of successful events and get inspired for your own celebration" %}
+        </p>
+    </div>
+</section>
+
+<!-- Gallery Grid -->
+<section class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {% if page_obj %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for event in page_obj %}
+                    <div class="group relative overflow-hidden rounded-2xl bg-gray-900 border border-gray-800 hover:border-gge-yellow/30 transition-all duration-300">
+                        <!-- Event Image Placeholder -->
+                        <div class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                            <div class="text-center">
+                                <i data-lucide="image" class="w-16 h-16 text-gray-600 mx-auto mb-4"></i>
+                                <p class="text-gray-500">{% trans "Event Photo" %}</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Event Info Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">{{ event.title }}</h3>
+                                <div class="flex items-center space-x-4 text-sm text-gray-300">
+                                    <span class="flex items-center">
+                                        <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
+                                        {{ event.event_date|date:"M d, Y" }}
+                                    </span>
+                                    <span class="flex items-center">
+                                        <i data-lucide="tag" class="w-4 h-4 mr-1"></i>
+                                        {{ event.event_type.name }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Event Card Content -->
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">{{ event.title }}</h3>
+                            <p class="text-gray-400 mb-4">{{ event.description|truncatewords:15 }}</p>
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-green-900 text-green-300">
+                                    {{ event.get_status_display }}
+                                </span>
+                                <span class="text-sm text-gray-500">
+                                    {{ event.event_date|date:"M Y" }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Pagination -->
+            {% if page_obj.has_other_pages %}
+                <div class="flex justify-center mt-12">
+                    <nav class="flex space-x-2">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}" 
+                               class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                                {% trans "Previous" %}
+                            </a>
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <span class="px-4 py-2 bg-gge-yellow text-black rounded-lg font-semibold">
+                                    {{ num }}
+                                </span>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <a href="?page={{ num }}" 
+                                   class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                                    {{ num }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" 
+                               class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                                {% trans "Next" %}
+                            </a>
+                        {% endif %}
+                    </nav>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="text-center py-20">
+                <i data-lucide="image" class="w-24 h-24 text-gray-600 mx-auto mb-6"></i>
+                <h3 class="text-2xl font-bold text-gray-400 mb-4">{% trans "No events in gallery yet" %}</h3>
+                <p class="text-gray-500 mb-8">{% trans "Check back soon for amazing event showcases" %}</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'create_event' %}" class="btn-primary">
+                        {% trans "Create Your First Event" %}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

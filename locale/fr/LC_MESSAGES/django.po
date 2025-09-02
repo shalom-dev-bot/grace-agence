@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-02 00:00+0000\n"
+"PO-Revision-Date: 2025-09-02 00:00+0000\n"
+"Last-Translator: YOUR NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Sign In"
+msgstr "Se connecter"
+
+msgid "Sign Out"
+msgstr "Se déconnecter"
+
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Remember Me"
+msgstr "Se souvenir de moi"
+
+msgid "Forgot Password?"
+msgstr "Mot de passe oublié ?"
+
+msgid "Submit"
+msgstr "Valider"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Search"
+msgstr "Rechercher"
+
+msgid "Save Changes"
+msgstr "Enregistrer les modifications"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Create"
+msgstr "Créer"
+
+msgid "Update"
+msgstr "Mettre à jour"
+
+msgid "View Details"
+msgstr "Voir les détails"
+
+msgid "Welcome"
+msgstr "Bienvenue"

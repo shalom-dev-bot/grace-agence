@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign In" %} - Glow Gracious Events{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gge-yellow mb-2">{% trans "Welcome Back" %}</h2>
+            <p class="text-gray-400">{% trans "Sign in to your account to continue planning" %}</p>
+        </div>
+        
+        <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800">
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+                
+                <div>
+                    <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                        {% trans "Email Address" %}
+                    </label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <p class="text-red-400 text-sm mt-1">{{ form.email.errors.0 }}</p>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="{{ form.password.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                        {% trans "Password" %}
+                    </label>
+                    {{ form.password }}
+                    {% if form.password.errors %}
+                        <p class="text-red-400 text-sm mt-1">{{ form.password.errors.0 }}</p>
+                    {% endif %}
+                </div>
+                
+                {% if form.non_field_errors %}
+                    <div class="text-red-400 text-sm">
+                        {{ form.non_field_errors.0 }}
+                    </div>
+                {% endif %}
+                
+                <button type="submit" class="w-full btn-primary">
+                    {% trans "Sign In" %}
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center">
+                <p class="text-gray-400">
+                    {% trans "Don't have an account?" %}
+                    <a href="{% url 'register' %}" class="text-gge-yellow hover:text-yellow-300 font-medium">
+                        {% trans "Sign up" %}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
