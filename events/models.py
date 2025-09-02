@@ -44,7 +44,7 @@ class Event(models.Model):
     event_date = models.DateTimeField()
     location = models.CharField(max_length=300, blank=True)
     guest_count = models.PositiveIntegerField(default=0)
-    budget = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, default=0)
+    budget = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     invitation_card = models.ForeignKey(InvitationCard, on_delete=models.SET_NULL, blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
     created_at = models.DateTimeField(auto_now_add=True)
