@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Services - Glow Gracious Events" %}{% endblock %}
+
+{% block content %}
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-4xl font-bold text-gge-yellow mb-8 text-center">
+            {% trans "Our Services" %}
+        </h1>
+
+        <!-- Filtre par catégorie -->
+        <div class="mb-12 flex justify-center">
+            <form method="GET" class="flex items-center space-x-4">
+                <select name="category" class="bg-gray-800 text-white border border-gray-600 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gge-yellow">
+                    <option value="">{% trans "All Categories" %}</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}" {% if category_filter == category.id|stringformat:"s" %}selected{% endif %}>
+                            {{ category.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn-primary">
+                    {% trans "Filter" %}
+                </button>
+            </form>
+        </div>
+
+        <!-- Services en vedette -->
+        {% if featured_services %}
+            <h2 class="text-2xl font-semibold text-gge-pink mb-6">
+                {% trans "Featured Services" %}
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {% for service in featured_services %}
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-bold text-gge-yellow mb-2">{{ service.name }}</h3>
+                        {% if service.image %}
+                            <img src="{{ service.image.url }}" alt="{{ service.name }}" class="w-full h-48 object-cover rounded-md mb-4">
+                        {% endif %}
+                        <p class="text-gray-300 mb-4">{{ service.description|truncatewords:30 }}</p>
+                        <p class="text-gge-pink font-semibold mb-2">
+                            {% trans "Price" %}: {{ service.price|floatformat:2 }} €
+                        </p>
+                        <p class="text-gray-400">
+                            {% trans "Category" %}: {{ service.category.name }}
+                        </p>
+                        <a href="{% url 'service_detail' service.id %}" class="btn-secondary mt-4 inline-block">
+                            {% trans "View Details" %}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-gray-400 text-center mb-12">{% trans "No featured services available." %}</p>
+        {% endif %}
+
+        <!-- Catégories de services -->
+        {% if categories %}
+            <h2 class="text-2xl font-semibold text-gge-pink mb-6">
+                {% trans "Service Categories" %}
+            </h2>
+            {% for category in categories %}
+                {% if not category_filter or category.id|stringformat:"s" == category_filter %}
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-gge-yellow mb-4 flex items-center">
+                            {% if category.icon %}
+                                <i data-lucide="{{ category.icon }}" class="w-6 h-6 mr-2"></i>
+                            {% endif %}
+                            {{ category.name }}
+                        </h3>
+                        <p class="text-gray-300 mb-4">{{ category.description
