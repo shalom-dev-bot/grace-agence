@@ -68,4 +68,37 @@
                             {% endif %}
                             {{ category.name }}
                         </h3>
-                        <p class="text-gray-300 mb-4">{{ category.description
+                        <p class="text-gray-300 mb-4">{{ category.description|default:"No description available." }}</p>
+                        {% if category.services.all %}
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {% for service in category.services.all %}
+                                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                                        <h4 class="text-lg font-semibold text-white mb-2">{{ service.name }}</h4>
+                                        {% if service.image %}
+                                            <img src="{{ service.image.url }}" alt="{{ service.name }}" class="w-full h-32 object-cover rounded-md mb-4">
+                                        {% endif %}
+                                        <p class="text-gray-400">
+                                            {% trans "Price" %}: {{ service.price|floatformat:2 }} €
+                                        </p>
+                                        <a href="{% url 'service_detail' service.id %}" class="btn-secondary mt-4 inline-block">
+                                            {% trans "View Details" %}
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p class="text-gray-400">{% trans "No services in this category." %}</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p class="text-gray-400 text-center">{% trans "No service categories available." %}</p>
+        {% endif %}
+    </section>
+
+    <!-- Initialiser les icônes Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+{% endblock %}
