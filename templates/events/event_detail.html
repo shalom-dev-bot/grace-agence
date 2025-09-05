@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Event Details" %} - {{ event.title }} - Glow Gracious Events{% endblock %}
+
+{% block content %}
+    <section class="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">
+                <span class="text-gge-yellow">{{ event.title }}</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 text-center">
+                {% trans "Explore the details of your event" %}
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-900 rounded-2xl border border-gray-800 p-8">
+                <!-- Event Image -->
+                {% if event.invitation_card.preview_image %}
+                    <img src="{{ event.invitation_card.preview_image.url }}" alt="{{ event.title }} Invitation" class="w-full h-64 object-cover rounded-lg mb-6">
+                {% else %}
+                    <div class="w-full h-64 bg-gray-700 rounded-lg mb-6 flex items-center justify-center">
+                        <i data-lucide="image-off" class="w-12 h-12 text-gray-400"></i>
+                    </div>
+                {% endif %}
+                
+                <!-- Event Details -->
+                <h2 class="text-2xl font-semibold text-white mb-4">{{ event.title }}</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">{{ event.description|default:"No description available." }}</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <p class="text-gge-yellow font-semibold mb-2">
+                            <i data-lucide="calendar" class="w-5 h-5 inline-block mr-2"></i>
+                            {% trans "Event Date" %}
+                        </p>
+                        <p class="text-gray-300">{{ event.event_date|date:"F d, Y H:i" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-gge-yellow font-semibold mb-2">
+                            <i data-lucide="tag" class="w-5 h-5 inline-block mr-2"></i>
+                            {% trans "Event Type" %}
+                        </p>
+                        <p class="text-gray-300">{{ event.event_type.name|default:"Not specified" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-gge-yellow font-semibold mb-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 inline-block mr-2"></i>
+                            {% trans "Status" %}
+                        </p>
+                        <p class="text-gray-300">{{ event.get_status_display|default:"Not specified" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-gge-yellow font-semibold mb-2">
+                            <i data-lucide="map-pin" class="w-5 h-5 inline-block mr-2"></i>
+                            {% trans "Location" %}
+                        </p>
+                        <p class="text-gray-300">{{ event.location|default:"Not specified" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-gge-yellow font-semibold mb-2">
+                            <i data-lucide="users" class="w-5 h-5 inline-block mr-2"></i>
+                            {% trans "Expected Guests" %}
+                        </p>
+                        <p class="text-gray-300">{{ event.guest_count|default:"Not specified" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-gge-yellow font-semibold mb-2">
+                            <i data-lucide="dollar-sign" class="w-5 h-5 inline-block mr-2"></i>
+                            {% trans "Budget (€)" %}
+                        </p>
+                        <p class="text-gray-300">{{ event.budget|floatformat:2|default:"Not specified" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-gge-yellow font-semibold mb-2">
+                            <i data-lucide="mail" class="w-5 h-5 inline-block mr-2"></i>
+                            {% trans "Invitation Card" %}
+                        </p>
+                        <p class="text-gray-300">{{ event.invitation_card.name|default:"Not specified" }} ({{ event.invitation_card.get_style_display|default:"Not specified" }})</p>
+                    </div>
+                    <div>
+                        <p class="text-gge-yellow font-semibold mb-2">
+                            <i data-lucide="user" class="w-5 h-5 inline-block mr-2"></i>
+                            {% trans "Organizer" %}
+                        </p>
+                        <p class="text-gray-300">{{ event.user.email|default:"Not specified" }}</p>
+                    </div>
+                </div>
+
+                <!-- Event Services -->
+                {% if event.event_services.exists %}
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-white mb-4">{% trans "Selected Services" %}</h3>
+                        <ul class="space-y-2">
+                            {% for event_service in event.event_services.all %}
+                                <li class="text-gray-300">
+                                    <span class="font-medium">{{ event_service.service.name }}</span>
+                                    (Quantity: {{ event_service.quantity }})
+                                    {% if event_service.notes %}
+                                        - {{ event_service.notes|truncatewords:10 }}
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <!-- Available Services -->
+                {% if available_services %}
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-white mb-4">{% trans "Add Services" %}</h3>
+                        <form method="post" action="{% url 'add_event_service' event_id=event.id %}" class="space-y-4">
+                            {% csrf_token %}
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-300 mb-2">
+                                    {% trans "Select Service" %}
+                                </label>
+                                <select name="service" id="service" class="form-select">
+                                    {% for service in available_services %}
+                                        <option value="{{ service.id }}">{{ service.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label for="quantity" class="block text-sm font-medium text-gray-300 mb-2">
+                                    {% trans "Quantity" %}
+                                </label>
+                                <input type="number" name="quantity" id="quantity" min="1" value="1" class="form-input">
+                            </div>
+                            <div>
+                                <label for="notes" class="block text-sm font-medium text-gray-300 mb-2">
+                                    {% trans "Notes" %}
+                                </label>
+                                <textarea name="notes" id="notes" rows="3" class="form-textarea" placeholder="{% trans 'Any specific requirements...' %}"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">{% trans "Add Service" %}</button>
+                        </form>
+                    </div>
+                {% endif %}
+
+                <!-- Invitation Card Selection -->
+                {% if invitation_cards %}
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-white mb-4">{% trans "Update Invitation Card" %}</h3>
+                        <form method="post" action="{% url 'update_event_invitation' event_id=event.id %}" class="space-y-4">
+                            {% csrf_token %}
+                            <div>
+                                <label for="invitation_card" class="block text-sm font-medium text-gray-300 mb-2">
+                                    {% trans "Select Invitation Card" %}
+                                </label>
+                                <select name="invitation_card" id="invitation_card" class="form-select">
+                                    <option value="">{% trans "No invitation card" %}</option>
+                                    {% for card in invitation_cards %}
+                                        <option value="{{ card.id }}" {% if event.invitation_card.id == card.id %}selected{% endif %}>
+                                            {{ card.name }} ({{ card.get_style_display }})
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary">{% trans "Update Invitation" %}</button>
+                        </form>
+                    </div>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                    <div class="flex justify-end space-x-4 mt-6">
+                        <a href="{% url 'dashboard' %}" class="btn-secondary inline-flex items-center">
+                            <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i>
+                            {% trans "Back to Dashboard" %}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
+{% endblock %}

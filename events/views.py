@@ -94,3 +94,37 @@ def gallery_view(request):
     page_obj = paginator.get_page(page_number)
     
     return render(request, 'events/gallery.html', {'page_obj': page_obj})
+
+@login_required
+def add_event_service_view(request, event_id):
+    event = get_object_or_404(Event, id=event_id, user=request.user)
+    if request.method == 'POST':
+        service_id = request.POST.get('service')
+        quantity = request.POST.get('quantity')
+        notes = request.POST.get('notes')
+        if service_id and quantity:
+            service = get_object_or_404(Service, id=service_id)
+            EventService.objects.create(
+                event=event,
+                service=service,
+                quantity=int(quantity),
+                notes=notes
+            )
+            messages.success(request, _('Service added successfully!'))
+        else:
+            messages.error(request, _('Please select a service and specify a quantity.'))
+    return redirect('event_detail', event_id=event.id)
+
+@login_required
+def update_event_invitation_view(request, event_id):
+    event = get_object_or_404(Event, id=event_id, user=request.user)
+    if request.method == 'POST':
+        invitation_card_id = request.POST.get('invitation_card')
+        if invitation_card_id:
+            invitation_card = get_object_or_404(InvitationCard, id=invitation_card_id)
+            event.invitation_card = invitation_card
+        else:
+            event.invitation_card = None
+        event.save()
+        messages.success(request, _('Invitation card updated successfully!'))
+    return redirect('event_detail', event_id=event.id)
