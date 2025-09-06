@@ -47,6 +47,7 @@ class Event(models.Model):
     budget = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     invitation_card = models.ForeignKey(InvitationCard, on_delete=models.SET_NULL, blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
+    image = models.ImageField(upload_to='event_images/', blank=True, null=True)  # Nouveau champ image
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

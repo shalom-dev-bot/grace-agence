@@ -75,21 +75,33 @@
                 {% for event in recent_events %}
                     <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gge-yellow/30 transition-all duration-300">
                         <div class="flex items-center justify-between">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-white mb-2">{{ event.title }}</h3>
-                                <div class="flex items-center space-x-4 text-sm text-gray-400">
-                                    <span class="flex items-center">
-                                        <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
-                                        {{ event.event_date|date:"M d, Y" }}
-                                    </span>
-                                    <span class="flex items-center">
-                                        <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>
-                                        {{ event.location|default:"TBD" }}
-                                    </span>
-                                    <span class="flex items-center">
-                                        <i data-lucide="users" class="w-4 h-4 mr-1"></i>
-                                        {{ event.guest_count }} {% trans "guests" %}
-                                    </span>
+                            <div class="flex items-center space-x-4">
+                                <!-- Event Image -->
+                                <div class="w-24 h-24 rounded-lg overflow-hidden">
+                                    {% if event.image %}
+                                        <img src="{{ event.image.url }}" alt="{{ event.title }}" class="object-cover w-full h-full">
+                                    {% else %}
+                                        <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center h-full">
+                                            <i data-lucide="image" class="w-8 h-8 text-gray-600"></i>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-2">{{ event.title }}</h3>
+                                    <div class="flex items-center space-x-4 text-sm text-gray-400">
+                                        <span class="flex items-center">
+                                            <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
+                                            {{ event.event_date|date:"M d, Y" }}
+                                        </span>
+                                        <span class="flex items-center">
+                                            <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>
+                                            {{ event.location|default:"TBD" }}
+                                        </span>
+                                        <span class="flex items-center">
+                                            <i data-lucide="users" class="w-4 h-4 mr-1"></i>
+                                            {{ event.guest_count }} {% trans "guests" %}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">

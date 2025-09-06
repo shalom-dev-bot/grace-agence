@@ -25,12 +25,18 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {% for event in page_obj %}
                     <div class="group relative overflow-hidden rounded-2xl bg-gray-900 border border-gray-800 hover:border-gge-yellow/30 transition-all duration-300">
-                        <!-- Event Image Placeholder -->
-                        <div class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <div class="text-center">
-                                <i data-lucide="image" class="w-16 h-16 text-gray-600 mx-auto mb-4"></i>
-                                <p class="text-gray-500">{% trans "Event Photo" %}</p>
-                            </div>
+                        <!-- Event Image -->
+                        <div class="aspect-w-16 aspect-h-12">
+                            {% if event.image %}
+                                <img src="{{ event.image.url }}" alt="{{ event.title }}" class="object-cover w-full h-full">
+                            {% else %}
+                                <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center h-full">
+                                    <div class="text-center">
+                                        <i data-lucide="image" class="w-16 h-16 text-gray-600 mx-auto mb-4"></i>
+                                        <p class="text-gray-500">{% trans "No Image Available" %}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
                         </div>
                         
                         <!-- Event Info Overlay -->

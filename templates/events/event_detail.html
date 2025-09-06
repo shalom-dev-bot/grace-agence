@@ -20,7 +20,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gray-900 rounded-2xl border border-gray-800 p-8">
                 <!-- Event Image -->
-                {% if event.invitation_card.preview_image %}
+                {% if event.image %}
+                    <img src="{{ event.image.url }}" alt="{{ event.title }}" class="w-full h-64 object-cover rounded-lg mb-6">
+                {% elif event.invitation_card.preview_image %}
                     <img src="{{ event.invitation_card.preview_image.url }}" alt="{{ event.title }} Invitation" class="w-full h-64 object-cover rounded-lg mb-6">
                 {% else %}
                     <div class="w-full h-64 bg-gray-700 rounded-lg mb-6 flex items-center justify-center">

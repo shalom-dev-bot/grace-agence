@@ -23,3 +23,4 @@ class EventAdmin(admin.ModelAdmin):
     search_fields = ('title', 'user__email', 'user__username')
     inlines = [EventServiceInline]
     date_hierarchy = 'event_date'
+    fields = ('user', 'title', 'description', 'event_type', 'event_date', 'location', 'guest_count', 'budget', 'invitation_card', 'status', 'image')  # Ajout du champ image

@@ -8,17 +8,9 @@ from services.models import Service
 from testimonials.models import Testimonial
 
 def home_view(request):
-    # Get featured testimonials
-    featured_testimonials = Testimonial.objects.filter(
-        is_approved=True, is_featured=True
-    ).select_related('user')[:6]
-    
-    # Get recent events count
+    featured_testimonials = Testimonial.objects.filter(is_approved=True, is_featured=True).select_related('user')[:6]
     recent_events_count = Event.objects.filter(status='completed').count()
-    
-    # Get available services count
     services_count = Service.objects.filter(is_active=True).count()
-    
     context = {
         'featured_testimonials': featured_testimonials,
         'recent_events_count': recent_events_count,
@@ -30,7 +22,6 @@ def home_view(request):
 def dashboard_view(request):
     user_events = Event.objects.filter(user=request.user)
     recent_events = user_events[:5]
-    
     context = {
         'recent_events': recent_events,
         'total_events': user_events.count(),
@@ -49,7 +40,8 @@ def create_event_view(request):
         location = request.POST.get('location')
         guest_count = request.POST.get('guest_count', 0)
         budget = request.POST.get('budget')
-        
+        image = request.FILES.get('image')
+
         if title and event_type_id and event_date:
             event_type = get_object_or_404(EventType, id=event_type_id)
             event = Event.objects.create(
@@ -61,6 +53,7 @@ def create_event_view(request):
                 location=location,
                 guest_count=int(guest_count) if guest_count else 0,
                 budget=float(budget) if budget else None,
+                image=image
             )
             messages.success(request, _('Event created successfully!'))
             return redirect('event_detail', event_id=event.id)
@@ -75,7 +68,6 @@ def event_detail_view(request, event_id):
     event = get_object_or_404(Event, id=event_id, user=request.user)
     available_services = Service.objects.filter(is_active=True)
     invitation_cards = InvitationCard.objects.filter(is_active=True)
-    
     context = {
         'event': event,
         'available_services': available_services,
@@ -84,15 +76,10 @@ def event_detail_view(request, event_id):
     return render(request, 'events/event_detail.html', context)
 
 def gallery_view(request):
-    # Display completed events as gallery
-    completed_events = Event.objects.filter(
-        status='completed'
-    ).select_related('user', 'event_type')
-    
+    completed_events = Event.objects.filter(status='completed').select_related('user', 'event_type')
     paginator = Paginator(completed_events, 12)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
     return render(request, 'events/gallery.html', {'page_obj': page_obj})
 
 @login_required
