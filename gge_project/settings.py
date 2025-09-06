@@ -1,3 +1,5 @@
+# settings.py
+
 import os
 from pathlib import Path
 from decouple import config
@@ -53,6 +55,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',  # Ajouté pour i18n
             ],
         },
     },
@@ -94,7 +97,6 @@ USE_L10N = True
 LANGUAGES = [
     ('en', 'English'),
     ('fr', 'Français'),
-  
 ]
 
 LOCALE_PATHS = [
