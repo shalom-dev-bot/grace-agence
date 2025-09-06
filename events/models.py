@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
 User = get_user_model()
 
@@ -13,9 +14,9 @@ class EventType(models.Model):
 
 class InvitationCard(models.Model):
     CARD_STYLES = [
-        ('classic', 'Classic'),
-        ('modern', 'Modern'),
-        ('vip', 'VIP'),
+        ('classic', _('Classic')),
+        ('modern', _('Modern')),
+        ('vip', _('VIP')),
     ]
     
     name = models.CharField(max_length=100)
@@ -30,11 +31,11 @@ class InvitationCard(models.Model):
 
 class Event(models.Model):
     STATUS_CHOICES = [
-        ('draft', 'Draft'),
-        ('planning', 'Planning'),
-        ('confirmed', 'Confirmed'),
-        ('completed', 'Completed'),
-        ('cancelled', 'Cancelled'),
+        ('draft', _('Draft')),
+        ('planning', _('Planning')),
+        ('confirmed', _('Confirmed')),
+        ('completed', _('Completed')),
+        ('cancelled', _('Cancelled')),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='events')
@@ -47,7 +48,7 @@ class Event(models.Model):
     budget = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     invitation_card = models.ForeignKey(InvitationCard, on_delete=models.SET_NULL, blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
-    image = models.ImageField(upload_to='event_images/', blank=True, null=True)  # Nouveau champ image
+    image = models.ImageField(upload_to='event_images/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
