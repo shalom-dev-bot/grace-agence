@@ -1,4 +1,4 @@
-# French translations for Glow Gracious Events
+# English translations for Glow Gracious Events
 # Copyright (C) 2025 Glow Gracious Events
 # This file is distributed under the same license as the package.
 #
@@ -9,222 +9,222 @@ msgstr ""
 "POT-Creation-Date: 2025-09-06 01:42+0100\n"
 "PO-Revision-Date: 2025-09-06 01:42+0100\n"
 "Last-Translator: YOUR NAME <EMAIL@ADDRESS>\n"
-"Language-Team: French\n"
-"Language: fr\n"
+"Language-Team: English\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Sign In"
-msgstr "Se connecter"
+msgstr "Sign In"
 
 msgid "Sign Out"
-msgstr "Se déconnecter"
+msgstr "Sign Out"
 
 msgid "Username"
-msgstr "Nom d'utilisateur"
+msgstr "Username"
 
 msgid "Password"
-msgstr "Mot de passe"
+msgstr "Password"
 
 msgid "Email"
 msgstr "Email"
 
 msgid "Remember Me"
-msgstr "Se souvenir de moi"
+msgstr "Remember Me"
 
 msgid "Forgot Password?"
-msgstr "Mot de passe oublié ?"
+msgstr "Forgot Password?"
 
 msgid "Submit"
-msgstr "Valider"
+msgstr "Submit"
 
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Cancel"
 
 msgid "Home"
-msgstr "Accueil"
+msgstr "Home"
 
 msgid "Dashboard"
-msgstr "Tableau de bord"
+msgstr "Dashboard"
 
 msgid "Profile"
-msgstr "Profil"
+msgstr "Profile"
 
 msgid "Settings"
-msgstr "Paramètres"
+msgstr "Settings"
 
 msgid "Search"
-msgstr "Rechercher"
+msgstr "Search"
 
 msgid "Save Changes"
-msgstr "Enregistrer les modifications"
+msgstr "Save Changes"
 
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "Delete"
 
 msgid "Edit"
-msgstr "Modifier"
+msgstr "Edit"
 
 msgid "Create"
-msgstr "Créer"
+msgstr "Create"
 
 msgid "Update"
-msgstr "Mettre à jour"
+msgstr "Update"
 
 msgid "View Details"
-msgstr "Voir les détails"
+msgstr "View Details"
 
 msgid "Welcome"
-msgstr "Bienvenue"
+msgstr "Welcome"
 
 # Home.html
 msgid "EVENTS"
-msgstr "ÉVÉNEMENTS"
+msgstr "EVENTS"
 
 msgid "Capturing"
-msgstr "Capturer"
+msgstr "Capturing"
 
 msgid "elegance"
-msgstr "élégance"
+msgstr "elegance"
 
 msgid "creativity"
-msgstr "créativité"
+msgstr "creativity"
 
 msgid "unforgettable moments"
-msgstr "moments inoubliables"
+msgstr "unforgettable moments"
 
 msgid "Create Event"
-msgstr "Créer un événement"
+msgstr "Create Event"
 
 msgid "My Dashboard"
-msgstr "Mon tableau de bord"
+msgstr "My Dashboard"
 
 msgid "Get Started"
-msgstr "Commencer"
+msgstr "Get Started"
 
 msgid "Explore Gallery"
-msgstr "Explorer la galerie"
+msgstr "Explore Gallery"
 
 msgid "OUR MISSION"
-msgstr "NOTRE MISSION"
+msgstr "OUR MISSION"
 
 msgid "Bringing energy and elegance into every celebration through personalized event management and unforgettable experiences."
-msgstr "Apporter énergie et élégance à chaque célébration grâce à une gestion d'événements personnalisée et des expériences inoubliables."
+msgstr "Bringing energy and elegance into every celebration through personalized event management and unforgettable experiences."
 
 msgid "OUR SERVICES"
-msgstr "NOS SERVICES"
+msgstr "OUR SERVICES"
 
 msgid "Everything you need for the perfect event"
-msgstr "Tout ce dont vous avez besoin pour un événement parfait"
+msgstr "Everything you need for the perfect event"
 
 msgid "Photography"
-msgstr "Photographie"
+msgstr "Photography"
 
 msgid "Professional photographers to capture every precious moment of your special day."
-msgstr "Photographes professionnels pour capturer chaque moment précieux de votre journée spéciale."
+msgstr "Professional photographers to capture every precious moment of your special day."
 
 msgid "Catering"
-msgstr "Restauration"
+msgstr "Catering"
 
 msgid "Exquisite culinary experiences tailored to your taste and event style."
-msgstr "Expériences culinaires exquises adaptées à vos goûts et au style de votre événement."
+msgstr "Exquisite culinary experiences tailored to your taste and event style."
 
 msgid "Entertainment"
-msgstr "Divertissement"
+msgstr "Entertainment"
 
 msgid "DJs, live music, and entertainment to keep your guests engaged all night long."
-msgstr "DJs, musique live et divertissements pour garder vos invités engagés toute la nuit."
+msgstr "DJs, live music, and entertainment to keep your guests engaged all night long."
 
 msgid "View All Services"
-msgstr "Voir tous les services"
+msgstr "View All Services"
 
 msgid "Events Completed"
-msgstr "Événements terminés"
+msgstr "Events Completed"
 
 msgid "Services Available"
-msgstr "Services disponibles"
+msgstr "Services Available"
 
 msgid "Client Satisfaction"
-msgstr "Satisfaction des clients"
+msgstr "Client Satisfaction"
 
 msgid "CLIENT TESTIMONIALS"
-msgstr "TÉMOIGNAGES DES CLIENTS"
+msgstr "CLIENT TESTIMONIALS"
 
 msgid "What our clients say about us"
-msgstr "Ce que nos clients disent de nous"
+msgstr "What our clients say about us"
 
 msgid "View All Testimonials"
-msgstr "Voir tous les témoignages"
+msgstr "View All Testimonials"
 
 msgid "Ready to Create Your Perfect Event?"
-msgstr "Prêt à créer votre événement parfait ?"
+msgstr "Ready to Create Your Perfect Event?"
 
 msgid "Join thousands of satisfied clients who trusted us with their special moments."
-msgstr "Rejoignez des milliers de clients satisfaits qui nous ont fait confiance pour leurs moments spéciaux."
+msgstr "Join thousands of satisfied clients who trusted us with their special moments."
 
 msgid "Get Started Today"
-msgstr "Commencez aujourd'hui"
+msgstr "Get Started Today"
 
 msgid "Create Your Event"
-msgstr "Créez votre événement"
+msgstr "Create Your Event"
 
 # Dashboard.html
 msgid "Welcome back,"
-msgstr "Bienvenue,"
+msgstr "Welcome back,"
 
 msgid "Manage your events and create new memorable experiences"
-msgstr "Gérez vos événements et créez de nouvelles expériences mémorables"
+msgstr "Manage your events and create new memorable experiences"
 
 msgid "New Event"
-msgstr "Nouvel événement"
+msgstr "New Event"
 
 msgid "Total Events"
-msgstr "Total des événements"
+msgstr "Total Events"
 
 msgid "Completed"
-msgstr "Terminé"
+msgstr "Completed"
 
 msgid "Upcoming"
-msgstr "À venir"
+msgstr "Upcoming"
 
 msgid "Recent Events"
-msgstr "Événements récents"
+msgstr "Recent Events"
 
 msgid "View All"
-msgstr "Voir tout"
+msgstr "View All"
 
 msgid "guests"
-msgstr "invités"
+msgstr "guests"
 
 msgid "No events yet"
-msgstr "Aucun événement pour l'instant"
+msgstr "No events yet"
 
 msgid "Create your first event to get started"
-msgstr "Créez votre premier événement pour commencer"
+msgstr "Create your first event to get started"
 
 # Testimonials
 msgid "Hear from our satisfied clients"
-msgstr "Écoutez nos clients satisfaits"
+msgstr "Hear from our satisfied clients"
 
 msgid "No testimonials yet"
-msgstr "Aucun témoignage pour l'instant"
+msgstr "No testimonials yet"
 
 msgid "Check back later for client feedback."
-msgstr "Revenez plus tard pour les retours des clients."
+msgstr "Check back later for client feedback."
 
 # Autres chaînes courantes
 msgid "Event created successfully!"
-msgstr "Événement créé avec succès !"
+msgstr "Event created successfully!"
 
 msgid "Please fill in all required fields."
-msgstr "Veuillez remplir tous les champs requis."
+msgstr "Please fill in all required fields."
 
 msgid "Service added successfully!"
-msgstr "Service ajouté avec succès !"
+msgstr "Service added successfully!"
 
 msgid "Please select a service and specify a quantity."
-msgstr "Veuillez sélectionner un service et spécifier une quantité."
+msgstr "Please select a service and specify a quantity."
 
 msgid "Invitation card updated successfully!"
-msgstr "Carte d'invitation mise à jour avec succès !"
+msgstr "Invitation card updated successfully!"
