@@ -3,12 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.core.paginator import Paginator
-from .models import Event, EventType, InvitationCard
+from .models import Event, EventType, InvitationCard, EventService  # Ajouté EventService
 from services.models import Service
 from testimonials.models import Testimonial
 
 def home_view(request):
-    featured_testimonials = Testimonial.objects.filter(is_approved=True, is_featured=True).select_related('user')[:6]
+    featured_testimonials = Testimonial.objects.filter(is_approved=True, is_featured=True).select_related('user')[:3]  # Changé de [:6] à [:3]
     recent_events_count = Event.objects.filter(status='completed').count()
     services_count = Service.objects.filter(is_active=True).count()
     context = {
