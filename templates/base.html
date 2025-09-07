@@ -10,13 +10,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        'gge-yellow': '#facc15', // Tailwind's yellow-400
-                        'gge-blue': '#1e3a8a',  // Tailwind's blue-800
+                        'gge-yellow': '#facc15',
+                        'gge-blue': '#1e3a8a',
                         'gge-pink': '#ec4899',
+                        'gge-dark': '#111827',
+                        'gge-gray': '#374151',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
                     }
                 }
             }
@@ -25,33 +29,33 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
-<body class="bg-gray-100 dark:bg-black text-gray-900 dark:text-white min-h-screen transition-colors duration-300">
+<body class="bg-gge-dark text-white min-h-screen font-sans">
     <!-- Navigation -->
-    <nav class="bg-white/95 dark:bg-black/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+    <nav class="bg-gge-dark/95 backdrop-blur-sm border-b border-gge-gray sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="{% url 'home' %}" class="text-2xl font-bold text-gge-yellow hover:text-yellow-300 transition-colors hover-lift">
+                    <a href="{% url 'home' %}" class="text-2xl font-bold text-gge-yellow hover:text-yellow-300 transition-colors">
                         Glow Gracious Events
                     </a>
                 </div>
 
                 <!-- Hamburger Button for Mobile -->
                 <div class="md:hidden flex items-center">
-                    <button id="menu-toggle" class="text-gray-900 dark:text-white focus:outline-none focus-visible">
+                    <button id="menu-toggle" class="text-white hover:text-gge-yellow focus:outline-none">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
 
                 <!-- Desktop Navigation Links -->
-                <div class="hidden md:flex md:items-center md:space-x-4">
-                    <a href="{% url 'home' %}" class="nav-link">{% trans "Home" %}</a>
-                    <a href="{% url 'gallery' %}" class="nav-link">{% trans "Gallery" %}</a>
-                    <a href="{% url 'services_list' %}" class="nav-link">{% trans "Services" %}</a>
-                    <a href="{% url 'testimonials_list' %}" class="nav-link">{% trans "Testimonials" %}</a>
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <a href="{% url 'home' %}" class="text-gray-300 hover:text-gge-yellow transition-colors font-medium">{% trans "Home" %}</a>
+                    <a href="{% url 'gallery' %}" class="text-gray-300 hover:text-gge-yellow transition-colors font-medium">{% trans "Gallery" %}</a>
+                    <a href="{% url 'services_list' %}" class="text-gray-300 hover:text-gge-yellow transition-colors font-medium">{% trans "Services" %}</a>
+                    <a href="{% url 'testimonials_list' %}" class="text-gray-300 hover:text-gge-yellow transition-colors font-medium">{% trans "Testimonials" %}</a>
                     {% if user.is_authenticated %}
-                        <a href="{% url 'dashboard' %}" class="nav-link">{% trans "Dashboard" %}</a>
+                        <a href="{% url 'dashboard' %}" class="text-gray-300 hover:text-gge-yellow transition-colors font-medium">{% trans "Dashboard" %}</a>
                     {% endif %}
                 </div>
 
@@ -60,7 +64,7 @@
                     <!-- Language Switcher -->
                     <form action="{% url 'set_language' %}" method="post" class="inline">
                         {% csrf_token %}
-                        <select name="language" onchange="this.form.submit()" class="form-select">
+                        <select name="language" onchange="this.form.submit()" class="bg-gge-gray text-white border border-gge-gray rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
                             {% get_available_languages as LANGUAGES %}
                             {% get_current_language as LANGUAGE_CODE %}
                             {% for lang_code, lang_name in LANGUAGES %}
@@ -72,34 +76,28 @@
                         <input type="hidden" name="next" value="{{ request.get_full_path|slice:'3:'|default:'/' }}">
                     </form>
 
-                    <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="btn-secondary p-2">
-                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
-                    </button>
-
                     {% if user.is_authenticated %}
                         <div class="flex items-center space-x-2">
                             {% if user.profile_picture %}
-                                <img src="{{ user.profile_picture.url }}" alt="{{ user.first_name }}" class="w-8 h-8 rounded-full object-cover border border-gray-200 dark:border-gray-600">
+                                <img src="{{ user.profile_picture.url }}" alt="{{ user.first_name }}" class="w-8 h-8 rounded-full object-cover border border-gge-gray">
                             {% else %}
                                 <div class="w-8 h-8 bg-gge-yellow rounded-full flex items-center justify-center">
-                                    <span class="text-black font-semibold text-sm">{{ user.first_name.0|upper }}</span>
+                                    <span class="text-gge-dark font-semibold text-sm">{{ user.first_name.0|upper }}</span>
                                 </div>
                             {% endif %}
-                            <span class="text-sm text-gray-700 dark:text-gray-300">{{ user.first_name }}</span>
+                            <span class="text-sm text-gray-300">{{ user.first_name }}</span>
                         </div>
                         <div class="relative group">
-                            <button class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-gge-yellow dark:hover:text-yellow-400">
+                            <button class="flex items-center space-x-1 text-gray-300 hover:text-gge-yellow">
                                 <i data-lucide="chevron-down" class="w-4 h-4"></i>
                             </button>
-                            <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div class="absolute right-0 mt-2 w-48 bg-gge-gray rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                                 <div class="py-1">
-                                    <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gge-yellow dark:hover:text-yellow-400">{% trans "Profile" %}</a>
-                                    <a href="{% url 'dashboard' %}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gge-yellow dark:hover:text-yellow-400">{% trans "Dashboard" %}</a>
+                                    <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 hover:text-gge-yellow">{% trans "Profile" %}</a>
+                                    <a href="{% url 'dashboard' %}" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 hover:text-gge-yellow">{% trans "Dashboard" %}</a>
                                     <form method="post" action="{% url 'logout' %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gge-yellow dark:hover:text-yellow-400">
+                                        <button type="submit" class="w-full text-left block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 hover:text-gge-yellow">
                                             {% trans "Logout" %}
                                         </button>
                                     </form>
@@ -107,8 +105,8 @@
                             </div>
                         </div>
                     {% else %}
-                        <a href="{% url 'login' %}" class="btn-secondary">{% trans "Sign In" %}</a>
-                        <a href="{% url 'register' %}" class="btn-primary">{% trans "Sign Up" %}</a>
+                        <a href="{% url 'login' %}" class="bg-gge-gray text-white border border-gge-gray hover:bg-gray-600 px-4 py-2 rounded-md font-medium">{% trans "Sign In" %}</a>
+                        <a href="{% url 'register' %}" class="bg-gge-yellow text-gge-dark hover:bg-yellow-300 px-4 py-2 rounded-md font-medium">{% trans "Sign Up" %}</a>
                     {% endif %}
                 </div>
             </div>
@@ -116,32 +114,32 @@
 
         <!-- Mobile Sidebar -->
         <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40 transition-opacity duration-300"></div>
-        <aside id="mobile-menu" class="fixed inset-y-0 left-0 w-1/2 max-w-xs bg-white dark:bg-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
-            <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-800">
+        <aside id="mobile-menu" class="fixed inset-y-0 left-0 w-3/4 max-w-xs bg-gge-dark transform -translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+            <div class="flex justify-between items-center p-4 border-b border-gge-gray">
                 <span class="text-lg font-bold text-gge-yellow">Menu</span>
-                <button id="menu-close" class="text-gray-900 dark:text-white focus:outline-none focus-visible">
+                <button id="menu-close" class="text-white hover:text-gge-yellow focus:outline-none">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
             <div class="flex flex-col p-4 space-y-4">
-                <a href="{% url 'home' %}" class="nav-link text-lg">{% trans "Home" %}</a>
-                <a href="{% url 'gallery' %}" class="nav-link text-lg">{% trans "Gallery" %}</a>
-                <a href="{% url 'services_list' %}" class="nav-link text-lg">{% trans "Services" %}</a>
-                <a href="{% url 'testimonials_list' %}" class="nav-link text-lg">{% trans "Testimonials" %}</a>
+                <a href="{% url 'home' %}" class="text-lg text-gray-300 hover:text-gge-yellow font-medium">{% trans "Home" %}</a>
+                <a href="{% url 'gallery' %}" class="text-lg text-gray-300 hover:text-gge-yellow font-medium">{% trans "Gallery" %}</a>
+                <a href="{% url 'services_list' %}" class="text-lg text-gray-300 hover:text-gge-yellow font-medium">{% trans "Services" %}</a>
+                <a href="{% url 'testimonials_list' %}" class="text-lg text-gray-300 hover:text-gge-yellow font-medium">{% trans "Testimonials" %}</a>
                 {% if user.is_authenticated %}
-                    <a href="{% url 'dashboard' %}" class="nav-link text-lg">{% trans "Dashboard" %}</a>
-                    <a href="{% url 'profile' %}" class="nav-link text-lg">{% trans "Profile" %}</a>
+                    <a href="{% url 'dashboard' %}" class="text-lg text-gray-300 hover:text-gge-yellow font-medium">{% trans "Dashboard" %}</a>
+                    <a href="{% url 'profile' %}" class="text-lg text-gray-300 hover:text-gge-yellow font-medium">{% trans "Profile" %}</a>
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
-                        <button type="submit" class="nav-link text-lg text-left">{% trans "Logout" %}</button>
+                        <button type="submit" class="text-lg text-left text-gray-300 hover:text-gge-yellow font-medium">{% trans "Logout" %}</button>
                     </form>
                 {% else %}
-                    <a href="{% url 'login' %}" class="btn-secondary">{% trans "Sign In" %}</a>
-                    <a href="{% url 'register' %}" class="btn-primary">{% trans "Sign Up" %}</a>
+                    <a href="{% url 'login' %}" class="bg-gge-gray text-white border border-gge-gray hover:bg-gray-600 px-4 py-2 rounded-md font-medium">{% trans "Sign In" %}</a>
+                    <a href="{% url 'register' %}" class="bg-gge-yellow text-gge-dark hover:bg-yellow-300 px-4 py-2 rounded-md font-medium">{% trans "Sign Up" %}</a>
                 {% endif %}
                 <form action="{% url 'set_language' %}" method="post" class="mt-4">
                     {% csrf_token %}
-                    <select name="language" onchange="this.form.submit()" class="form-select">
+                    <select name="language" onchange="this.form.submit()" class="bg-gge-gray text-white border border-gge-gray rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
                         {% get_available_languages as LANGUAGES %}
                         {% get_current_language as LANGUAGE_CODE %}
                         {% for lang_code, lang_name in LANGUAGES %}
@@ -152,11 +150,6 @@
                     </select>
                     <input type="hidden" name="next" value="{{ request.get_full_path|slice:'3:'|default:'/' }}">
                 </form>
-                <button id="mobile-theme-toggle" class="btn-secondary flex items-center">
-                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block mr-2"></i>
-                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden mr-2"></i>
-                    <span>{% trans "Toggle Theme" %}</span>
-                </button>
             </div>
         </aside>
     </nav>
@@ -165,7 +158,7 @@
     {% if messages %}
         <div class="fixed top-16 right-4 z-50 space-y-2 max-w-xs w-full">
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} animate-slide-in">
+                <div class="bg-gge-gray text-white border border-gge-gray rounded-md px-4 py-2 animate-slide-in">
                     <span>{{ message }}</span>
                     <button onclick="this.parentElement.remove()" class="ml-2 text-lg">&times;</button>
                 </div>
@@ -180,20 +173,20 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 dark:bg-gray-900 text-gray-300 py-12">
+    <footer class="bg-gge-dark text-gray-300 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 <div class="col-span-1 sm:col-span-2">
                     <h3 class="text-2xl font-bold text-gge-yellow mb-4">Glow Gracious Events</h3>
                     <p class="text-gray-400 mb-4 text-sm">{% trans "Creating unforgettable moments with professional event management and personalized experiences." %}</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-gge-yellow transition-colors hover-lift">
+                        <a href="#" class="text-gray-400 hover:text-gge-yellow transition-colors">
                             <i data-lucide="facebook" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-gge-yellow transition-colors hover-lift">
+                        <a href="#" class="text-gray-400 hover:text-gge-yellow transition-colors">
                             <i data-lucide="instagram" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-gge-yellow transition-colors hover-lift">
+                        <a href="#" class="text-gray-400 hover:text-gge-yellow transition-colors">
                             <i data-lucide="twitter" class="w-5 h-5"></i>
                         </a>
                     </div>
@@ -201,10 +194,10 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-gray-200">{% trans "Quick Links" %}</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white transition-colors hover-lift">{% trans "Home" %}</a></li>
-                        <li><a href="{% url 'gallery' %}" class="text-gray-400 hover:text-white transition-colors hover-lift">{% trans "Gallery" %}</a></li>
-                        <li><a href="{% url 'services_list' %}" class="text-gray-400 hover:text-white transition-colors hover-lift">{% trans "Services" %}</a></li>
-                        <li><a href="{% url 'testimonials_list' %}" class="text-gray-400 hover:text-white transition-colors hover-lift">{% trans "Testimonials" %}</a></li>
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-gge-yellow transition-colors">{% trans "Home" %}</a></li>
+                        <li><a href="{% url 'gallery' %}" class="text-gray-400 hover:text-gge-yellow transition-colors">{% trans "Gallery" %}</a></li>
+                        <li><a href="{% url 'services_list' %}" class="text-gray-400 hover:text-gge-yellow transition-colors">{% trans "Services" %}</a></li>
+                        <li><a href="{% url 'testimonials_list' %}" class="text-gray-400 hover:text-gge-yellow transition-colors">{% trans "Testimonials" %}</a></li>
                     </ul>
                 </div>
                 <div>
@@ -221,13 +214,13 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+            <div class="border-t border-gge-gray mt-8 pt-8 text-center text-gray-400 text-sm">
                 <p>&copy; 2025 Glow Gracious Events. {% trans "All rights reserved." %}</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Sidebar and Theme Toggle -->
+    <!-- JavaScript for Sidebar -->
     <script>
         lucide.createIcons();
 
@@ -250,34 +243,6 @@
         backdrop.addEventListener('click', () => {
             mobileMenu.classList.add('-translate-x-full');
             backdrop.classList.add('hidden');
-        });
-
-        // Theme Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        const html = document.documentElement;
-
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                html.classList.add('dark');
-            } else {
-                html.classList.remove('dark');
-            }
-            localStorage.setItem('theme', theme);
-        }
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        setTheme(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
-            setTheme(newTheme);
-        });
-
-        mobileThemeToggle.addEventListener('click', () => {
-            const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
-            setTheme(newTheme);
         });
 
         // Auto-hide messages
