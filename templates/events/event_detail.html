@@ -121,7 +121,7 @@
                                 <label for="service" class="block text-sm font-medium text-gray-300 mb-2">
                                     {% trans "Select Service" %}
                                 </label>
-                                <select name="service" id="service" class="form-select">
+                                <select name="service" id="service" class="form-select bg-gray-800 border-gray-700 text-gray-300">
                                     {% for service in available_services %}
                                         <option value="{{ service.id }}">{{ service.name }}</option>
                                     {% endfor %}
@@ -131,13 +131,13 @@
                                 <label for="quantity" class="block text-sm font-medium text-gray-300 mb-2">
                                     {% trans "Quantity" %}
                                 </label>
-                                <input type="number" name="quantity" id="quantity" min="1" value="1" class="form-input">
+                                <input type="number" name="quantity" id="quantity" min="1" value="1" class="form-input bg-gray-800 border-gray-700 text-gray-300">
                             </div>
                             <div>
                                 <label for="notes" class="block text-sm font-medium text-gray-300 mb-2">
                                     {% trans "Notes" %}
                                 </label>
-                                <textarea name="notes" id="notes" rows="3" class="form-textarea" placeholder="{% trans 'Any specific requirements...' %}"></textarea>
+                                <textarea name="notes" id="notes" rows="3" class="form-textarea bg-gray-800 border-gray-700 text-gray-300" placeholder="{% trans 'Any specific requirements...' %}"></textarea>
                             </div>
                             <button type="submit" class="btn-primary">{% trans "Add Service" %}</button>
                         </form>
@@ -154,7 +154,7 @@
                                 <label for="invitation_card" class="block text-sm font-medium text-gray-300 mb-2">
                                     {% trans "Select Invitation Card" %}
                                 </label>
-                                <select name="invitation_card" id="invitation_card" class="form-select">
+                                <select name="invitation_card" id="invitation_card" class="form-select bg-gray-800 border-gray-700 text-gray-300">
                                     <option value="">{% trans "No invitation card" %}</option>
                                     {% for card in invitation_cards %}
                                         <option value="{{ card.id }}" {% if event.invitation_card.id == card.id %}selected{% endif %}>
@@ -173,6 +173,10 @@
                         <a href="{% url 'dashboard' %}" class="btn-secondary inline-flex items-center">
                             <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i>
                             {% trans "Back to Dashboard" %}
+                        </a>
+                        <a href="{% url 'send_event_details' event.id %}" class="btn-primary inline-flex items-center">
+                            <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                            {% trans "Envoyer à l'agence" %}
                         </a>
                     </div>
                 {% endif %}

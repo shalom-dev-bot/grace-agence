@@ -3,12 +3,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.core.paginator import Paginator
-from .models import Event, EventType, InvitationCard, EventService  # Ajouté EventService
+from django.core.mail import send_mail
+from django.conf import settings
+from django.http import HttpResponseBadRequest
+from urllib.parse import quote
+from .models import Event, EventType, InvitationCard, EventService
 from services.models import Service
 from testimonials.models import Testimonial
 
 def home_view(request):
-    featured_testimonials = Testimonial.objects.filter(is_approved=True, is_featured=True).select_related('user')[:3]  # Changé de [:6] à [:3]
+    featured_testimonials = Testimonial.objects.filter(is_approved=True, is_featured=True).select_related('user')[:3]
     recent_events_count = Event.objects.filter(status='completed').count()
     services_count = Service.objects.filter(is_active=True).count()
     context = {
@@ -115,3 +119,62 @@ def update_event_invitation_view(request, event_id):
         event.save()
         messages.success(request, _('Invitation card updated successfully!'))
     return redirect('event_detail', event_id=event.id)
+
+@login_required
+def send_event_details(request, event_id):
+    try:
+        event = get_object_or_404(Event, id=event_id, user=request.user)
+        event_services = EventService.objects.filter(event=event)
+        services_details = "\n".join([f"- {service.service.name} (Quantité: {service.quantity}, Prix unitaire: {service.service.price} €, Total: {service.service.price * service.quantity} €, Notes: {service.notes or 'Aucune'})" for service in event_services])
+        total_cost = sum(service.service.price * service.quantity for service in event_services)
+        invitation_card = event.invitation_card.name if event.invitation_card else "Aucune"
+        
+        message = (
+            f"Bonjour l'agence,\n\n"
+            f"Voici les détails de mon événement :\n"
+            f"Titre : {event.title}\n"
+            f"Date : {event.event_date}\n"
+            f"Type : {event.event_type.name}\n"
+            f"Lieu : {event.location or 'Non spécifié'}\n"
+            f"Nombre d'invités : {event.guest_count}\n"
+            f"Budget : {event.budget or 'Non spécifié'} €\n"
+            f"Description : {event.description or 'Aucune'}\n"
+            f"Statut : {event.get_status_display()}\n"
+            f"Services sélectionnés :\n{services_details or 'Aucun service'}\n"
+            f"Coût total des services : {total_cost:.2f} €\n"
+            f"Carte d'invitation : {invitation_card}\n\n"
+            f"Cordialement,\n{request.user.first_name} ({request.user.email})"
+        )
+
+        if request.method == 'POST':
+            choice = request.POST.get('choice')
+            if choice == 'whatsapp':
+                encoded_message = quote(message)
+                whatsapp_url = f"https://wa.me/+237692912914?text={encoded_message}"
+                return redirect(whatsapp_url)
+            elif choice == 'email':
+                try:
+                    send_mail(
+                        subject=f"Détails de l'événement : {event.title} - Glow Gracious Events",
+                        message=message,
+                        from_email=settings.DEFAULT_FROM_EMAIL,
+                        recipient_list=['shalomdev316@gmail.com'],
+                        fail_silently=False,
+                    )
+                    messages.success(request, _('Détails envoyés avec succès !'))
+                    return redirect('success_page')
+                except Exception as e:
+                    messages.error(request, f"Erreur lors de l'envoi de l'email : {str(e)}")
+                    return redirect('event_detail', event_id=event.id)
+            else:
+                messages.error(request, _('Choix invalide.'))
+                return redirect('event_detail', event_id=event.id)
+        else:
+            return render(request, 'events/send_choice.html', {'event': event, 'message_preview': message})
+    except Event.DoesNotExist:
+        messages.error(request, _("Événement non trouvé ou accès non autorisé."))
+        return redirect('dashboard')
+
+@login_required
+def success(request):
+    return render(request, 'events/success.html')

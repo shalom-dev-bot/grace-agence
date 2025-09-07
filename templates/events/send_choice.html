@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto mt-8 p-6 bg-gray-900 rounded-2xl border border-gray-800 animate-fade-in">
+    <h2 class="text-2xl font-bold text-gge-yellow mb-4">{% trans "Envoyer les détails de l'événement" %}</h2>
+    <p class="text-gray-400 mb-4">{% trans "Voici les détails qui seront envoyés à l'agence :" %}</p>
+    <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg mb-6 whitespace-pre-wrap">{{ message_preview }}</pre>
+    <p class="text-gray-400 mb-6">{% trans "Choisissez comment envoyer :" %}</p>
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label for="choice" class="block text-sm font-medium text-gray-400">{% trans "Mode d'envoi" %}</label>
+            <select name="choice" id="choice" class="form-select mt-1 w-full bg-gray-800 border-gray-700 text-gray-300">
+                <option value="whatsapp">{% trans "WhatsApp" %}</option>
+                <option value="email">{% trans "Email" %}</option>
+            </select>
+        </div>
+        <button type="submit" class="btn-primary w-full">{% trans "Envoyer" %}</button>
+    </form>
+    <a href="{% url 'event_detail' event.id %}" class="btn-secondary w-full mt-4 text-center">{% trans "Retour" %}</a>
+</div>
+{% endblock %}
