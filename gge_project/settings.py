@@ -88,7 +88,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'fr'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
@@ -130,7 +130,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'shalomdev316@gmail.com'
-EMAIL_HOST_PASSWORD = 'iwbu yxbc kobc szib'
+EMAIL_HOST_PASSWORD = 'iwbu yxhc kobc szib'
 DEFAULT_FROM_EMAIL = 'shalomdev316@gmail.com'
 
 # Login/Logout URLs
