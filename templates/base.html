@@ -69,7 +69,7 @@
                                 </option>
                             {% endfor %}
                         </select>
-                        <input type="hidden" name="next" value="{{ request.path }}">
+                        <input type="hidden" name="next" value="{{ request.get_full_path|slice:'3:'|default:'/' }}">
                     </form>
 
                     <!-- Theme Toggle -->
@@ -149,8 +149,8 @@
                                 {{ lang_name }}
                             </option>
                         {% endfor %}
-                        </select>
-                    <input type="hidden" name="next" value="{{ request.path }}">
+                    </select>
+                    <input type="hidden" name="next" value="{{ request.get_full_path|slice:'3:'|default:'/' }}">
                 </form>
                 <button id="mobile-theme-toggle" class="btn-secondary flex items-center">
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block mr-2"></i>

@@ -17,7 +17,7 @@
                 {% csrf_token %}
                 
                 <div>
-                    <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                    <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-900 mb-2">
                         {% trans "Email Address" %}
                     </label>
                     {{ form.email }}
@@ -27,7 +27,7 @@
                 </div>
                 
                 <div>
-                    <label for="{{ form.password.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                    <label for="{{ form.password.id_for_label }}" class="block text-sm font-medium text-gray-900 mb-2">
                         {% trans "Password" %}
                     </label>
                     {{ form.password }}
