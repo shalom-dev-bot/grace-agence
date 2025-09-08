@@ -6,35 +6,35 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black">
-    <div class="absolute inset-0 bg-black/50"></div>
-    <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-950 via-gray-900 to-zinc-950 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/static/images/hero-bg.jpg')] bg-cover bg-center opacity-30"></div>
+    <div class="relative text-center w-full px-4 sm:px-6 lg:px-8 z-10">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight animate-fadeIn">
             <span class="text-gge-yellow">GLOW</span>
             <span class="text-white">GRACIOUS</span>
         </h1>
-        <h2 class="text-2xl md:text-4xl font-light mb-8 text-gray-300">
+        <h2 class="text-2xl md:text-4xl font-light mb-8 text-gray-300 animate-fadeIn delay-200">
             {% trans "EVENTS" %}
         </h2>
-        <p class="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed">
+        <p class="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto animate-fadeIn delay-400">
             {% trans "Capturing" %} <span class="text-gge-blue font-semibold">{% trans "elegance" %}</span>, 
-            <span class="text-gge-pink font-semibold">{% trans "creativity" %}</span> & 
+            <span class="text-gge-blue font-semibold">{% trans "creativity" %}</span> & 
             <span class="text-gge-yellow font-semibold">{% trans "unforgettable moments" %}</span>
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeIn delay-600">
             {% if user.is_authenticated %}
-                <a href="{% url 'create_event' %}" class="btn-primary text-lg px-8 py-4">
+                <a href="{% url 'create_event' %}" class="bg-gge-yellow text-gge-dark px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 hover:bg-yellow-300 transition-transform duration-300 shadow-lg">
                     {% trans "Create Event" %}
                 </a>
-                <a href="{% url 'dashboard' %}" class="btn-secondary text-lg px-8 py-4">
+                <a href="{% url 'dashboard' %}" class="bg-gge-blue text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 hover:bg-blue-700 transition-transform duration-300 shadow-lg">
                     {% trans "My Dashboard" %}
                 </a>
             {% else %}
-                <a href="{% url 'register' %}" class="btn-primary text-lg px-8 py-4">
+                <a href="{% url 'register' %}" class="bg-gge-yellow text-gge-dark px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 hover:bg-yellow-300 transition-transform duration-300 shadow-lg">
                     {% trans "Get Started" %}
                 </a>
-                <a href="{% url 'gallery' %}" class="btn-secondary text-lg px-8 py-4">
+                <a href="{% url 'gallery' %}" class="bg-gge-blue text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 hover:bg-blue-700 transition-transform duration-300 shadow-lg">
                     {% trans "Explore Gallery" %}
                 </a>
             {% endif %}
@@ -43,63 +43,63 @@
 </section>
 
 <!-- Mission Section -->
-<section class="py-20 bg-gge-blue">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-gge-yellow mb-8">
+<section class="py-24 bg-zinc-950">
+    <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-gge-yellow mb-6 animate-fadeInUp">
             {% trans "OUR MISSION" %}
         </h2>
-        <p class="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fadeInUp delay-200">
             {% trans "Bringing energy and elegance into every celebration through personalized event management and unforgettable experiences." %}
         </p>
     </div>
 </section>
 
 <!-- Services Preview -->
-<section class="py-20 bg-black">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-24 bg-zinc-950">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gge-yellow mb-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-gge-yellow mb-4 animate-fadeIn">
                 {% trans "OUR SERVICES" %}
             </h2>
-            <p class="text-xl text-gray-400">
+            <p class="text-xl text-gray-400 animate-fadeIn delay-200">
                 {% trans "Everything you need for the perfect event" %}
             </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="service-card group">
-                <div class="bg-gradient-to-br from-gge-yellow/20 to-gge-yellow/5 p-8 rounded-2xl border border-gge-yellow/20 hover:border-gge-yellow/40 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gge-yellow rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="camera" class="w-8 h-8 text-black"></i>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="service-card group animate-fadeInUp">
+                <div class="bg-gge-dark p-10 rounded-3xl border border-gge-gray hover:border-gge-yellow transition-all duration-300 shadow-2xl hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gge-yellow rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="camera" class="w-10 h-10 text-gge-dark"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-4">{% trans "Photography" %}</h3>
-                    <p class="text-gray-400">{% trans "Professional photographers to capture every precious moment of your special day." %}</p>
+                    <p class="text-gray-400 leading-relaxed">{% trans "Professional photographers to capture every precious moment of your special day." %}</p>
                 </div>
             </div>
             
-            <div class="service-card group">
-                <div class="bg-gradient-to-br from-gge-blue/20 to-gge-blue/5 p-8 rounded-2xl border border-gge-blue/20 hover:border-gge-blue/40 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gge-blue rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="utensils" class="w-8 h-8 text-white"></i>
+            <div class="service-card group animate-fadeInUp delay-200">
+                <div class="bg-gge-dark p-10 rounded-3xl border border-gge-gray hover:border-gge-blue transition-all duration-300 shadow-2xl hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gge-blue rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="utensils" class="w-10 h-10 text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-4">{% trans "Catering" %}</h3>
-                    <p class="text-gray-400">{% trans "Exquisite culinary experiences tailored to your taste and event style." %}</p>
+                    <p class="text-gray-400 leading-relaxed">{% trans "Exquisite culinary experiences tailored to your taste and event style." %}</p>
                 </div>
             </div>
             
-            <div class="service-card group">
-                <div class="bg-gradient-to-br from-gge-pink/20 to-gge-pink/5 p-8 rounded-2xl border border-gge-pink/20 hover:border-gge-pink/40 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gge-pink rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="music" class="w-8 h-8 text-white"></i>
+            <div class="service-card group animate-fadeInUp delay-400">
+                <div class="bg-gge-dark p-10 rounded-3xl border border-gge-gray hover:border-gge-blue transition-all duration-300 shadow-2xl hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gge-blue rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="music" class="w-10 h-10 text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-4">{% trans "Entertainment" %}</h3>
-                    <p class="text-gray-400">{% trans "DJs, live music, and entertainment to keep your guests engaged all night long." %}</p>
+                    <p class="text-gray-400 leading-relaxed">{% trans "DJs, live music, and entertainment to keep your guests engaged all night long." %}</p>
                 </div>
             </div>
         </div>
         
-        <div class="text-center mt-12">
-            <a href="{% url 'services_list' %}" class="btn-primary">
+        <div class="text-center mt-12 animate-fadeInUp delay-600">
+            <a href="{% url 'services_list' %}" class="bg-gge-yellow text-gge-dark px-10 py-4 rounded-full font-semibold hover:bg-yellow-300 transition-colors duration-300 shadow-lg">
                 {% trans "View All Services" %}
             </a>
         </div>
@@ -107,97 +107,64 @@
 </section>
 
 <!-- Stats Section -->
-<section class="py-20 bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-24 bg-zinc-950">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="stat-card">
-                <div class="text-4xl font-bold text-gge-yellow mb-2">{{ recent_events_count }}+</div>
-                <div class="text-gray-400">{% trans "Events Completed" %}</div>
-            </div>
-            <div class="stat-card">
-                <div class="text-4xl font-bold text-gge-blue mb-2">{{ services_count }}+</div>
-                <div class="text-gray-400">{% trans "Services Available" %}</div>
-            </div>
-            <div class="stat-card">
-                <div class="text-4xl font-bold text-gge-pink mb-2">100%</div>
-                <div class="text-gray-400">{% trans "Client Satisfaction" %}</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Testimonials -->
-{% if featured_testimonials %}
-<section class="py-20 bg-black">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gge-yellow mb-4">
-                {% trans "CLIENT TESTIMONIALS" %}
-            </h2>
-            <p class="text-xl text-gray-400">
-                {% trans "What our clients say about us" %}
-            </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {% for testimonial in featured_testimonials %}
-                <div class="testimonial-card bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-gge-yellow/30 transition-all duration-300">
-                    <div class="flex items-center mb-4">
-                        {% if testimonial.user.profile_picture %}
-                            <img src="{{ testimonial.user.profile_picture.url }}" alt="{{ testimonial.user.first_name }}" class="w-12 h-12 rounded-full object-cover mr-4">
-                        {% else %}
-                            <div class="w-12 h-12 bg-gge-yellow rounded-full flex items-center justify-center mr-4">
-                                <span class="text-black font-semibold">{{ testimonial.user.first_name.0|upper }}</span>
-                            </div>
-                        {% endif %}
-                        <div>
-                            <h4 class="font-semibold text-white">{{ testimonial.user.first_name }} {{ testimonial.user.last_name }}</h4>
-                            <div class="flex text-gge-yellow">
-                                {% for i in testimonial.star_range %}
-                                    {% if i <= testimonial.rating %}
-                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    {% else %}
-                                        <i data-lucide="star" class="w-4 h-4"></i>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <h5 class="font-semibold text-white mb-2">{{ testimonial.title }}</h5>
-                    <p class="text-gray-400">{{ testimonial.content|truncatewords:20 }}</p>
+            <div class="stat-card animate-fadeInUp">
+                <div class="bg-gge-dark p-8 rounded-3xl border border-gge-gray hover:border-gge-yellow transition-all duration-300 shadow-2xl hover:shadow-xl">
+                    <div class="text-5xl font-extrabold text-gge-yellow mb-2">{{ recent_events_count }}+</div>
+                    <div class="text-gray-300">{% trans "Events Completed" %}</div>
                 </div>
-            {% endfor %}
-        </div>
-        
-        <div class="text-center mt-12">
-            <a href="{% url 'testimonials_list' %}" class="btn-secondary">
-                {% trans "View All Testimonials" %}
-            </a>
+            </div>
+            <div class="stat-card animate-fadeInUp delay-200">
+                <div class="bg-gge-dark p-8 rounded-3xl border border-gge-gray hover:border-gge-blue transition-all duration-300 shadow-2xl hover:shadow-xl">
+                    <div class="text-5xl font-extrabold text-gge-blue mb-2">{{ services_count }}+</div>
+                    <div class="text-gray-300">{% trans "Services Available" %}</div>
+                </div>
+            </div>
+            <div class="stat-card animate-fadeInUp delay-400">
+                <div class="bg-gge-dark p-8 rounded-3xl border border-gge-gray hover:border-gge-blue transition-all duration-300 shadow-2xl hover:shadow-xl">
+                    <div class="text-5xl font-extrabold text-gge-blue mb-2">100%</div>
+                    <div class="text-gray-300">{% trans "Client Satisfaction" %}</div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-{% endif %}
 
 <!-- CTA Section -->
-<section class="py-20 bg-gradient-to-r from-gge-yellow to-yellow-500">
-    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl md:text-5xl font-bold text-black mb-6">
+<section class="py-24 bg-gradient-to-r from-gge-dark via-zinc-900 to-gge-dark text-center">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl md:text-5xl font-bold text-gge-yellow mb-6 animate-fadeInUp">
             {% trans "Ready to Create Your Perfect Event?" %}
         </h2>
-        <p class="text-xl text-black/80 mb-8">
+        <p class="text-xl text-gray-300 mb-8 animate-fadeInUp delay-200">
             {% trans "Join thousands of satisfied clients who trusted us with their special moments." %}
         </p>
         {% if not user.is_authenticated %}
-            <a href="{% url 'register' %}" class="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors inline-flex items-center">
+            <a href="{% url 'register' %}" class="bg-gge-yellow text-gge-dark px-10 py-4 rounded-full text-lg font-semibold hover:scale-105 hover:bg-yellow-300 transition-transform duration-300 inline-flex items-center shadow-lg animate-fadeInUp delay-400">
                 {% trans "Get Started Today" %}
                 <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
             </a>
         {% else %}
-            <a href="{% url 'create_event' %}" class="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors inline-flex items-center">
+            <a href="{% url 'create_event' %}" class="bg-gge-yellow text-gge-dark px-10 py-4 rounded-full text-lg font-semibold hover:scale-105 hover:bg-yellow-300 transition-transform duration-300 inline-flex items-center shadow-lg animate-fadeInUp delay-400">
                 {% trans "Create Your Event" %}
                 <i data-lucide="plus" class="w-5 h-5 ml-2"></i>
             </a>
         {% endif %}
     </div>
 </section>
+
+<!-- Tailwind Animations -->
+<style>
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 1s ease forwards; }
+.animate-fadeInUp { animation: fadeIn 0.8s ease forwards; }
+.animate-fadeInUp.delay-200 { animation-delay: 0.2s; }
+.animate-fadeInUp.delay-400 { animation-delay: 0.4s; }
+.animate-fadeInUp.delay-600 { animation-delay: 0.6s; }
+</style>
 {% endblock %}

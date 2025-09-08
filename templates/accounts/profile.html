@@ -5,29 +5,29 @@
 {% block title %}{% trans "Profile" %} - Glow Gracious Events{% endblock %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div class="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden">
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-zinc-950">
+    <div class="max-w-4xl w-full bg-gge-dark rounded-2xl border border-gge-gray shadow-lg overflow-hidden">
         <!-- Profile Header -->
-        <div class="bg-gradient-to-r from-gge-yellow to-yellow-500 p-8">
+        <div class="bg-gge-dark p-8 border-b border-gge-gray">
             <div class="flex items-center space-x-6">
                 {% if user.profile_picture %}
-                    <img src="{{ user.profile_picture.url }}" alt="{{ user.first_name }}" class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg">
+                    <img src="{{ user.profile_picture.url }}" alt="{{ user.first_name }}" class="w-24 h-24 rounded-full object-cover border-4 border-gge-yellow shadow-lg">
                 {% else %}
-                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-                        <span class="text-black font-bold text-3xl">{{ user.first_name.0|upper }}</span>
+                    <div class="w-24 h-24 bg-gge-yellow rounded-full flex items-center justify-center border-4 border-gge-gray shadow-lg">
+                        <span class="text-gge-dark font-bold text-3xl">{{ user.first_name.0|upper }}</span>
                     </div>
                 {% endif %}
                 <div>
-                    <h1 class="text-3xl font-bold text-black">{{ user.first_name }} {{ user.last_name }}</h1>
-                    <p class="text-black/80">{{ user.email }}</p>
-                    <p class="text-black/60 text-sm">{% trans "Member since" %} {{ user.date_joined|date:"F Y" }}</p>
+                    <h1 class="text-3xl font-bold text-white">{{ user.first_name }} {{ user.last_name }}</h1>
+                    <p class="text-gray-300">{{ user.email }}</p>
+                    <p class="text-gray-400 text-sm">{% trans "Member since" %} {{ user.date_joined|date:"F Y" }}</p>
                 </div>
             </div>
         </div>
         
         <!-- Profile Form -->
         <div class="p-8">
-            <h2 class="text-2xl font-bold text-white mb-6">{% trans "Update Profile" %}</h2>
+            <h2 class="text-2xl font-bold text-gge-yellow mb-6">{% trans "Update Profile" %}</h2>
             
             <form method="post" enctype="multipart/form-data" class="space-y-6">
                 {% csrf_token %}
@@ -37,14 +37,24 @@
                         <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
                             {% trans "First Name" %}
                         </label>
-                        {{ form.first_name }}
+                        <input type="text" name="{{ form.first_name.name }}" id="{{ form.first_name.id_for_label }}"
+                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               value="{{ form.first_name.value|default_if_none:'' }}" required>
+                        {% if form.first_name.errors %}
+                            <p class="text-red-400 text-sm mt-1">{{ form.first_name.errors.0 }}</p>
+                        {% endif %}
                     </div>
                     
                     <div>
                         <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
                             {% trans "Last Name" %}
                         </label>
-                        {{ form.last_name }}
+                        <input type="text" name="{{ form.last_name.name }}" id="{{ form.last_name.id_for_label }}"
+                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               value="{{ form.last_name.value|default_if_none:'' }}" required>
+                        {% if form.last_name.errors %}
+                            <p class="text-red-400 text-sm mt-1">{{ form.last_name.errors.0 }}</p>
+                        {% endif %}
                     </div>
                 </div>
                 
@@ -52,7 +62,12 @@
                     <label for="{{ form.profile_picture.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
                         {% trans "Profile Picture" %}
                     </label>
-                    {{ form.profile_picture }}
+                    <input type="file" name="{{ form.profile_picture.name }}" id="{{ form.profile_picture.id_for_label }}"
+                           class="w-full bg-black text-gray-400 border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                           accept="image/*">
+                    {% if form.profile_picture.errors %}
+                        <p class="text-red-400 text-sm mt-1">{{ form.profile_picture.errors.0 }}</p>
+                    {% endif %}
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -60,22 +75,38 @@
                         <label for="{{ form.theme_preference.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
                             {% trans "Theme Preference" %}
                         </label>
-                        {{ form.theme_preference }}
+                        <select name="{{ form.theme_preference.name }}" id="{{ form.theme_preference.id_for_label }}"
+                                class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
+                            {% for value, label in form.theme_preference.field.choices %}
+                                <option value="{{ value }}" {% if form.theme_preference.value == value %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                        {% if form.theme_preference.errors %}
+                            <p class="text-red-400 text-sm mt-1">{{ form.theme_preference.errors.0 }}</p>
+                        {% endif %}
                     </div>
                     
                     <div>
                         <label for="{{ form.language_preference.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
                             {% trans "Language" %}
                         </label>
-                        {{ form.language_preference }}
+                        <select name="{{ form.language_preference.name }}" id="{{ form.language_preference.id_for_label }}"
+                                class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
+                            {% for value, label in form.language_preference.field.choices %}
+                                <option value="{{ value }}" {% if form.language_preference.value == value %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                        {% if form.language_preference.errors %}
+                            <p class="text-red-400 text-sm mt-1">{{ form.language_preference.errors.0 }}</p>
+                        {% endif %}
                     </div>
                 </div>
                 
                 <div class="flex justify-end space-x-4">
-                    <a href="{% url 'dashboard' %}" class="btn-secondary">
+                    <a href="{% url 'dashboard' %}" class="bg-gge-blue text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">
                         {% trans "Cancel" %}
                     </a>
-                    <button type="submit" class="btn-primary">
+                    <button type="submit" class="bg-gge-yellow text-gge-dark px-4 py-2 rounded-md font-medium hover:bg-yellow-300 transition-colors">
                         {% trans "Update Profile" %}
                     </button>
                 </div>

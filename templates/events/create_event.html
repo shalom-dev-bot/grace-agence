@@ -6,7 +6,7 @@
 {% block title %}{% trans "Create Event" %} - Glow Gracious Events{% endblock %}
 
 {% block content %}
-    <section class="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+    <section class="py-20 bg-zinc-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">
                 <span class="text-gge-yellow">{% trans "Create Your Event" %}</span>
@@ -17,22 +17,27 @@
         </div>
     </section>
 
-    <section class="py-20 bg-black">
+    <section class="py-20 bg-zinc-950">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gray-900 rounded-2xl border border-gray-800 p-8">
+            <div class="bg-gge-dark rounded-2xl border border-gge-gray p-8 shadow-lg">
                 <form method="post" class="space-y-6" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div>
                         <label for="title" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Event Title" %}</label>
-                        <input type="text" name="title" id="title" class="form-input" required>
+                        <input type="text" name="title" id="title"
+                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               required>
                     </div>
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Description" %}</label>
-                        <textarea name="description" id="description" rows="4" class="form-textarea"></textarea>
+                        <textarea name="description" id="description" rows="4"
+                                  class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"></textarea>
                     </div>
                     <div>
                         <label for="event_type" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Event Type" %}</label>
-                        <select name="event_type" id="event_type" class="form-select" required>
+                        <select name="event_type" id="event_type"
+                                class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                                required>
                             <option value="">{% trans "Select an event type" %}</option>
                             {% for event_type in event_types %}
                                 <option value="{{ event_type.id }}">{{ event_type.name }}</option>
@@ -41,26 +46,35 @@
                     </div>
                     <div>
                         <label for="event_date" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Event Date" %}</label>
-                        <input type="datetime-local" name="event_date" id="event_date" class="form-input" required>
+                        <input type="datetime-local" name="event_date" id="event_date"
+                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               required>
                     </div>
                     <div>
                         <label for="location" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Location" %}</label>
-                        <input type="text" name="location" id="location" class="form-input">
+                        <input type="text" name="location" id="location"
+                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
                     </div>
                     <div>
                         <label for="guest_count" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Expected Guest Count" %}</label>
-                        <input type="number" name="guest_count" id="guest_count" min="0" class="form-input">
+                        <input type="number" name="guest_count" id="guest_count" min="0"
+                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
                     </div>
                     <div>
                         <label for="budget" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Budget (€)" %}</label>
-                        <input type="number" name="budget" id="budget" step="0.01" class="form-input">
+                        <input type="number" name="budget" id="budget" step="0.01"
+                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
                     </div>
                     <div>
                         <label for="image" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Event Image" %}</label>
-                        <input type="file" name="image" id="image" class="form-input" accept="image/*">
+                        <input type="file" name="image" id="image"
+                               class="w-full bg-black text-gray-400 border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               accept="image/*">
                     </div>
                     <div class="flex justify-end">
-                        <button type="submit" class="btn-primary">{% trans "Create Event" %}</button>
+                        <button type="submit" class="bg-gge-yellow text-gge-dark px-4 py-2 rounded-md font-medium hover:bg-yellow-300 transition-colors">
+                            {% trans "Create Event" %}
+                        </button>
                     </div>
                 </form>
             </div>
