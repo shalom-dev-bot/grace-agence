@@ -6,44 +6,45 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+<section class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">
-            <span class="text-gge-yellow">EVENT</span>
-            <span class="text-white">GALLERY</span>
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-down">
+            <span class="text-[#D4AF37]">{% trans "EVENT" %}</span>
+            <span class="text-[#1E3A8A]">{% trans "GALLERY" %}</span>
         </h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            {% trans "Explore our portfolio of successful events and get inspired for your own celebration" %}
+        <p class="text-xl text-[#8B5E9B] max-w-2xl mx-auto animate-fade-up delay-200">
+            {% trans "Explore our portfolio of successful events and get inspired for your own celebration. Professional, modern, and stylish event planning highlights." %}
         </p>
     </div>
 </section>
 
 <!-- Gallery Grid -->
-<section class="py-20 bg-black">
+<section class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {% if page_obj %}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {% for event in page_obj %}
-                    <div class="group relative overflow-hidden rounded-2xl bg-gray-900 border border-gray-800 hover:border-gge-yellow/30 transition-all duration-300">
+                    <div class="group relative overflow-hidden rounded-2xl border border-[#D4AF37] hover:border-[#8B5E9B] transition-all duration-300 shadow-lg animate-fade-up delay-{{ forloop.counter0|add:'100' }}">
                         <!-- Event Image -->
                         <div class="aspect-w-16 aspect-h-12">
                             {% if event.image %}
-                                <img src="{{ event.image.url }}" alt="{{ event.title }}" class="object-cover w-full h-full">
+                                <img src="{{ event.image.url }}" alt="{{ event.title }}" class="object-cover w-full h-full rounded-2xl">
                             {% else %}
-                                <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center h-full">
+                                <div class="bg-[#8B5E9B] flex items-center justify-center h-full rounded-2xl">
                                     <div class="text-center">
-                                        <i data-lucide="image" class="w-16 h-16 text-gray-600 mx-auto mb-4"></i>
-                                        <p class="text-gray-500">{% trans "No Image Available" %}</p>
+                                        <i data-lucide="image" class="w-16 h-16 text-[#1E3A8A] mx-auto mb-4"></i>
+                                        <p class="text-[#1E3A8A]">{% trans "No Image Available" %}</p>
                                     </div>
                                 </div>
                             {% endif %}
                         </div>
                         
                         <!-- Event Info Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-0 left-0 right-0 p-6">
-                                <h3 class="text-xl font-bold text-white mb-2">{{ event.title }}</h3>
-                                <div class="flex items-center space-x-4 text-sm text-gray-300">
+                        <div class="absolute inset-0 bg-[#1E3A8A]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-center">
+                                <h3 class="text-xl font-bold text-[#F5F5F0] mb-2">{{ event.title }}</h3>
+                                <p class="text-[#8B5E9B] text-sm mb-2">{{ event.description|truncatewords:15 }}</p>
+                                <div class="flex items-center justify-center space-x-4 text-sm text-[#F5F5F0]">
                                     <span class="flex items-center">
                                         <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
                                         {{ event.event_date|date:"M d, Y" }}
@@ -53,18 +54,19 @@
                                         {{ event.event_type.name }}
                                     </span>
                                 </div>
+                                <p class="text-[#F5F5F0] text-xs mt-2">{% trans "Inspire your next event with elegance." %}</p>
                             </div>
                         </div>
                         
                         <!-- Event Card Content -->
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">{{ event.title }}</h3>
-                            <p class="text-gray-400 mb-4">{{ event.description|truncatewords:15 }}</p>
+                            <h3 class="text-xl font-bold text-[#1E3A8A] mb-2">{{ event.title }}</h3>
+                            <p class="text-[#8B5E9B] mb-4">{{ event.description|truncatewords:15 }}</p>
                             <div class="flex items-center justify-between">
-                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-green-900 text-green-300">
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-[#1E3A8A] text-[#D4AF37]">
                                     {{ event.get_status_display }}
                                 </span>
-                                <span class="text-sm text-gray-500">
+                                <span class="text-sm text-[#8B5E9B]">
                                     {{ event.event_date|date:"M Y" }}
                                 </span>
                             </div>
@@ -75,23 +77,23 @@
             
             <!-- Pagination -->
             {% if page_obj.has_other_pages %}
-                <div class="flex justify-center mt-12">
+                <div class="flex justify-center mt-12 animate-fade-up">
                     <nav class="flex space-x-2">
                         {% if page_obj.has_previous %}
                             <a href="?page={{ page_obj.previous_page_number }}" 
-                               class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                               class="px-3 py-2 bg-[#1E3A8A] text-[#D4AF37] rounded-md hover:scale-105 hover:bg-[#8B5E9B] transition-all duration-300">
                                 {% trans "Previous" %}
                             </a>
                         {% endif %}
                         
                         {% for num in page_obj.paginator.page_range %}
                             {% if page_obj.number == num %}
-                                <span class="px-4 py-2 bg-gge-yellow text-black rounded-lg font-semibold">
+                                <span class="px-3 py-2 bg-[#D4AF37] text-[#1E3A8A] rounded-md font-semibold">
                                     {{ num }}
                                 </span>
                             {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
                                 <a href="?page={{ num }}" 
-                                   class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                                   class="px-3 py-2 bg-[#1E3A8A] text-[#D4AF37] rounded-md hover:scale-105 hover:bg-[#8B5E9B] transition-all duration-300">
                                     {{ num }}
                                 </a>
                             {% endif %}
@@ -99,7 +101,7 @@
                         
                         {% if page_obj.has_next %}
                             <a href="?page={{ page_obj.next_page_number }}" 
-                               class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                               class="px-3 py-2 bg-[#1E3A8A] text-[#D4AF37] rounded-md hover:scale-105 hover:bg-[#8B5E9B] transition-all duration-300">
                                 {% trans "Next" %}
                             </a>
                         {% endif %}
@@ -107,12 +109,12 @@
                 </div>
             {% endif %}
         {% else %}
-            <div class="text-center py-20">
-                <i data-lucide="image" class="w-24 h-24 text-gray-600 mx-auto mb-6"></i>
-                <h3 class="text-2xl font-bold text-gray-400 mb-4">{% trans "No events in gallery yet" %}</h3>
-                <p class="text-gray-500 mb-8">{% trans "Check back soon for amazing event showcases" %}</p>
+            <div class="text-center py-20 animate-fade-up">
+                <i data-lucide="image" class="w-24 h-24 text-[#1E3A8A] mx-auto mb-6"></i>
+                <h3 class="text-2xl font-bold text-[#D4AF37] mb-4">{% trans "No events in gallery yet" %}</h3>
+                <p class="text-[#8B5E9B] mb-8">{% trans "Check back soon for amazing event showcases" %}</p>
                 {% if user.is_authenticated %}
-                    <a href="{% url 'create_event' %}" class="btn-primary">
+                    <a href="{% url 'create_event' %}" class="bg-[#D4AF37] text-[#1E3A8A] px-6 py-3 rounded-md font-semibold hover:scale-105 hover:bg-[#8B5E9B] transition-all duration-300">
                         {% trans "Create Your First Event" %}
                     </a>
                 {% endif %}
