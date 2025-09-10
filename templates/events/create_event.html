@@ -8,56 +8,56 @@
 {% block content %}
     <section class="py-16 relative overflow-hidden">
         <!-- Background animé harmonieux -->
-        <div class="absolute inset-0 bg-gradient-to-br from-[#FAF3E0]/20 via-[#E6B7C2]/15 to-[#D4AF37]/10 animate-gradient"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-100/20 via-yellow-400/15 to-pink-200/10 animate-gradient"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold tracking-wide mb-4 animate-fade-down
-                       bg-gradient-to-r from-[#1E3A8A]/90 to-[#D4AF37]/90 bg-clip-text text-transparent
-                       relative after:content-[''] after:absolute after:inset-0 after:bg-[#FAF3E0]/20 after:rounded-lg after:-z-10">
+                       bg-gradient-to-r from-pink-700/90 to-yellow-400/90 bg-clip-text text-transparent
+                       relative after:content-[''] after:absolute after:inset-0 after:bg-pink-100/20 after:rounded-lg after:-z-10">
                 {% trans "Create Your Event" %}
             </h1>
-            <p class="text-lg md:text-xl text-[#8B5E9B] max-w-2xl mx-auto animate-fade-up delay-150">
+            <p class="text-lg md:text-xl text-gray-800 max-w-2xl mx-auto animate-fade-up delay-150">
                 {% trans "Plan your perfect event with us" %}
             </p>
-            <div class="h-1 w-24 mx-auto mt-6 rounded-full bg-gradient-to-r from-[#FAF3E0]/70 via-[#E6B7C2]/40 to-[#D4AF37]/70 animate-fade-up delay-300"></div>
+            <div class="h-1 w-24 mx-auto mt-6 rounded-full bg-gradient-to-r from-pink-100/70 via-yellow-400/40 to-pink-200/70 animate-fade-up delay-300"></div>
         </div>
     </section>
 
     <section>
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="rounded-2xl border border-[#E6B7C2]/50 bg-[#FAF3E0]/80 backdrop-blur-md shadow-xl p-6 md:p-8 animate-fade-up delay-200">
+            <div class="rounded-2xl border border-yellow-400/50 bg-pink-100/80 backdrop-blur-md shadow-xl p-6 md:p-8 animate-fade-up delay-200">
                 <form method="post" class="space-y-8" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Title -->
                         <div class="md:col-span-2 animate-fade-up">
-                            <label for="title" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                            <label for="title" class="block text-sm font-semibold text-pink-700 mb-2">
                                 {% trans "Event Title" %}
                             </label>
                             <input type="text" name="title" id="title" required
-                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
-                                          placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50
-                                          focus:border-[#D4AF37] transition shadow-sm hover:shadow-md">
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-pink-700/40 text-slate-800
+                                          placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/50
+                                          focus:border-yellow-400 transition shadow-sm hover:shadow-md">
                         </div>
 
                         <!-- Description -->
                         <div class="md:col-span-2 animate-fade-up delay-75">
-                            <label for="description" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                            <label for="description" class="block text-sm font-semibold text-pink-700 mb-2">
                                 {% trans "Description" %}
                             </label>
                             <textarea name="description" id="description" rows="4"
-                                      class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
-                                             placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-[#E6B7C2]/50
-                                             focus:border-[#D4AF37] transition shadow-sm hover:shadow-md"></textarea>
+                                      class="w-full px-4 py-3 rounded-lg bg-white/70 border border-pink-700/40 text-slate-800
+                                             placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/50
+                                             focus:border-yellow-400 transition shadow-sm hover:shadow-md"></textarea>
                         </div>
 
                         <!-- Event Type -->
                         <div class="animate-fade-up delay-100">
-                            <label for="event_type" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                            <label for="event_type" class="block text-sm font-semibold text-pink-700 mb-2">
                                 {% trans "Event Type" %}
                             </label>
                             <select name="event_type" id="event_type" required
-                                    class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
-                                           focus:outline-none focus:ring-4 focus:ring-[#E6B7C2]/50 focus:border-[#D4AF37]
+                                    class="w-full px-4 py-3 rounded-lg bg-white/70 border border-pink-700/40 text-slate-800
+                                           focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400
                                            transition shadow-sm hover:shadow-md">
                                 <option value="">{% trans "Select an event type" %}</option>
                                 {% for event_type in event_types %}
@@ -68,59 +68,59 @@
 
                         <!-- Event Date -->
                         <div class="animate-fade-up delay-150">
-                            <label for="event_date" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                            <label for="event_date" class="block text-sm font-semibold text-pink-700 mb-2">
                                 {% trans "Event Date" %}
                             </label>
                             <input type="datetime-local" name="event_date" id="event_date" required
-                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
-                                          focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37]
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-pink-700/40 text-slate-800
+                                          focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400
                                           transition shadow-sm hover:shadow-md">
                         </div>
 
                         <!-- Location -->
                         <div class="md:col-span-2 animate-fade-up delay-200">
-                            <label for="location" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                            <label for="location" class="block text-sm font-semibold text-pink-700 mb-2">
                                 {% trans "Location" %}
                             </label>
                             <input type="text" name="location" id="location"
-                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
-                                          focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37]
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-pink-700/40 text-slate-800
+                                          focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400
                                           transition shadow-sm hover:shadow-md">
                         </div>
 
                         <!-- Guests -->
                         <div class="animate-fade-up delay-250">
-                            <label for="guest_count" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                            <label for="guest_count" class="block text-sm font-semibold text-pink-700 mb-2">
                                 {% trans "Expected Guest Count" %}
                             </label>
                             <input type="number" name="guest_count" id="guest_count" min="0"
-                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
-                                          focus:outline-none focus:ring-4 focus:ring-[#E6B7C2]/50 focus:border-[#D4AF37]
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-pink-700/40 text-slate-800
+                                          focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400
                                           transition shadow-sm hover:shadow-md">
                         </div>
 
                         <!-- Budget -->
                         <div class="animate-fade-up delay-300">
-                            <label for="budget" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                            <label for="budget" class="block text-sm font-semibold text-pink-700 mb-2">
                                 {% trans "Budget (€)" %}
                             </label>
                             <input type="number" name="budget" id="budget" step="0.01"
-                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
-                                          focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37]
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-pink-700/40 text-slate-800
+                                          focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400
                                           transition shadow-sm hover:shadow-md">
                         </div>
 
                         <!-- Image -->
                         <div class="md:col-span-2 animate-fade-up delay-350">
-                            <label for="image" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                            <label for="image" class="block text-sm font-semibold text-pink-700 mb-2">
                                 {% trans "Event Image" %}
                             </label>
                             <input type="file" name="image" id="image" accept="image/*"
-                                   class="w-full px-4 py-2.5 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                   class="w-full px-4 py-2.5 rounded-lg bg-white/70 border border-pink-700/40 text-slate-800
                                           file:mr-4 file:py-2 file:px-4 file:rounded-md
-                                          file:border-0 file:bg-gradient-to-r file:from-[#1E3A8A] file:to-[#D4AF37]
+                                          file:border-0 file:bg-gradient-to-r file:from-pink-700 file:to-yellow-400
                                           file:text-white hover:file:opacity-90
-                                          focus:outline-none focus:ring-4 focus:ring-[#E6B7C2]/50 focus:border-[#D4AF37]
+                                          focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400
                                           transition">
                         </div>
                     </div>
@@ -128,13 +128,13 @@
                     <!-- Actions -->
                     <div class="flex items-center justify-end gap-4 pt-4 animate-fade-up delay-400">
                         <a href="{% url 'dashboard' %}"
-                           class="px-5 py-2.5 rounded-lg font-semibold border border-[#1E3A8A] text-[#1E3A8A]
-                                  hover:bg-[#E6B7C2]/40 transition">
+                           class="px-5 py-2.5 rounded-lg font-semibold border border-pink-700 text-pink-700
+                                  hover:bg-yellow-400/40 transition">
                             {% trans "Cancel" %}
                         </a>
                         <button type="submit"
                                 class="px-5 py-2.5 rounded-lg font-semibold text-white
-                                       bg-gradient-to-r from-[#1E3A8A] via-[#E6B7C2] to-[#D4AF37]
+                                       bg-gradient-to-r from-pink-700 via-yellow-400 to-pink-200
                                        hover:scale-105 transform transition duration-300 shadow-lg">
                             {% trans "Create Event" %}
                         </button>
