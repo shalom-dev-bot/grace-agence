@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponseBadRequest
 from urllib.parse import quote
-from .models import Event, EventType, InvitationCard, EventService
+from .models import Event, EventType, InvitationCard, EventService, EventVideo  # Ajout de EventVideo
 from services.models import Service
 from testimonials.models import Testimonial
 
@@ -15,10 +15,12 @@ def home_view(request):
     featured_testimonials = Testimonial.objects.filter(is_approved=True, is_featured=True).select_related('user')[:3]
     recent_events_count = Event.objects.filter(status='completed').count()
     services_count = Service.objects.filter(is_active=True).count()
+    featured_video = EventVideo.objects.filter(is_featured=True).first()  # Ajout de la vidéo en vedette
     context = {
         'featured_testimonials': featured_testimonials,
         'recent_events_count': recent_events_count,
         'services_count': services_count,
+        'featured_video': featured_video,  # Ajout au contexte
     }
     return render(request, 'events/home.html', context)
 

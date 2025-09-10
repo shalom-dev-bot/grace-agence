@@ -70,3 +70,18 @@ class EventService(models.Model):
 
     def __str__(self):
         return f"{self.event.title} - {self.service.name}"
+
+class EventVideo(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='videos', verbose_name=_("Related Event"))
+    title = models.CharField(max_length=200, verbose_name=_("Video Title"))
+    video_file = models.FileField(upload_to='event_videos/', verbose_name=_("Video File"))
+    description = models.TextField(blank=True, verbose_name=_("Description"))
+    uploaded_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Uploaded At"))
+    is_featured = models.BooleanField(default=False, verbose_name=_("Featured"))
+
+    def __str__(self):
+        return f"{self.title} - {self.event.title}"
+
+    class Meta:
+        verbose_name = _("Event Video")
+        verbose_name_plural = _("Event Videos")
