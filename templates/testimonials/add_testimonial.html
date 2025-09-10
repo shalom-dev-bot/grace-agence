@@ -4,16 +4,19 @@
 
 {% block content %}
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 class="text-4xl font-bold text-gge-yellow mb-8 text-center">
-            {% trans "Add a Testimonial" %}
+        <h1 class="text-4xl font-bold mb-8 text-center animate-fade-in">
+            <span class="text-pink-700">{% trans "Add a" %}</span>
+            <span class="text-yellow-400">{% trans "Testimonial" %}</span>
         </h1>
-        <div class="bg-gray-800 rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
-            <form method="POST">
+        
+        <div class="bg-pink-100 rounded-2xl shadow-xl p-6 sm:p-8 max-w-2xl mx-auto border border-pink-200">
+            <form method="POST" class="space-y-6">
                 {% csrf_token %}
+                
                 {% if form.errors %}
-                    <div class="mb-4 text-red-500">
-                        {% trans "Please correct the errors below:" %}
-                        <ul>
+                    <div class="text-red-500 bg-pink-50 p-4 rounded-lg">
+                        <p class="font-semibold mb-2">{% trans "Please correct the errors below:" %}</p>
+                        <ul class="list-disc list-inside">
                             {% for field in form %}
                                 {% for error in field.errors %}
                                     <li>{{ field.label }}: {{ error }}</li>
@@ -25,20 +28,46 @@
                         </ul>
                     </div>
                 {% endif %}
+                
                 <div class="mb-4">
-                    <label class="block text-gray-300 mb-2" for="title">{% trans "Title" %}:</label>
-                    <input type="text" name="title" id="title" required class="w-full bg-gray-700 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
+                    <label class="block text-gray-800 font-medium mb-2" for="title">{% trans "Title" %}</label>
+                    <input type="text" name="title" id="title" required
+                           class="w-full bg-pink-50 text-gray-900 border border-pink-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-700 transition">
                 </div>
+                
                 <div class="mb-4">
-                    <label class="block text-gray-300 mb-2" for="content">{% trans "Testimonial" %}:</label>
-                    <textarea name="content" id="content" required rows="5" class="w-full bg-gray-700 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"></textarea>
+                    <label class="block text-gray-800 font-medium mb-2" for="content">{% trans "Testimonial" %}</label>
+                    <textarea name="content" id="content" required rows="5"
+                             class="w-full bg-pink-50 text-gray-900 border border-pink-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-700 transition"></textarea>
                 </div>
+                
                 <div class="mb-4">
-                    <label class="block text-gray-300 mb-2" for="rating">{% trans "Rating (1-5)" %}:</label>
-                    <input type="number" name="rating" id="rating" min="1" max="5" required class="w-full bg-gray-700 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
+                    <label class="block text-gray-800 font-medium mb-2" for="rating">{% trans "Rating (1-5)" %}</label>
+                    <input type="number" name="rating" id="rating" min="1" max="5" required
+                           class="w-full bg-pink-50 text-gray-900 border border-pink-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-700 transition">
                 </div>
-                <button type="submit" class="btn-primary w-full">{% trans "Submit Testimonial" %}</button>
+                
+                <button type="submit" class="w-full bg-pink-700 hover:bg-pink-800 text-white font-semibold px-4 py-2 rounded-lg shadow-lg transition">
+                    {% trans "Submit Testimonial" %}
+                </button>
             </form>
         </div>
     </section>
+
+    <!-- Animations -->
+    <style>
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fade-in 0.8s forwards; }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 2rem; }
+            .p-6 { padding: 1rem; }
+            .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+            .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+            .max-w-2xl { max-width: 100%; padding: 0 1rem; }
+        }
+    </style>
 {% endblock %}
