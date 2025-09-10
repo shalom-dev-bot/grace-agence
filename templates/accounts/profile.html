@@ -5,108 +5,109 @@
 {% block title %}{% trans "Profile" %} - Glow Gracious Events{% endblock %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-zinc-950">
-    <div class="max-w-4xl w-full bg-gge-dark rounded-2xl border border-gge-gray shadow-lg overflow-hidden">
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[#FAF3E0]">
+    <div class="max-w-4xl w-full bg-pink-100 rounded-2xl border border-pink-200 shadow-xl overflow-hidden transform transition-all duration-700 scale-95 opacity-0 animate-fadeInUp">
+
         <!-- Profile Header -->
-        <div class="bg-gge-dark p-8 border-b border-gge-gray">
-            <div class="flex items-center space-x-6">
+        <div class="bg-pink-200 p-6 sm:p-8 border-b border-pink-300 animate-fadeInUp delay-100">
+            <div class="flex items-center space-x-2 sm:space-x-4">
                 {% if user.profile_picture %}
-                    <img src="{{ user.profile_picture.url }}" alt="{{ user.first_name }}" class="w-24 h-24 rounded-full object-cover border-4 border-gge-yellow shadow-lg">
+                    <img src="{{ user.profile_picture.url }}" alt="{{ user.first_name }}" class="w-20 sm:w-24 h-20 sm:h-24 rounded-full object-cover border-4 border-pink-400 shadow-lg">
                 {% else %}
-                    <div class="w-24 h-24 bg-gge-yellow rounded-full flex items-center justify-center border-4 border-gge-gray shadow-lg">
-                        <span class="text-gge-dark font-bold text-3xl">{{ user.first_name.0|upper }}</span>
+                    <div class="w-20 sm:w-24 h-20 sm:h-24 bg-pink-400 rounded-full flex items-center justify-center border-4 border-pink-500 shadow-lg">
+                        <span class="text-white font-bold text-2xl sm:text-3xl">{{ user.first_name.0|upper }}</span>
                     </div>
                 {% endif %}
                 <div>
-                    <h1 class="text-3xl font-bold text-white">{{ user.first_name }} {{ user.last_name }}</h1>
-                    <p class="text-gray-300">{{ user.email }}</p>
-                    <p class="text-gray-400 text-sm">{% trans "Member since" %} {{ user.date_joined|date:"F Y" }}</p>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">{{ user.first_name }} {{ user.last_name }}</h1>
+                    <p class="text-gray-700 text-sm sm:text-base">{{ user.email }}</p>
+                    <p class="text-gray-600 text-xs sm:text-sm">{% trans "Member since" %} {{ user.date_joined|date:"F Y" }}</p>
                 </div>
             </div>
         </div>
         
         <!-- Profile Form -->
-        <div class="p-8">
-            <h2 class="text-2xl font-bold text-gge-yellow mb-6">{% trans "Update Profile" %}</h2>
+        <div class="p-6 sm:p-8 md:p-10 animate-fadeInUp delay-200">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">{% trans "Update Profile" %}</h2>
             
             <form method="post" enctype="multipart/form-data" class="space-y-6">
                 {% csrf_token %}
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="animate-fadeInUp delay-300">
+                        <label for="{{ form.first_name.id_for_label }}" class="block text-sm sm:text-base font-medium text-gray-800 mb-2">
                             {% trans "First Name" %}
                         </label>
                         <input type="text" name="{{ form.first_name.name }}" id="{{ form.first_name.id_for_label }}"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               class="w-full bg-white text-gray-900 border border-pink-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
                                value="{{ form.first_name.value|default_if_none:'' }}" required>
                         {% if form.first_name.errors %}
-                            <p class="text-red-400 text-sm mt-1">{{ form.first_name.errors.0 }}</p>
+                            <p class="text-pink-700 text-sm mt-1">{{ form.first_name.errors.0 }}</p>
                         {% endif %}
                     </div>
                     
-                    <div>
-                        <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                    <div class="animate-fadeInUp delay-400">
+                        <label for="{{ form.last_name.id_for_label }}" class="block text-sm sm:text-base font-medium text-gray-800 mb-2">
                             {% trans "Last Name" %}
                         </label>
                         <input type="text" name="{{ form.last_name.name }}" id="{{ form.last_name.id_for_label }}"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               class="w-full bg-white text-gray-900 border border-pink-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
                                value="{{ form.last_name.value|default_if_none:'' }}" required>
                         {% if form.last_name.errors %}
-                            <p class="text-red-400 text-sm mt-1">{{ form.last_name.errors.0 }}</p>
+                            <p class="text-pink-700 text-sm mt-1">{{ form.last_name.errors.0 }}</p>
                         {% endif %}
                     </div>
                 </div>
                 
-                <div>
-                    <label for="{{ form.profile_picture.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                <div class="animate-fadeInUp delay-500">
+                    <label for="{{ form.profile_picture.id_for_label }}" class="block text-sm sm:text-base font-medium text-gray-800 mb-2">
                         {% trans "Profile Picture" %}
                     </label>
                     <input type="file" name="{{ form.profile_picture.name }}" id="{{ form.profile_picture.id_for_label }}"
-                           class="w-full bg-black text-gray-400 border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                           class="w-full bg-white text-gray-900 border border-pink-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
                            accept="image/*">
                     {% if form.profile_picture.errors %}
-                        <p class="text-red-400 text-sm mt-1">{{ form.profile_picture.errors.0 }}</p>
+                        <p class="text-pink-700 text-sm mt-1">{{ form.profile_picture.errors.0 }}</p>
                     {% endif %}
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="{{ form.theme_preference.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="animate-fadeInUp delay-600">
+                        <label for="{{ form.theme_preference.id_for_label }}" class="block text-sm sm:text-base font-medium text-gray-800 mb-2">
                             {% trans "Theme Preference" %}
                         </label>
                         <select name="{{ form.theme_preference.name }}" id="{{ form.theme_preference.id_for_label }}"
-                                class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
+                                class="w-full bg-white text-gray-900 border border-pink-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500 transition">
                             {% for value, label in form.theme_preference.field.choices %}
                                 <option value="{{ value }}" {% if form.theme_preference.value == value %}selected{% endif %}>{{ label }}</option>
                             {% endfor %}
                         </select>
                         {% if form.theme_preference.errors %}
-                            <p class="text-red-400 text-sm mt-1">{{ form.theme_preference.errors.0 }}</p>
+                            <p class="text-pink-700 text-sm mt-1">{{ form.theme_preference.errors.0 }}</p>
                         {% endif %}
                     </div>
                     
-                    <div>
-                        <label for="{{ form.language_preference.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                    <div class="animate-fadeInUp delay-700">
+                        <label for="{{ form.language_preference.id_for_label }}" class="block text-sm sm:text-base font-medium text-gray-800 mb-2">
                             {% trans "Language" %}
                         </label>
                         <select name="{{ form.language_preference.name }}" id="{{ form.language_preference.id_for_label }}"
-                                class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
+                                class="w-full bg-white text-gray-900 border border-pink-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500 transition">
                             {% for value, label in form.language_preference.field.choices %}
                                 <option value="{{ value }}" {% if form.language_preference.value == value %}selected{% endif %}>{{ label }}</option>
                             {% endfor %}
                         </select>
                         {% if form.language_preference.errors %}
-                            <p class="text-red-400 text-sm mt-1">{{ form.language_preference.errors.0 }}</p>
+                            <p class="text-pink-700 text-sm mt-1">{{ form.language_preference.errors.0 }}</p>
                         {% endif %}
                     </div>
                 </div>
                 
-                <div class="flex justify-end space-x-4">
-                    <a href="{% url 'dashboard' %}" class="bg-gge-blue text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">
+                <div class="flex justify-end space-x-2 sm:space-x-4 animate-fadeInUp delay-800">
+                    <a href="{% url 'dashboard' %}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-md font-medium transition">
                         {% trans "Cancel" %}
                     </a>
-                    <button type="submit" class="bg-gge-yellow text-gge-dark px-4 py-2 rounded-md font-medium hover:bg-yellow-300 transition-colors">
+                    <button type="submit" class="bg-pink-700 hover:bg-pink-800 text-white px-4 py-2 rounded-md font-medium shadow-md transition">
                         {% trans "Update Profile" %}
                     </button>
                 </div>
@@ -114,4 +115,35 @@
         </div>
     </div>
 </div>
+
+<!-- Animations -->
+<style>
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInUp { animation: fadeInUp 0.8s forwards; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-800 { animation-delay: 0.8s; }
+
+    @media (max-width: 640px) {
+        .max-w-4xl { max-width: 100%; padding: 0 1rem; }
+        h1 { font-size: 1.5rem; }
+        h2 { font-size: 1.25rem; }
+        .p-6 { padding: 1rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .w-20 { width: 16px; height: 16px; }
+        .w-24 { width: 20px; height: 20px; }
+        .h-20 { height: 16px; }
+        .h-24 { height: 20px; }
+        .grid-cols-2 { grid-template-columns: 1fr; }
+    }
+</style>
 {% endblock %}
