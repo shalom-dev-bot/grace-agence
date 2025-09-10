@@ -2,22 +2,65 @@
 {% load i18n %}
 
 {% block content %}
-<div class="max-w-3xl mx-auto mt-8 p-6 bg-gray-900 rounded-2xl border border-gray-800 animate-fade-in">
-    <h2 class="text-2xl font-bold text-gge-yellow mb-4">{% trans "Envoyer les détails de l'événement" %}</h2>
-    <p class="text-gray-400 mb-4">{% trans "Voici les détails qui seront envoyés à l'agence :" %}</p>
-    <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg mb-6 whitespace-pre-wrap">{{ message_preview }}</pre>
-    <p class="text-gray-400 mb-6">{% trans "Choisissez comment envoyer :" %}</p>
-    <form method="post" class="space-y-4">
-        {% csrf_token %}
-        <div>
-            <label for="choice" class="block text-sm font-medium text-gray-400">{% trans "Mode d'envoi" %}</label>
-            <select name="choice" id="choice" class="form-select mt-1 w-full bg-gray-800 border-gray-700 text-gray-300">
-                <option value="whatsapp">{% trans "WhatsApp" %}</option>
-                <option value="email">{% trans "Email" %}</option>
-            </select>
-        </div>
-        <button type="submit" class="btn-primary w-full">{% trans "Envoyer" %}</button>
+<section class="min-h-screen flex items-center justify-center bg-[#FAF3E0] px-4 py-8 sm:py-12">
+  <div class="max-w-3xl w-full bg-white rounded-3xl border border-[#D4AF37]/40 shadow-lg p-4 sm:p-6 md:p-10 animate-fadeInUp">
+    
+    <!-- Title -->
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1E3A8A] mb-4 sm:mb-6 text-center">
+      {% trans "Envoyer les détails de l'événement" %}
+    </h2>
+    <p class="text-gray-700 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 text-center">
+      {% trans "Voici les détails qui seront envoyés à l'agence :" %}
+    </p>
+    
+    <!-- Preview Message -->
+    <div class="bg-[#E6B7C2]/20 border border-[#D4AF37]/30 text-gray-700 p-4 sm:p-6 rounded-2xl mb-6 sm:mb-8 whitespace-pre-wrap">
+      {{ message_preview }}
+    </div>
+    
+    <!-- Choice -->
+    <p class="text-gray-700 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 text-center">
+      {% trans "Choisissez comment envoyer :" %}
+    </p>
+    <form method="post" class="space-y-4 sm:space-y-6">
+      {% csrf_token %}
+      <div>
+        <label for="choice" class="block text-sm sm:text-base md:text-lg font-semibold text-[#1E3A8A] mb-2">
+          {% trans "Mode d'envoi" %}
+        </label>
+        <select name="choice" id="choice" 
+                class="w-full rounded-lg border border-[#D4AF37]/40 bg-white px-3 sm:px-4 py-2 sm:py-3 text-gray-800 focus:ring-2 focus:ring-[#D4AF37] transition">
+          <option value="whatsapp">{% trans "WhatsApp" %}</option>
+          <option value="email">{% trans "Email" %}</option>
+        </select>
+      </div>
+      
+      <!-- Buttons -->
+      <button type="submit" 
+              class="w-full px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold text-white bg-gradient-to-r from-[#1E3A8A] to-[#D4AF37] shadow-md transform transition hover:scale-105 hover:shadow-lg">
+        {% trans "Envoyer" %}
+      </button>
     </form>
-    <a href="{% url 'event_detail' event.id %}" class="btn-secondary w-full mt-4 text-center">{% trans "Retour" %}</a>
-</div>
+    
+    <!-- Back Button -->
+    <a href="{% url 'event_detail' event.id %}" 
+       class="block w-full mt-4 sm:mt-6 px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-center font-semibold bg-[#E6B7C2] text-[#1E3A8A] hover:bg-[#D4AF37]/30 transition">
+      {% trans "Retour" %}
+    </a>
+  </div>
+</section>
 {% endblock %}
+
+<style>
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: translateY(0) } }
+  .animate-fadeInUp { animation: fadeInUp 0.6s ease-out both }
+
+  @media (max-width: 640px) {
+    .max-w-3xl { max-width: 100%; padding: 0 1rem; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 0.875rem; }
+    .p-4 { padding: 1rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  }
+</style>

@@ -6,99 +6,107 @@
 {% block title %}{% trans "Sign Up" %} - Glow Gracious Events{% endblock %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-zinc-950">
-    <div class="max-w-md w-full space-y-8">
+<div class="min-h-screen flex items-center justify-center bg-[#FAF3E0] px-4 py-8 sm:py-12">
+    <div class="max-w-md w-full space-y-8 transform transition-all duration-700 scale-95 opacity-0 animate-fadeInUp">
+
+        <!-- Header -->
         <div class="text-center">
-            <h2 class="text-4xl font-bold text-gge-yellow mb-2">{% trans "Join GGE" %}</h2>
-            <p class="text-gray-400">{% trans "Create your account to start planning amazing events" %}</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-[#1E3A8A] mb-4 sm:mb-6 animate-fadeInUp delay-100">
+                {% trans "Join GGE" %}
+            </h2>
+            <p class="text-gray-700 text-sm sm:text-base md:text-lg animate-fadeInUp delay-200">
+                {% trans "Create your account to start planning amazing events" %}
+            </p>
         </div>
         
-        <div class="bg-gge-dark p-8 rounded-2xl border border-gge-gray shadow-lg">
+        <!-- Form Card -->
+        <div class="bg-white rounded-3xl border border-[#D4AF37]/40 shadow-lg p-6 sm:p-8 md:p-10 animate-fadeInUp delay-300">
             <form method="post" class="space-y-6">
+
                 {% csrf_token %}
                 
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="animate-fadeInUp delay-400">
+                        <label for="{{ form.first_name.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
                             {% trans "First Name" %}
                         </label>
                         <input type="text" name="{{ form.first_name.name }}" id="{{ form.first_name.id_for_label }}"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               class="w-full bg-white text-gray-800 border border-[#D4AF37]/40 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#E6B7C2] transition"
                                value="{{ form.first_name.value|default_if_none:'' }}" required>
                         {% if form.first_name.errors %}
-                            <p class="text-red-400 text-sm mt-1">{{ form.first_name.errors.0 }}</p>
+                            <p class="text-[#D4AF37] text-sm mt-1">{{ form.first_name.errors.0 }}</p>
                         {% endif %}
                     </div>
-                    <div>
-                        <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                    <div class="animate-fadeInUp delay-500">
+                        <label for="{{ form.last_name.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
                             {% trans "Last Name" %}
                         </label>
                         <input type="text" name="{{ form.last_name.name }}" id="{{ form.last_name.id_for_label }}"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                               class="w-full bg-white text-gray-800 border border-[#D4AF37]/40 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#E6B7C2] transition"
                                value="{{ form.last_name.value|default_if_none:'' }}" required>
                         {% if form.last_name.errors %}
-                            <p class="text-red-400 text-sm mt-1">{{ form.last_name.errors.0 }}</p>
+                            <p class="text-[#D4AF37] text-sm mt-1">{{ form.last_name.errors.0 }}</p>
                         {% endif %}
                     </div>
                 </div>
                 
-                <div>
-                    <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                <div class="animate-fadeInUp delay-600">
+                    <label for="{{ form.email.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
                         {% trans "Email Address" %}
                     </label>
                     <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}"
-                           class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                           class="w-full bg-white text-gray-800 border border-[#D4AF37]/40 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#E6B7C2] transition"
                            value="{{ form.email.value|default_if_none:'' }}" required>
                     {% if form.email.errors %}
-                        <p class="text-red-400 text-sm mt-1">{{ form.email.errors.0 }}</p>
+                        <p class="text-[#D4AF37] text-sm mt-1">{{ form.email.errors.0 }}</p>
                     {% endif %}
                 </div>
                 
-                <div>
-                    <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                <div class="animate-fadeInUp delay-700">
+                    <label for="{{ form.username.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
                         {% trans "Username" %}
                     </label>
                     <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}"
-                           class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                           class="w-full bg-white text-gray-800 border border-[#D4AF37]/40 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#E6B7C2] transition"
                            value="{{ form.username.value|default_if_none:'' }}" required>
                     {% if form.username.errors %}
-                        <p class="text-red-400 text-sm mt-1">{{ form.username.errors.0 }}</p>
+                        <p class="text-[#D4AF37] text-sm mt-1">{{ form.username.errors.0 }}</p>
                     {% endif %}
                 </div>
                 
-                <div>
-                    <label for="{{ form.password1.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                <div class="animate-fadeInUp delay-800">
+                    <label for="{{ form.password1.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
                         {% trans "Password" %}
                     </label>
                     <input type="password" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}"
-                           class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                           class="w-full bg-white text-gray-800 border border-[#D4AF37]/40 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#E6B7C2] transition"
                            required>
                     {% if form.password1.errors %}
-                        <p class="text-red-400 text-sm mt-1">{{ form.password1.errors.0 }}</p>
+                        <p class="text-[#D4AF37] text-sm mt-1">{{ form.password1.errors.0 }}</p>
                     {% endif %}
                 </div>
                 
-                <div>
-                    <label for="{{ form.password2.id_for_label }}" class="block text-sm font-medium text-gray-300 mb-2">
+                <div class="animate-fadeInUp delay-900">
+                    <label for="{{ form.password2.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
                         {% trans "Confirm Password" %}
                     </label>
                     <input type="password" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}"
-                           class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
+                           class="w-full bg-white text-gray-800 border border-[#D4AF37]/40 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#E6B7C2] transition"
                            required>
                     {% if form.password2.errors %}
-                        <p class="text-red-400 text-sm mt-1">{{ form.password2.errors.0 }}</p>
+                        <p class="text-[#D4AF37] text-sm mt-1">{{ form.password2.errors.0 }}</p>
                     {% endif %}
                 </div>
                 
-                <button type="submit" class="w-full bg-gge-yellow text-gge-dark px-4 py-2 rounded-md font-medium hover:bg-yellow-300 transition-colors">
+                <button type="submit" class="w-full bg-gradient-to-r from-[#1E3A8A] to-[#D4AF37] text-white px-4 py-3 rounded-xl font-bold hover:scale-105 hover:shadow-lg transition-all duration-300 animate-fadeInUp delay-1000">
                     {% trans "Create Account" %}
                 </button>
             </form>
             
-            <div class="mt-6 text-center">
-                <p class="text-gray-400">
+            <div class="mt-6 text-center animate-fadeInUp delay-1100">
+                <p class="text-gray-700 text-sm sm:text-base">
                     {% trans "Already have an account?" %}
-                    <a href="{% url 'login' %}" class="text-gge-yellow hover:text-yellow-300 font-medium">
+                    <a href="{% url 'login' %}" class="text-[#1E3A8A] hover:text-[#D4AF37] font-medium transition">
                         {% trans "Sign in" %}
                     </a>
                 </p>
@@ -106,4 +114,34 @@
         </div>
     </div>
 </div>
+
+<!-- Animations -->
+<style>
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInUp { animation: fadeInUp 0.8s forwards; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-800 { animation-delay: 0.8s; }
+    .delay-900 { animation-delay: 0.9s; }
+    .delay-1000 { animation-delay: 1.0s; }
+    .delay-1100 { animation-delay: 1.1s; }
+
+    @media (max-width: 640px) {
+        .max-w-md { max-width: 100%; padding: 0 1rem; }
+        h2 { font-size: 2rem; }
+        .p-6 { padding: 1rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .text-sm { font-size: 0.875rem; }
+        .grid-cols-2 { grid-template-columns: 1fr; }
+    }
+</style>
 {% endblock %}
