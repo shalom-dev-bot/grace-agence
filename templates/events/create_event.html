@@ -6,73 +6,136 @@
 {% block title %}{% trans "Create Event" %} - Glow Gracious Events{% endblock %}
 
 {% block content %}
-    <section class="py-20 bg-zinc-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">
-                <span class="text-gge-yellow">{% trans "Create Your Event" %}</span>
+    <section class="py-16 relative overflow-hidden">
+        <!-- Background animé harmonieux -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#FAF3E0]/20 via-[#E6B7C2]/15 to-[#D4AF37]/10 animate-gradient"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-wide mb-4 animate-fade-down
+                       bg-gradient-to-r from-[#1E3A8A]/90 to-[#D4AF37]/90 bg-clip-text text-transparent
+                       relative after:content-[''] after:absolute after:inset-0 after:bg-[#FAF3E0]/20 after:rounded-lg after:-z-10">
+                {% trans "Create Your Event" %}
             </h1>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 text-center">
+            <p class="text-lg md:text-xl text-[#8B5E9B] max-w-2xl mx-auto animate-fade-up delay-150">
                 {% trans "Plan your perfect event with us" %}
             </p>
+            <div class="h-1 w-24 mx-auto mt-6 rounded-full bg-gradient-to-r from-[#FAF3E0]/70 via-[#E6B7C2]/40 to-[#D4AF37]/70 animate-fade-up delay-300"></div>
         </div>
     </section>
 
-    <section class="py-20 bg-zinc-950">
+    <section>
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gge-dark rounded-2xl border border-gge-gray p-8 shadow-lg">
-                <form method="post" class="space-y-6" enctype="multipart/form-data">
+            <div class="rounded-2xl border border-[#E6B7C2]/50 bg-[#FAF3E0]/80 backdrop-blur-md shadow-xl p-6 md:p-8 animate-fade-up delay-200">
+                <form method="post" class="space-y-8" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div>
-                        <label for="title" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Event Title" %}</label>
-                        <input type="text" name="title" id="title"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
-                               required>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Title -->
+                        <div class="md:col-span-2 animate-fade-up">
+                            <label for="title" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                                {% trans "Event Title" %}
+                            </label>
+                            <input type="text" name="title" id="title" required
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                          placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50
+                                          focus:border-[#D4AF37] transition shadow-sm hover:shadow-md">
+                        </div>
+
+                        <!-- Description -->
+                        <div class="md:col-span-2 animate-fade-up delay-75">
+                            <label for="description" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                                {% trans "Description" %}
+                            </label>
+                            <textarea name="description" id="description" rows="4"
+                                      class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                             placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-[#E6B7C2]/50
+                                             focus:border-[#D4AF37] transition shadow-sm hover:shadow-md"></textarea>
+                        </div>
+
+                        <!-- Event Type -->
+                        <div class="animate-fade-up delay-100">
+                            <label for="event_type" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                                {% trans "Event Type" %}
+                            </label>
+                            <select name="event_type" id="event_type" required
+                                    class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                           focus:outline-none focus:ring-4 focus:ring-[#E6B7C2]/50 focus:border-[#D4AF37]
+                                           transition shadow-sm hover:shadow-md">
+                                <option value="">{% trans "Select an event type" %}</option>
+                                {% for event_type in event_types %}
+                                    <option value="{{ event_type.id }}">{{ event_type.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Event Date -->
+                        <div class="animate-fade-up delay-150">
+                            <label for="event_date" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                                {% trans "Event Date" %}
+                            </label>
+                            <input type="datetime-local" name="event_date" id="event_date" required
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                          focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37]
+                                          transition shadow-sm hover:shadow-md">
+                        </div>
+
+                        <!-- Location -->
+                        <div class="md:col-span-2 animate-fade-up delay-200">
+                            <label for="location" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                                {% trans "Location" %}
+                            </label>
+                            <input type="text" name="location" id="location"
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                          focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37]
+                                          transition shadow-sm hover:shadow-md">
+                        </div>
+
+                        <!-- Guests -->
+                        <div class="animate-fade-up delay-250">
+                            <label for="guest_count" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                                {% trans "Expected Guest Count" %}
+                            </label>
+                            <input type="number" name="guest_count" id="guest_count" min="0"
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                          focus:outline-none focus:ring-4 focus:ring-[#E6B7C2]/50 focus:border-[#D4AF37]
+                                          transition shadow-sm hover:shadow-md">
+                        </div>
+
+                        <!-- Budget -->
+                        <div class="animate-fade-up delay-300">
+                            <label for="budget" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                                {% trans "Budget (€)" %}
+                            </label>
+                            <input type="number" name="budget" id="budget" step="0.01"
+                                   class="w-full px-4 py-3 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                          focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37]
+                                          transition shadow-sm hover:shadow-md">
+                        </div>
+
+                        <!-- Image -->
+                        <div class="md:col-span-2 animate-fade-up delay-350">
+                            <label for="image" class="block text-sm font-semibold text-[#1E3A8A] mb-2">
+                                {% trans "Event Image" %}
+                            </label>
+                            <input type="file" name="image" id="image" accept="image/*"
+                                   class="w-full px-4 py-2.5 rounded-lg bg-white/70 border border-[#1E3A8A]/40 text-slate-800
+                                          file:mr-4 file:py-2 file:px-4 file:rounded-md
+                                          file:border-0 file:bg-gradient-to-r file:from-[#1E3A8A] file:to-[#D4AF37]
+                                          file:text-white hover:file:opacity-90
+                                          focus:outline-none focus:ring-4 focus:ring-[#E6B7C2]/50 focus:border-[#D4AF37]
+                                          transition">
+                        </div>
                     </div>
-                    <div>
-                        <label for="description" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Description" %}</label>
-                        <textarea name="description" id="description" rows="4"
-                                  class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"></textarea>
-                    </div>
-                    <div>
-                        <label for="event_type" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Event Type" %}</label>
-                        <select name="event_type" id="event_type"
-                                class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
-                                required>
-                            <option value="">{% trans "Select an event type" %}</option>
-                            {% for event_type in event_types %}
-                                <option value="{{ event_type.id }}">{{ event_type.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div>
-                        <label for="event_date" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Event Date" %}</label>
-                        <input type="datetime-local" name="event_date" id="event_date"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
-                               required>
-                    </div>
-                    <div>
-                        <label for="location" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Location" %}</label>
-                        <input type="text" name="location" id="location"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
-                    </div>
-                    <div>
-                        <label for="guest_count" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Expected Guest Count" %}</label>
-                        <input type="number" name="guest_count" id="guest_count" min="0"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
-                    </div>
-                    <div>
-                        <label for="budget" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Budget (€)" %}</label>
-                        <input type="number" name="budget" id="budget" step="0.01"
-                               class="w-full bg-black text-white border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow">
-                    </div>
-                    <div>
-                        <label for="image" class="block text-sm font-medium text-gray-300 mb-2">{% trans "Event Image" %}</label>
-                        <input type="file" name="image" id="image"
-                               class="w-full bg-black text-gray-400 border border-gge-gray rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gge-yellow"
-                               accept="image/*">
-                    </div>
-                    <div class="flex justify-end">
-                        <button type="submit" class="bg-gge-yellow text-gge-dark px-4 py-2 rounded-md font-medium hover:bg-yellow-300 transition-colors">
+
+                    <!-- Actions -->
+                    <div class="flex items-center justify-end gap-4 pt-4 animate-fade-up delay-400">
+                        <a href="{% url 'dashboard' %}"
+                           class="px-5 py-2.5 rounded-lg font-semibold border border-[#1E3A8A] text-[#1E3A8A]
+                                  hover:bg-[#E6B7C2]/40 transition">
+                            {% trans "Cancel" %}
+                        </a>
+                        <button type="submit"
+                                class="px-5 py-2.5 rounded-lg font-semibold text-white
+                                       bg-gradient-to-r from-[#1E3A8A] via-[#E6B7C2] to-[#D4AF37]
+                                       hover:scale-105 transform transition duration-300 shadow-lg">
                             {% trans "Create Event" %}
                         </button>
                     </div>
@@ -80,4 +143,29 @@
             </div>
         </div>
     </section>
+
+    <style>
+    @keyframes gradientShift {
+        0% { background-position: 0% 50% }
+        50% { background-position: 100% 50% }
+        100% { background-position: 0% 50% }
+    }
+    .animate-gradient {
+        background-size: 200% 200%;
+        animation: gradientShift 12s ease infinite;
+    }
+
+    @keyframes fade-up { from { opacity: 0; transform: translateY(15px) } to { opacity: 1; transform: translateY(0) } }
+    @keyframes fade-down { from { opacity: 0; transform: translateY(-15px) } to { opacity: 1; transform: translateY(0) } }
+    .animate-fade-up { animation: fade-up .7s ease both }
+    .animate-fade-down { animation: fade-down .7s ease both }
+    .delay-75 { animation-delay: .075s }
+    .delay-100 { animation-delay: .1s }
+    .delay-150 { animation-delay: .15s }
+    .delay-200 { animation-delay: .2s }
+    .delay-250 { animation-delay: .25s }
+    .delay-300 { animation-delay: .3s }
+    .delay-350 { animation-delay: .35s }
+    .delay-400 { animation-delay: .4s }
+    </style>
 {% endblock %}
