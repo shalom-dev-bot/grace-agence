@@ -6,21 +6,21 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#FAF3E0] via-[#E6B7C2]/40 to-[#FAF3E0]">
+<section class="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-pink-100 via-yellow-400 to-pink-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fadeInUp">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1E3A8A] mb-4 relative after:content-[''] after:absolute after:w-16 after:h-1 after:bg-[#D4AF37] after:left-1/2 after:-translate-x-1/2 after:bottom-[-8px]">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-pink-700 mb-4 relative after:content-[''] after:absolute after:w-16 after:h-1 after:bg-yellow-400 after:left-1/2 after:-translate-x-1/2 after:bottom-[-8px]">
       {{ event.title }}
     </h1>
-    <p class="text-base sm:text-lg md:text-xl text-gray-700 italic">
+    <p class="text-base sm:text-lg md:text-xl text-gray-800 italic">
       {% trans "Explore the details of your event" %}
     </p>
   </div>
 </section>
 
 <!-- Event Details Card -->
-<section class="py-8 sm:py-12 md:py-16 bg-[#FAF3E0]">
+<section class="py-8 sm:py-12 md:py-16 bg-pink-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-white rounded-3xl shadow-lg border border-[#D4AF37]/40 p-4 sm:p-6 md:p-10 animate-fadeIn">
+    <div class="bg-white rounded-3xl shadow-lg border border-yellow-400 p-4 sm:p-6 md:p-10 animate-fadeIn">
       
       <!-- Event Image -->
       <div class="w-full mb-6">
@@ -29,20 +29,20 @@
         {% elif event.invitation_card.preview_image %}
           <img src="{{ event.invitation_card.preview_image.url }}" alt="{{ event.title }} Invitation" class="w-full h-48 sm:h-64 md:h-72 object-cover rounded-2xl shadow-md">
         {% else %}
-          <div class="w-full h-48 sm:h-64 md:h-72 bg-[#E6B7C2]/30 rounded-2xl flex items-center justify-center text-[#1E3A8A]">
+          <div class="w-full h-48 sm:h-64 md:h-72 bg-yellow-400/30 rounded-2xl flex items-center justify-center text-pink-700">
             <i data-lucide="image-off" class="w-10 sm:w-12 h-10 sm:h-12"></i>
           </div>
         {% endif %}
       </div>
       
       <!-- Event Description -->
-      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-[#1E3A8A] mb-4">{{ event.title }}</h2>
-      <p class="text-gray-700 text-sm sm:text-base md:text-lg mb-6">{{ event.description|default:"No description available." }}</p>
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-pink-700 mb-4">{{ event.title }}</h2>
+      <p class="text-gray-800 text-sm sm:text-base md:text-lg mb-6">{{ event.description|default:"No description available." }}</p>
       
       <!-- Grid Info -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
         <div class="animate-fadeUp">
-          <p class="text-[#D4AF37] text-sm sm:text-base font-semibold mb-2">
+          <p class="text-yellow-400 text-sm sm:text-base font-semibold mb-2">
             <i data-lucide="calendar" class="inline-block w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
             {% trans "Event Date" %}
           </p>
@@ -50,7 +50,7 @@
         </div>
         
         <div class="animate-fadeUp delay-100">
-          <p class="text-[#D4AF37] text-sm sm:text-base font-semibold mb-2">
+          <p class="text-yellow-400 text-sm sm:text-base font-semibold mb-2">
             <i data-lucide="tag" class="inline-block w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
             {% trans "Event Type" %}
           </p>
@@ -58,7 +58,7 @@
         </div>
         
         <div class="animate-fadeUp delay-200">
-          <p class="text-[#D4AF37] text-sm sm:text-base font-semibold mb-2">
+          <p class="text-yellow-400 text-sm sm:text-base font-semibold mb-2">
             <i data-lucide="check-circle" class="inline-block w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
             {% trans "Status" %}
           </p>
@@ -66,7 +66,7 @@
         </div>
         
         <div class="animate-fadeUp delay-300">
-          <p class="text-[#D4AF37] text-sm sm:text-base font-semibold mb-2">
+          <p class="text-yellow-400 text-sm sm:text-base font-semibold mb-2">
             <i data-lucide="map-pin" class="inline-block w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
             {% trans "Location" %}
           </p>
@@ -74,7 +74,7 @@
         </div>
         
         <div class="animate-fadeUp delay-400">
-          <p class="text-[#D4AF37] text-sm sm:text-base font-semibold mb-2">
+          <p class="text-yellow-400 text-sm sm:text-base font-semibold mb-2">
             <i data-lucide="users" class="inline-block w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
             {% trans "Expected Guests" %}
           </p>
@@ -82,7 +82,7 @@
         </div>
         
         <div class="animate-fadeUp delay-500">
-          <p class="text-[#D4AF37] text-sm sm:text-base font-semibold mb-2">
+          <p class="text-yellow-400 text-sm sm:text-base font-semibold mb-2">
             <i data-lucide="dollar-sign" class="inline-block w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
             {% trans "Budget (€)" %}
           </p>
@@ -90,7 +90,7 @@
         </div>
         
         <div class="animate-fadeUp delay-600">
-          <p class="text-[#D4AF37] text-sm sm:text-base font-semibold mb-2">
+          <p class="text-yellow-400 text-sm sm:text-base font-semibold mb-2">
             <i data-lucide="mail" class="inline-block w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
             {% trans "Invitation Card" %}
           </p>
@@ -98,7 +98,7 @@
         </div>
         
         <div class="animate-fadeUp delay-700">
-          <p class="text-[#D4AF37] text-sm sm:text-base font-semibold mb-2">
+          <p class="text-yellow-400 text-sm sm:text-base font-semibold mb-2">
             <i data-lucide="user" class="inline-block w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
             {% trans "Organizer" %}
           </p>
@@ -109,10 +109,10 @@
       <!-- Event Services -->
       {% if event.event_services.exists %}
           <div class="mt-6 sm:mt-8 md:mt-10 animate-fadeUp delay-800">
-              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-[#1E3A8A] mb-4">{% trans "Selected Services" %}</h3>
+              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-pink-700 mb-4">{% trans "Selected Services" %}</h3>
               <ul class="space-y-2">
                   {% for event_service in event.event_services.all %}
-                      <li class="text-gray-700 text-sm sm:text-base">
+                      <li class="text-gray-800 text-sm sm:text-base">
                           <span class="font-medium">{{ event_service.service.name }}</span>
                           (Quantity: {{ event_service.quantity }})
                           {% if event_service.notes %}
@@ -127,38 +127,38 @@
       <!-- Available Services -->
       {% if available_services %}
           <div class="mt-6 sm:mt-8 md:mt-10 animate-fadeUp delay-900">
-              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-[#1E3A8A] mb-4">{% trans "Add Services" %}</h3>
+              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-pink-700 mb-4">{% trans "Add Services" %}</h3>
               <form method="post" action="{% url 'add_event_service' event_id=event.id %}" class="space-y-4">
                   {% csrf_token %}
                   <div>
-                      <label for="service" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
+                      <label for="service" class="block text-sm sm:text-base md:text-lg font-medium text-pink-700 mb-2">
                           {% trans "Select Service" %}
                       </label>
-                      <select name="service" id="service" class="w-full rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-white/70 border border-[#1E3A8A]/40 text-gray-800 text-sm sm:text-base
-                              focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37] transition">
+                      <select name="service" id="service" class="w-full rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-white/70 border border-pink-700/40 text-gray-800 text-sm sm:text-base
+                              focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400 transition">
                           {% for service in available_services %}
                               <option value="{{ service.id }}">{{ service.name }}</option>
                           {% endfor %}
                       </select>
                   </div>
                   <div>
-                      <label for="quantity" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
+                      <label for="quantity" class="block text-sm sm:text-base md:text-lg font-medium text-pink-700 mb-2">
                           {% trans "Quantity" %}
                       </label>
                       <input type="number" name="quantity" id="quantity" min="1" value="1" 
-                             class="w-full rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-white/70 border border-[#1E3A8A]/40 text-gray-800 text-sm sm:text-base
-                                    focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37] transition">
+                             class="w-full rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-white/70 border border-pink-700/40 text-gray-800 text-sm sm:text-base
+                                    focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400 transition">
                   </div>
                   <div>
-                      <label for="notes" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
+                      <label for="notes" class="block text-sm sm:text-base md:text-lg font-medium text-pink-700 mb-2">
                           {% trans "Notes" %}
                       </label>
                       <textarea name="notes" id="notes" rows="3" 
-                                class="w-full rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-white/70 border border-[#1E3A8A]/40 text-gray-800 text-sm sm:text-base
-                                       placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37] transition"></textarea>
+                                class="w-full rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-white/70 border border-pink-700/40 text-gray-800 text-sm sm:text-base
+                                       placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400 transition"></textarea>
                   </div>
                   <button type="submit" 
-                          class="px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#1E3A8A] to-[#D4AF37] text-white font-bold text-sm sm:text-base hover:scale-105 transform transition duration-300">
+                          class="px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-pink-700 to-yellow-400 text-white font-bold text-sm sm:text-base hover:scale-105 transform transition duration-300">
                       {% trans "Add Service" %}
                   </button>
               </form>
@@ -168,16 +168,16 @@
       <!-- Invitation Card Selection -->
       {% if invitation_cards %}
           <div class="mt-6 sm:mt-8 md:mt-10 animate-fadeUp delay-1000">
-              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-[#1E3A8A] mb-4">{% trans "Update Invitation Card" %}</h3>
+              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-pink-700 mb-4">{% trans "Update Invitation Card" %}</h3>
               <form method="post" action="{% url 'update_event_invitation' event_id=event.id %}" class="space-y-4">
                   {% csrf_token %}
                   <div>
-                      <label for="invitation_card" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
+                      <label for="invitation_card" class="block text-sm sm:text-base md:text-lg font-medium text-pink-700 mb-2">
                           {% trans "Select Invitation Card" %}
                       </label>
                       <select name="invitation_card" id="invitation_card" 
-                              class="w-full rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-white/70 border border-[#1E3A8A]/40 text-gray-800 text-sm sm:text-base
-                                     focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/50 focus:border-[#D4AF37] transition">
+                              class="w-full rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-white/70 border border-pink-700/40 text-gray-800 text-sm sm:text-base
+                                     focus:outline-none focus:ring-4 focus:ring-yellow-400/50 focus:border-yellow-400 transition">
                           <option value="">{% trans "No invitation card" %}</option>
                           {% for card in invitation_cards %}
                               <option value="{{ card.id }}" {% if event.invitation_card.id == card.id %}selected{% endif %}>
@@ -187,7 +187,7 @@
                       </select>
                   </div>
                   <button type="submit" 
-                          class="px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#1E3A8A] to-[#D4AF37] text-white font-bold text-sm sm:text-base hover:scale-105 transform transition duration-300">
+                          class="px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-pink-700 to-yellow-400 text-white font-bold text-sm sm:text-base hover:scale-105 transform transition duration-300">
                       {% trans "Update Invitation" %}
                   </button>
               </form>
@@ -197,12 +197,12 @@
       {% if user.is_authenticated %}
           <div class="flex flex-col sm:flex-row justify-end space-y-4 sm:space-y-0 sm:space-x-4 mt-6 sm:mt-8 md:mt-10 animate-fadeUp delay-1100">
               <a href="{% url 'dashboard' %}" 
-                 class="w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-3 rounded-lg bg-[#E6B7C2] text-[#1E3A8A] font-semibold text-sm sm:text-base hover:bg-[#D4AF37]/30 transition transform hover:scale-105">
+                 class="w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-3 rounded-lg bg-yellow-400 text-pink-700 font-semibold text-sm sm:text-base hover:bg-pink-200 transition transform hover:scale-105">
                   <i data-lucide="arrow-left" class="w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
                   {% trans "Back to Dashboard" %}
               </a>
               <a href="{% url 'send_event_details' event.id %}" 
-                 class="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#1E3A8A] to-[#D4AF37] text-white font-bold text-sm sm:text-base hover:scale-105 transform transition duration-300">
+                 class="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-pink-700 to-yellow-400 text-white font-bold text-sm sm:text-base hover:text-yellow-400 hover:scale-105 transform transition duration-300">
                   <i data-lucide="send" class="w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2"></i>
                   {% trans "Envoyer à l'agence" %}
               </a>

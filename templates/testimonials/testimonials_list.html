@@ -9,10 +9,10 @@
 <section class="py-20 bg-gradient-to-br from-[#FAF3E0] via-pink-200 to-[#FAF3E0]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center transform transition-all duration-700 scale-95 opacity-0 animate-fadeInUp">
         <h1 class="text-5xl md:text-6xl font-bold mb-6">
-            <span class="text-pink-700">CLIENT</span>
-            <span class="text-gray-900">TESTIMONIALS</span>
+            <span class="text-pink-700">{% trans "CLIENT" %}</span>
+            <span class="text-yellow-400">{% trans "TESTIMONIALS" %}</span>
         </h1>
-        <p class="text-xl text-gray-700 max-w-2xl mx-auto mb-8">
+        <p class="text-xl text-gray-800 max-w-2xl mx-auto mb-8">
             {% trans "Hear what our clients have to say about their amazing experiences with us" %}
         </p>
         {% if user.is_authenticated %}
@@ -26,7 +26,7 @@
 </section>
 
 <!-- Testimonials Grid -->
-<section class="py-20 bg-[#FAF3E0]">
+<section class="py-20 bg-pink-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {% if page_obj %}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fadeInUp delay-200">
@@ -40,17 +40,17 @@
                                      class="w-10 sm:w-12 h-10 sm:h-12 rounded-full object-cover mr-3 sm:mr-4 border-2 border-pink-300">
                             {% else %}
                                 <div class="w-10 sm:w-12 h-10 sm:h-12 bg-pink-300 rounded-full flex items-center justify-center mr-3 sm:mr-4">
-                                    <span class="text-gray-900 font-semibold text-sm sm:text-base">{{ testimonial.user.first_name.0|upper }}</span>
+                                    <span class="text-pink-700 font-semibold text-sm sm:text-base">{{ testimonial.user.first_name.0|upper }}</span>
                                 </div>
                             {% endif %}
                             <div>
-                                <h4 class="font-semibold text-gray-900 text-sm sm:text-base">
+                                <h4 class="font-semibold text-pink-700 text-sm sm:text-base">
                                     {{ testimonial.user.first_name }} {{ testimonial.user.last_name }}
                                 </h4>
                                 <div class="flex text-pink-700">
                                     {% for i in testimonial.star_range %}
                                         {% if i <= testimonial.rating %}
-                                            <i data-lucide="star" class="w-3 sm:w-4 h-3 sm:h-4 fill-[#FAF3E0]"></i>
+                                            <i data-lucide="star" class="w-3 sm:w-4 h-3 sm:h-4 fill-yellow-400"></i>
                                         {% else %}
                                             <i data-lucide="star" class="w-3 sm:w-4 h-3 sm:h-4"></i>
                                         {% endif %}
@@ -60,12 +60,12 @@
                         </div>
                         
                         <!-- Testimonial Content -->
-                        <h5 class="text-lg font-semibold text-gray-900 mb-2 sm:mb-3">{{ testimonial.title }}</h5>
-                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">{{ testimonial.content }}</p>
+                        <h5 class="text-lg font-semibold text-pink-700 mb-2 sm:mb-3">{{ testimonial.title }}</h5>
+                        <p class="text-gray-800 leading-relaxed text-sm sm:text-base">{{ testimonial.content }}</p>
                         
                         <!-- Date -->
                         <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-pink-200">
-                            <p class="text-sm text-gray-600">{{ testimonial.created_at|date:"F d, Y" }}</p>
+                            <p class="text-sm text-gray-800">{{ testimonial.created_at|date:"F d, Y" }}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -77,7 +77,7 @@
                     <nav class="flex space-x-2 sm:space-x-3">
                         {% if page_obj.has_previous %}
                             <a href="?page={{ page_obj.previous_page_number}}" 
-                               class="px-3 sm:px-4 py-1 sm:py-2 bg-pink-100 text-gray-900 rounded-lg hover:bg-pink-200 transition">
+                               class="px-3 sm:px-4 py-1 sm:py-2 bg-pink-100 text-pink-700 rounded-lg hover:bg-pink-200 transition">
                                 {% trans "Previous" %}
                             </a>
                         {% endif %}
@@ -89,7 +89,7 @@
                                 </span>
                             {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
                                 <a href="?page={{ num }}" 
-                                   class="px-3 sm:px-4 py-1 sm:py-2 bg-pink-100 text-gray-900 rounded-lg hover:bg-pink-200 transition">
+                                   class="px-3 sm:px-4 py-1 sm:py-2 bg-pink-100 text-pink-700 rounded-lg hover:bg-pink-200 transition">
                                     {{ num }}
                                 </a>
                             {% endif %}
@@ -97,7 +97,7 @@
                         
                         {% if page_obj.has_next %}
                             <a href="?page={{ page_obj.next_page_number }}" 
-                               class="px-3 sm:px-4 py-1 sm:py-2 bg-pink-100 text-gray-900 rounded-lg hover:bg-pink-200 transition">
+                               class="px-3 sm:px-4 py-1 sm:py-2 bg-pink-100 text-pink-700 rounded-lg hover:bg-pink-200 transition">
                                 {% trans "Next" %}
                             </a>
                         {% endif %}
@@ -106,9 +106,9 @@
             {% endif %}
         {% else %}
             <div class="text-center py-12 sm:py-20 animate-fadeInUp delay-200">
-                <i data-lucide="message-circle" class="w-16 sm:w-24 h-16 sm:h-24 text-gray-700 mx-auto mb-4 sm:mb-6"></i>
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-700 mb-2 sm:mb-4">{% trans "No testimonials yet" %}</h3>
-                <p class="text-gray-700 mb-4 sm:mb-8 text-sm sm:text-base">{% trans "Be the first to share your experience" %}</p>
+                <i data-lucide="message-circle" class="w-16 sm:w-24 h-16 sm:h-24 text-pink-700 mx-auto mb-4 sm:mb-6"></i>
+                <h3 class="text-xl sm:text-2xl font-bold text-pink-700 mb-2 sm:mb-4">{% trans "No testimonials yet" %}</h3>
+                <p class="text-gray-800 mb-4 sm:mb-8 text-sm sm:text-base">{% trans "Be the first to share your experience" %}</p>
                 {% if user.is_authenticated %}
                     <a href="{% url 'add_testimonial' %}" 
                        class="inline-flex items-center bg-pink-700 hover:bg-pink-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg transition animate-pulse">

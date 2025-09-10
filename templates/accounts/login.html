@@ -10,63 +10,64 @@
 
         <!-- Header -->
         <div class="text-center">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1E3A8A] mb-4 sm:mb-6 animate-fadeInUp delay-100">
-                {% trans "Welcome Back" %}
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 sm:mb-6 animate-fadeInUp delay-100">
+                <span class="text-pink-700">{% trans "Welcome" %}</span>
+                <span class="text-yellow-400">{% trans "Back" %}</span>
             </h2>
-            <p class="text-gray-700 text-sm sm:text-base md:text-lg animate-fadeInUp delay-200">
+            <p class="text-gray-800 text-sm sm:text-base md:text-lg animate-fadeInUp delay-200">
                 {% trans "Sign in to your account to continue planning" %}
             </p>
         </div>
 
         <!-- Form Card -->
-        <div class="bg-white rounded-3xl border border-[#D4AF37]/40 shadow-lg p-6 sm:p-8 md:p-10 animate-fadeInUp delay-300">
+        <div class="bg-pink-100 rounded-3xl border border-pink-200 shadow-lg p-6 sm:p-8 md:p-10 animate-fadeInUp delay-300">
             <form method="post" class="space-y-6">
 
                 {% csrf_token %}
                 
                 <!-- Email -->
                 <div class="animate-fadeInUp delay-400">
-                    <label for="{{ form.email.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
+                    <label for="{{ form.email.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-gray-800 mb-2">
                         {% trans "Email Address" %}
                     </label>
                     <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}"
-                           class="w-full bg-white text-gray-800 border border-[#D4AF37]/40 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#E6B7C2] transition"
+                           class="w-full bg-pink-50 text-gray-900 border border-pink-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-700 transition"
                            value="{{ form.email.value|default_if_none:'' }}" required>
                     {% if form.email.errors %}
-                        <p class="text-[#D4AF37] text-sm mt-1">{{ form.email.errors.0 }}</p>
+                        <p class="text-pink-700 text-sm mt-1">{{ form.email.errors.0 }}</p>
                     {% endif %}
                 </div>
                 
                 <!-- Password -->
                 <div class="animate-fadeInUp delay-500">
-                    <label for="{{ form.password.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-[#1E3A8A] mb-2">
+                    <label for="{{ form.password.id_for_label }}" class="block text-sm sm:text-base md:text-lg font-medium text-gray-800 mb-2">
                         {% trans "Password" %}
                     </label>
                     <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}"
-                           class="w-full bg-white text-gray-800 border border-[#D4AF37]/40 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#E6B7C2] transition"
+                           class="w-full bg-pink-50 text-gray-900 border border-pink-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-700 transition"
                            required>
                     {% if form.password.errors %}
-                        <p class="text-[#D4AF37] text-sm mt-1">{{ form.password.errors.0 }}</p>
+                        <p class="text-pink-700 text-sm mt-1">{{ form.password.errors.0 }}</p>
                     {% endif %}
                 </div>
                 
                 {% if form.non_field_errors %}
-                    <div class="text-[#D4AF37] text-sm animate-fadeInUp delay-600">
+                    <div class="text-pink-700 text-sm animate-fadeInUp delay-600">
                         {{ form.non_field_errors.0 }}
                     </div>
                 {% endif %}
                 
                 <!-- Submit Button -->
-                <button type="submit" class="w-full bg-gradient-to-r from-[#1E3A8A] to-[#D4AF37] text-white px-4 py-3 rounded-xl font-bold hover:scale-105 hover:shadow-lg transition-all duration-300 animate-fadeInUp delay-700">
+                <button type="submit" class="w-full bg-pink-700 hover:bg-pink-800 text-white px-4 py-3 rounded-xl font-bold hover:scale-105 hover:shadow-lg transition-all duration-300 animate-fadeInUp delay-700">
                     {% trans "Sign In" %}
                 </button>
             </form>
             
             <!-- Signup Link -->
             <div class="mt-6 text-center animate-fadeInUp delay-800">
-                <p class="text-gray-700 text-sm sm:text-base">
+                <p class="text-gray-800 text-sm sm:text-base">
                     {% trans "Don't have an account?" %}
-                    <a href="{% url 'register' %}" class="text-[#1E3A8A] hover:text-[#D4AF37] font-medium transition">
+                    <a href="{% url 'register' %}" class="text-pink-700 hover:text-pink-800 font-medium transition">
                         {% trans "Sign up" %}
                     </a>
                 </p>
