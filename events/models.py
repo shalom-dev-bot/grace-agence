@@ -85,3 +85,33 @@ class EventVideo(models.Model):
     class Meta:
         verbose_name = _("Event Video")
         verbose_name_plural = _("Event Videos")
+
+class Contact(models.Model):
+    """Model for storing contact messages with dynamic follow-up options."""
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='contact_messages')
+    event = models.ForeignKey(Event, on_delete=models.SET_NULL, blank=True, null=True, related_name='contact_messages')
+    name = models.CharField(max_length=100, verbose_name=_("Name"))
+    email = models.EmailField(verbose_name=_("Email"))
+    subject = models.CharField(max_length=200, verbose_name=_("Subject"))
+    message = models.TextField(verbose_name=_("Message"))
+    status = models.CharField(
+        max_length=20,
+        choices=[
+            ('new', _('New')),
+            ('in_progress', _('In Progress')),
+            ('responded', _('Responded')),
+            ('closed', _('Closed')),
+        ],
+        default='new',
+        verbose_name=_("Status")
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created At"))
+    responded_at = models.DateTimeField(blank=True, null=True, verbose_name=_("Responded At"))
+
+    def __str__(self):
+        return f"{self.name} - {self.subject} ({self.get_status_display()})"
+
+    class Meta:
+        verbose_name = _("Contact")
+        verbose_name_plural = _("Contacts")
+        ordering = ['-created_at']
