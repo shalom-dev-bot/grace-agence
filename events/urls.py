@@ -11,4 +11,5 @@ urlpatterns = [
     path('event/<int:event_id>/update-invitation/', views.update_event_invitation_view, name='update_event_invitation'),
     path('event/<int:event_id>/send/', views.send_event_details, name='send_event_details'),
     path('success/', views.success, name='success_page'),
+    path('contact/', views.contact_view, name='contact'),  # Ajout de la route pour la page Contact
 ]
