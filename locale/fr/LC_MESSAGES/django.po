@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Glow Gracious Events 1.0\n"
-"Report-Msgid-Bugs-To: shalomdev316@gmail.com\n"
-"POT-Creation-Date: 2025-09-07 12:40-0700\n"
-"PO-Revision-Date: 2025-09-07 21:13+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-11 22:27+0000\n"
+"PO-Revision-Date: 2025-09-11 23:00+0100\n"  # Mis à jour avec la date actuelle
 "Last-Translator: Shalom Dev <shalomdev316@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr\n"
@@ -28,6 +28,14 @@ msgstr "Bon retour !"
 #: accounts/views.py:48
 msgid "Profile updated successfully!"
 msgstr "Profil mis à jour avec succès !"
+
+#: events/admin.py:57
+msgid "Mark as Responded"
+msgstr "Marquer comme Répondu"
+
+#: events/admin.py:63
+msgid "Mark as Closed"
+msgstr "Marquer comme Clôturé"
 
 #: events/models.py:17
 msgid "Classic"
@@ -53,7 +61,7 @@ msgstr "Planification"
 msgid "Confirmed"
 msgstr "Confirmé"
 
-#: events/models.py:37 templates/events/dashboard.html:46
+#: events/models.py:37 templates/events/dashboard.html:44
 msgid "Completed"
 msgstr "Terminé"
 
@@ -61,64 +69,187 @@ msgstr "Terminé"
 msgid "Cancelled"
 msgstr "Annulé"
 
-#: events/views.py:62
+#: events/models.py:75
+#, fuzzy
+#| msgid "Create Event"
+msgid "Related Event"
+msgstr "Créer un événement"
+
+#: events/models.py:76
+#, fuzzy
+#| msgid "Event Title"
+msgid "Video Title"
+msgstr "Titre de l'événement"
+
+#: events/models.py:77
+msgid "Video File"
+msgstr "Fichier Vidéo"
+
+#: events/models.py:78 templates/events/create_event.html:45
+#: templates/services/service_detail.html:19
+msgid "Description"
+msgstr "Description"
+
+#: events/models.py:79
+msgid "Uploaded At"
+msgstr "Téléversé le"
+
+#: events/models.py:80
+#, fuzzy
+#| msgid "Featured Services"
+msgid "Featured"
+msgstr "Services en vedette"
+
+#: events/models.py:86
+#, fuzzy
+#| msgid "Event Title"
+msgid "Event Video"
+msgstr "Titre de l'événement"
+
+#: events/models.py:87
+#, fuzzy
+#| msgid "Event Title"
+msgid "Event Videos"
+msgstr "Titre de l'événement"
+
+#: events/models.py:93
+#, fuzzy
+#| msgid "Last Name"
+msgid "Name"
+msgstr "Nom de famille"
+
+#: events/models.py:94 templates/events/send_choice.html:34
+msgid "Email"
+msgstr "E-mail"
+
+#: events/models.py:95 templates/events/contact.html:36
+#, fuzzy
+#| msgid "A JSON object"
+msgid "Subject"
+msgstr "Un objet JSON"
+
+#: events/models.py:96 templates/events/contact.html:40
+#, fuzzy
+#| msgid "Messages"
+msgid "Message"
+msgstr "Messages"
+
+#: events/models.py:100
+msgid "New"
+msgstr "Nouveau"
+
+#: events/models.py:101
+msgid "In Progress"
+msgstr "En cours"
+
+#: events/models.py:102
+msgid "Responded"
+msgstr "Répondu"
+
+#: events/models.py:103
+msgid "Closed"
+msgstr "Clôturé"
+
+#: events/models.py:106 templates/events/event_detail.html:63
+#: templates/services/service_detail.html:21
+msgid "Status"
+msgstr "Statut"
+
+#: events/models.py:108
+#, fuzzy
+#| msgid "Create Account"
+msgid "Created At"
+msgstr "Créer un compte"
+
+#: events/models.py:109
+msgid "Responded At"
+msgstr "Répondu le"
+
+#: events/models.py:115 templates/base.html:79 templates/base.html:163
+#: templates/base.html:242 templates/base.html:246
+msgid "Contact"
+msgstr "Contactez-nous"  # Mis à jour pour être plus explicite
+
+#: events/models.py:116
+#, fuzzy
+#| msgid "Contact"
+msgid "Contacts"
+msgstr "Contact"
+
+#: events/views.py:65
 msgid "Event created successfully!"
 msgstr "Événement créé avec succès !"
 
-#: events/views.py:65
+#: events/views.py:68 events/views.py:216
 msgid "Please fill in all required fields."
 msgstr "Veuillez remplir tous les champs obligatoires."
 
-#: events/views.py:104
+#: events/views.py:107
 msgid "Service added successfully!"
 msgstr "Service ajouté avec succès !"
 
-#: events/views.py:106
+#: events/views.py:109
 msgid "Please select a service and specify a quantity."
 msgstr "Veuillez sélectionner un service et spécifier une quantité."
 
-#: events/views.py:120
+#: events/views.py:123
 msgid "Invitation card updated successfully!"
 msgstr "Carte d'invitation mise à jour avec succès !"
 
-#: events/views.py:164 templates/events/success.html:6
+#: events/views.py:167 templates/events/success.html:10
 msgid "Détails envoyés avec succès !"
 msgstr "Détails envoyés avec succès !"
 
-#: events/views.py:170
+#: events/views.py:173
 msgid "Choix invalide."
 msgstr "Choix invalide."
 
-#: events/views.py:175
+#: events/views.py:178
 msgid "Événement non trouvé ou accès non autorisé."
 msgstr "Événement non trouvé ou accès non autorisé."
 
-#: templates/accounts/login.html:5 templates/accounts/login.html:46
-#: templates/base.html:110 templates/base.html:139
+#: events/views.py:213
+msgid "Your message has been sent successfully! Thank you for reaching out."
+msgstr "Votre message a été envoyé avec succès ! Merci de nous avoir contactés."
+
+#: events/views.py:218 templates/events/contact.html:11
+#, fuzzy
+#| msgid "Contact"
+msgid "Contact Us"
+msgstr "Contact"
+
+#: templates/accounts/login.html:5 templates/accounts/login.html:62
+#: templates/base.html:130 templates/base.html:173
 msgid "Sign In"
 msgstr "Se connecter"
 
-#: templates/accounts/login.html:11
-msgid "Welcome Back"
+#: templates/accounts/login.html:14
+#, fuzzy
+#| msgid "Welcome Back"
+msgid "Welcome"
 msgstr "Bon retour"
 
-#: templates/accounts/login.html:12
+#: templates/accounts/login.html:15
+msgid "Back"
+msgstr "Retour"
+
+#: templates/accounts/login.html:18
 msgid "Sign in to your account to continue planning"
 msgstr "Connectez-vous à votre compte pour continuer la planification"
 
-#: templates/accounts/login.html:21 templates/accounts/register.html:43
+#: templates/accounts/login.html:31 templates/accounts/register.html:56
 msgid "Email Address"
 msgstr "Adresse e-mail"
 
-#: templates/accounts/login.html:31 templates/accounts/register.html:63
+#: templates/accounts/login.html:44 templates/accounts/register.html:80
 msgid "Password"
 msgstr "Mot de passe"
 
-#: templates/accounts/login.html:52
+#: templates/accounts/login.html:69
 msgid "Don't have an account?"
 msgstr "Vous n'avez pas de compte ?"
 
-#: templates/accounts/login.html:54
+#: templates/accounts/login.html:71
 msgid "Sign up"
 msgstr "S'inscrire"
 
@@ -134,218 +265,261 @@ msgstr "Merci d'avoir visité Glow Gracious Events."
 msgid "Return to Home"
 msgstr "Retour à l'accueil"
 
-#: templates/accounts/profile.html:5 templates/base.html:98
-#: templates/base.html:133
+#: templates/accounts/profile.html:5 templates/base.html:116
+#: templates/base.html:166
 msgid "Profile"
 msgstr "Profil"
 
-#: templates/accounts/profile.html:23
+#: templates/accounts/profile.html:24
 msgid "Member since"
 msgstr "Membre depuis"
 
-#: templates/accounts/profile.html:30 templates/accounts/profile.html:79
+#: templates/accounts/profile.html:31 templates/accounts/profile.html:111
 msgid "Update Profile"
 msgstr "Mettre à jour le profil"
 
-#: templates/accounts/profile.html:38 templates/accounts/register.html:23
+#: templates/accounts/profile.html:39 templates/accounts/register.html:32
 msgid "First Name"
 msgstr "Prénom"
 
-#: templates/accounts/profile.html:45 templates/accounts/register.html:32
+#: templates/accounts/profile.html:51 templates/accounts/register.html:43
 msgid "Last Name"
 msgstr "Nom de famille"
 
-#: templates/accounts/profile.html:53
+#: templates/accounts/profile.html:64
 msgid "Profile Picture"
 msgstr "Photo de profil"
 
-#: templates/accounts/profile.html:61
+#: templates/accounts/profile.html:77
 msgid "Theme Preference"
 msgstr "Préférence de thème"
 
-#: templates/accounts/profile.html:68
+#: templates/accounts/profile.html:92
 msgid "Language"
 msgstr "Langue"
 
-#: templates/accounts/profile.html:76
+#: templates/accounts/profile.html:108 templates/events/create_event.html:133
 msgid "Cancel"
 msgstr "Annuler"
 
-#: templates/accounts/register.html:6 templates/base.html:111
-#: templates/base.html:140
+#: templates/accounts/register.html:6 templates/base.html:138
+#: templates/base.html:176
 msgid "Sign Up"
 msgstr "S'inscrire"
 
-#: templates/accounts/register.html:12
-msgid "Join GGE"
+#: templates/accounts/register.html:15
+#, fuzzy
+#| msgid "Join GGE"
+msgid "Join"
 msgstr "Rejoignez GGE"
 
-#: templates/accounts/register.html:13
-msgid "Create your account to start planning amazing events"
-msgstr "Créez votre compte pour commencer à planifier des événements extraordinaires"
+#: templates/accounts/register.html:16
+msgid "GGE"
+msgstr "GGE"
 
-#: templates/accounts/register.html:53
+#: templates/accounts/register.html:19
+msgid "Create your account to start planning amazing events"
+msgstr ""
+"Créez votre compte pour commencer à planifier des événements extraordinaires"
+
+#: templates/accounts/register.html:68
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: templates/accounts/register.html:73
+#: templates/accounts/register.html:92
 msgid "Confirm Password"
 msgstr "Confirmer le mot de passe"
 
-#: templates/accounts/register.html:82
+#: templates/accounts/register.html:103
 msgid "Create Account"
 msgstr "Créer un compte"
 
-#: templates/accounts/register.html:88
+#: templates/accounts/register.html:109
 msgid "Already have an account?"
 msgstr "Vous avez déjà un compte ?"
 
-#: templates/accounts/register.html:90
+#: templates/accounts/register.html:111
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: templates/base.html:49 templates/base.html:127 templates/base.html:204
+#: templates/base.html:75 templates/base.html:159 templates/base.html:238
 #: templates/events/home.html:5
 msgid "Home"
 msgstr "Accueil"
 
-#: templates/base.html:50 templates/base.html:128 templates/base.html:205
+#: templates/base.html:76 templates/base.html:160 templates/base.html:239
 #: templates/events/gallery.html:5
 msgid "Gallery"
 msgstr "Galerie"
 
-#: templates/base.html:51 templates/base.html:129 templates/base.html:206
+#: templates/base.html:77 templates/base.html:161 templates/base.html:240
 msgid "Services"
 msgstr "Services"
 
-#: templates/base.html:52 templates/base.html:130 templates/base.html:207
+#: templates/base.html:78 templates/base.html:162 templates/base.html:241
 #: templates/testimonials/testimonials_list.html:5
 msgid "Testimonials"
 msgstr "Témoignages"
 
-#: templates/base.html:54 templates/base.html:99 templates/base.html:132
+#: templates/base.html:117 templates/base.html:165
 #: templates/events/dashboard.html:5
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: templates/base.html:103 templates/base.html:136
+#: templates/base.html:121 templates/base.html:169
 msgid "Logout"
 msgstr "Se déconnecter"
 
-#: templates/base.html:158
-msgid "Toggle Theme"
-msgstr "Changer de thème"
-
-#: templates/base.html:188
+#: templates/base.html:221
 msgid ""
 "Creating unforgettable moments with professional event management and "
 "personalized experiences."
 msgstr ""
-"Créer des moments inoubliables avec une gestion d'événements professionnelle et des expériences personnalisées."
+"Créer des moments inoubliables avec une gestion d'événements professionnelle "
+"et des expériences personnalisées."
 
-#: templates/base.html:202
+#: templates/base.html:236
 msgid "Quick Links"
 msgstr "Liens rapides"
 
-#: templates/base.html:211
-msgid "Contact"
-msgstr "Contact"
-
-#: templates/base.html:225
+#: templates/base.html:260
 msgid "All rights reserved."
 msgstr "Tous droits réservés."
 
-#: templates/events/create_event.html:6 templates/events/create_event.html:63
-#: templates/events/dashboard.html:133 templates/events/home.html:28
+#: templates/events/contact.html:14
+msgid ""
+"We’d love to hear from you! Reach out with any questions or to start "
+"planning your event."
+msgstr ""
+"Nous serions ravis de vous entendre ! Contactez-nous pour toute question ou "
+"pour commencer à planifier votre événement."
+
+#: templates/events/contact.html:28
+#, fuzzy
+#| msgid "First Name"
+msgid "Your Name"
+msgstr "Prénom"
+
+#: templates/events/contact.html:32
+#, fuzzy
+#| msgid "Email"
+msgid "Your Email"
+msgstr "E-mail"
+
+#: templates/events/contact.html:36
+#, fuzzy
+#| msgid "A JSON object"
+msgid "Subject"
+msgstr "Un objet JSON"
+
+#: templates/events/contact.html:40
+#, fuzzy
+#| msgid "Messages"
+msgid "Message"
+msgstr "Messages"
+
+#: templates/events/contact.html:45
+msgid "Related Event (Optional)"
+msgstr "Événement Lié (Optionnel)"
+
+#: templates/events/contact.html:47
+#, fuzzy
+#| msgid "Select an event type"
+msgid "Select an event (optional)"
+msgstr "Sélectionnez un type d'événement"
+
+#: templates/events/contact.html:55
+#, fuzzy
+#| msgid "Messages"
+msgid "Send Message"
+msgstr "Messages"
+
+#: templates/events/create_event.html:6 templates/events/create_event.html:139
+#: templates/events/dashboard.html:131 templates/events/home.html:28
 msgid "Create Event"
 msgstr "Créer un événement"
 
-#: templates/events/create_event.html:12 templates/events/home.html:197
+#: templates/events/create_event.html:16 templates/events/home.html:232
 msgid "Create Your Event"
 msgstr "Créez votre événement"
 
-#: templates/events/create_event.html:15
+#: templates/events/create_event.html:19
 msgid "Plan your perfect event with us"
 msgstr "Planifiez votre événement parfait avec nous"
 
-#: templates/events/create_event.html:26
+#: templates/events/create_event.html:34
 msgid "Event Title"
 msgstr "Titre de l'événement"
 
-#: templates/events/create_event.html:30
-#: templates/services/service_detail.html:13
-msgid "Description"
-msgstr "Description"
-
-#: templates/events/create_event.html:34 templates/events/event_detail.html:48
+#: templates/events/create_event.html:56 templates/events/event_detail.html:55
 msgid "Event Type"
 msgstr "Type d'événement"
 
-#: templates/events/create_event.html:36
+#: templates/events/create_event.html:62
 msgid "Select an event type"
 msgstr "Sélectionnez un type d'événement"
 
-#: templates/events/create_event.html:43 templates/events/event_detail.html:41
+#: templates/events/create_event.html:72 templates/events/event_detail.html:47
 msgid "Event Date"
 msgstr "Date de l'événement"
 
-#: templates/events/create_event.html:47 templates/events/event_detail.html:62
+#: templates/events/create_event.html:83 templates/events/event_detail.html:71
 msgid "Location"
 msgstr "Lieu"
 
-#: templates/events/create_event.html:51
+#: templates/events/create_event.html:94
 msgid "Expected Guest Count"
 msgstr "Nombre d'invités attendu"
 
-#: templates/events/create_event.html:55 templates/events/event_detail.html:76
+#: templates/events/create_event.html:105 templates/events/event_detail.html:87
 msgid "Budget (€)"
 msgstr "Budget (€)"
 
-#: templates/events/create_event.html:59
+#: templates/events/create_event.html:116
 msgid "Event Image"
 msgstr "Image de l'événement"
 
-#: templates/events/dashboard.html:14
+#: templates/events/dashboard.html:13
 msgid "Welcome back,"
 msgstr "Bon retour,"
 
-#: templates/events/dashboard.html:16
+#: templates/events/dashboard.html:15
 msgid "Manage your events and create new memorable experiences"
 msgstr "Gérez vos événements et créez de nouvelles expériences mémorables"
 
-#: templates/events/dashboard.html:20
+#: templates/events/dashboard.html:19
 msgid "New Event"
 msgstr "Nouvel événement"
 
-#: templates/events/dashboard.html:34
+#: templates/events/dashboard.html:32
 msgid "Total Events"
 msgstr "Total des événements"
 
-#: templates/events/dashboard.html:58
+#: templates/events/dashboard.html:56
 msgid "Upcoming"
 msgstr "À venir"
 
-#: templates/events/dashboard.html:67
+#: templates/events/dashboard.html:65
 msgid "Recent Events"
 msgstr "Événements récents"
 
-#: templates/events/dashboard.html:69
+#: templates/events/dashboard.html:67
 msgid "View All"
 msgstr "Voir tout"
 
-#: templates/events/dashboard.html:102
+#: templates/events/dashboard.html:100
 msgid "guests"
 msgstr "invités"
 
-#: templates/events/dashboard.html:120 templates/events/event_detail.html:179
+#: templates/events/dashboard.html:118 templates/events/event_detail.html:207
 msgid "Envoyer à l'agence"
 msgstr "Envoyer à l'agence"
 
-#: templates/events/dashboard.html:130
+#: templates/events/dashboard.html:128
 msgid "No events yet"
 msgstr "Aucun événement pour le moment"
 
-#: templates/events/dashboard.html:131
+#: templates/events/dashboard.html:129
 msgid "Create your first event to get started"
 msgstr "Créez votre premier événement pour commencer"
 
@@ -353,126 +527,142 @@ msgstr "Créez votre premier événement pour commencer"
 msgid "Event Details"
 msgstr "Détails de l'événement"
 
-#: templates/events/event_detail.html:14
+#: templates/events/event_detail.html:15
 msgid "Explore the details of your event"
 msgstr "Découvrez les détails de votre événement"
 
-#: templates/events/event_detail.html:55
-#: templates/services/service_detail.html:15
-msgid "Status"
-msgstr "Statut"
-
-#: templates/events/event_detail.html:69
+#: templates/events/event_detail.html:79
 msgid "Expected Guests"
 msgstr "Invités attendus"
 
-#: templates/events/event_detail.html:83
+#: templates/events/event_detail.html:95
 msgid "Invitation Card"
 msgstr "Carte d'invitation"
 
-#: templates/events/event_detail.html:90
+#: templates/events/event_detail.html:103
 msgid "Organizer"
 msgstr "Organisateur"
 
-#: templates/events/event_detail.html:99
+#: templates/events/event_detail.html:112
 msgid "Selected Services"
 msgstr "Services sélectionnés"
 
-#: templates/events/event_detail.html:117
+#: templates/events/event_detail.html:130
 msgid "Add Services"
 msgstr "Ajouter des services"
 
-#: templates/events/event_detail.html:122
+#: templates/events/event_detail.html:135
 msgid "Select Service"
 msgstr "Sélectionner un service"
 
-#: templates/events/event_detail.html:132
+#: templates/events/event_detail.html:146
 msgid "Quantity"
 msgstr "Quantité"
 
-#: templates/events/event_detail.html:138
+#: templates/events/event_detail.html:154
 msgid "Notes"
 msgstr "Notes"
 
-#: templates/events/event_detail.html:140
-msgid "Any specific requirements..."
-msgstr "Exigences spécifiques..."
-
-#: templates/events/event_detail.html:142
+#: templates/events/event_detail.html:162
 msgid "Add Service"
 msgstr "Ajouter un service"
 
-#: templates/events/event_detail.html:150
+#: templates/events/event_detail.html:171
 msgid "Update Invitation Card"
 msgstr "Mettre à jour la carte d'invitation"
 
-#: templates/events/event_detail.html:155
+#: templates/events/event_detail.html:176
 msgid "Select Invitation Card"
 msgstr "Sélectionner une carte d'invitation"
 
-#: templates/events/event_detail.html:158
+#: templates/events/event_detail.html:181
 msgid "No invitation card"
 msgstr "Aucune carte d'invitation"
 
-#: templates/events/event_detail.html:166
+#: templates/events/event_detail.html:191
 msgid "Update Invitation"
 msgstr "Mettre à jour l'invitation"
 
-#: templates/events/event_detail.html:175
+#: templates/events/event_detail.html:202
 msgid "Back to Dashboard"
 msgstr "Retour au tableau de bord"
 
+#: templates/events/gallery.html:12
+#, fuzzy
+#| msgid "EVENTS"
+msgid "EVENT"
+msgstr "ÉVÉNEMENTS"
+
+#: templates/events/gallery.html:13
+msgid "GALLERY"
+msgstr "GALERIE"
+
 #: templates/events/gallery.html:16
+#, fuzzy
+#| msgid ""
+#| "Explore our portfolio of successful events and get inspired for your own "
+#| "celebration"
 msgid ""
 "Explore our portfolio of successful events and get inspired for your own "
-"celebration"
+"celebration. Professional, modern, and stylish event planning highlights."
 msgstr ""
-"Découvrez notre portfolio d'événements réussis et laissez-vous inspirer pour votre propre célébration"
+"Découvrez notre portfolio d'événements réussis et laissez-vous inspirer pour "
+"votre propre célébration"
 
 #: templates/events/gallery.html:36
 msgid "No Image Available"
 msgstr "Aucune image disponible"
 
-#: templates/events/gallery.html:83
-#: templates/testimonials/testimonials_list.html:80
+#: templates/events/gallery.html:57
+#, fuzzy
+#| msgid "Plan your perfect event with us"
+msgid "Inspire your next event with elegance."
+msgstr "Planifiez votre événement parfait avec nous"
+
+#: templates/events/gallery.html:85
+#: templates/testimonials/testimonials_list.html:81
 msgid "Previous"
 msgstr "Précédent"
 
-#: templates/events/gallery.html:103
-#: templates/testimonials/testimonials_list.html:100
+#: templates/events/gallery.html:105
+#: templates/testimonials/testimonials_list.html:101
 msgid "Next"
 msgstr "Suivant"
 
-#: templates/events/gallery.html:112
+#: templates/events/gallery.html:114
 msgid "No events in gallery yet"
 msgstr "Aucun événement dans la galerie pour le moment"
 
-#: templates/events/gallery.html:113
+#: templates/events/gallery.html:115
 msgid "Check back soon for amazing event showcases"
 msgstr "Revenez bientôt pour découvrir des événements extraordinaires"
 
-#: templates/events/gallery.html:116
+#: templates/events/gallery.html:118
 msgid "Create Your First Event"
 msgstr "Créez votre premier événement"
 
-#: templates/events/home.html:17
+#: templates/events/home.html:16
 msgid "EVENTS"
 msgstr "ÉVÉNEMENTS"
 
-#: templates/events/home.html:20
-msgid "Capturing"
-msgstr "Capturer"
+#: templates/events/home.html:19
+#, fuzzy
+#| msgid "Plan your perfect event with us"
+msgid "Crafting your dream event with"
+msgstr "Planifiez votre événement parfait avec nous"
 
 #: templates/events/home.html:20
 msgid "elegance"
-msgstr "l'élégance"
+msgstr "élégance"
 
 #: templates/events/home.html:21
-msgid "creativity"
-msgstr "la créativité"
+msgid "style"
+msgstr "style"
 
 #: templates/events/home.html:22
-msgid "unforgettable moments"
+#, fuzzy
+#| msgid "unforgettable moments"
+msgid "unforgettable memories"
 msgstr "des moments inoubliables"
 
 #: templates/events/home.html:31
@@ -488,201 +678,234 @@ msgid "Explore Gallery"
 msgstr "Explorer la galerie"
 
 #: templates/events/home.html:49
-msgid "OUR MISSION"
-msgstr "NOTRE MISSION"
+msgid "Watch Our Events in Action"
+msgstr "Regardez nos événements en action"
 
 #: templates/events/home.html:52
 msgid ""
-"Bringing energy and elegance into every celebration through personalized "
-"event management and unforgettable experiences."
+"Get a glimpse of the magic we create with these highlight reels of our most "
+"memorable events."
 msgstr ""
-"Apporter énergie et élégance à chaque célébration grâce à une gestion d'événements personnalisée et des expériences inoubliables."
+"Découvrez un aperçu de la magie que nous créons avec ces vidéos des moments "
+"les plus mémorables de nos événements."
 
-#: templates/events/home.html:62
+#: templates/events/home.html:60
+msgid "Your browser does not support the video tag."
+msgstr "Votre navigateur ne prend pas en charge la balise vidéo."
+
+#: templates/events/home.html:63
+msgid "Hover to Preview"
+msgstr "Survolez pour prévisualiser"
+
+#: templates/events/home.html:69
+#, fuzzy
+#| msgid "No featured services available."
+msgid "No featured videos available yet. Check back soon!"
+msgstr "Aucun service en vedette disponible."
+
+#: templates/events/home.html:78
+msgid "OUR MISSION"
+msgstr "NOTRE MISSION"
+
+#: templates/events/home.html:81
+msgid ""
+"We bring elegance, creativity, and joy to every celebration, ensuring your "
+"memories last forever."
+msgstr ""
+"Nous apportons élégance, créativité et joie à chaque célébration, en "
+"assurant que vos souvenirs durent éternellement."
+
+#: templates/events/home.html:91
 msgid "OUR SERVICES"
 msgstr "NOS SERVICES"
 
-#: templates/events/home.html:65
+#: templates/events/home.html:94
 msgid "Everything you need for the perfect event"
 msgstr "Tout ce dont vous avez besoin pour un événement parfait"
 
-#: templates/events/home.html:75
+#: templates/events/home.html:104
 msgid "Photography"
 msgstr "Photographie"
 
-#: templates/events/home.html:76
+#: templates/events/home.html:105
 msgid ""
 "Professional photographers to capture every precious moment of your special "
 "day."
 msgstr ""
-"Photographes professionnels pour capturer chaque moment précieux de votre journée spéciale."
+"Photographes professionnels pour capturer chaque moment précieux de votre "
+"journée spéciale."
 
-#: templates/events/home.html:85
+#: templates/events/home.html:114
 msgid "Catering"
 msgstr "Traiteur"
 
-#: templates/events/home.html:86
+#: templates/events/home.html:115
 msgid "Exquisite culinary experiences tailored to your taste and event style."
 msgstr ""
-"Expériences culinaires exquises adaptées à vos goûts et au style de votre événement."
+"Expériences culinaires exquises adaptées à vos goûts et au style de votre "
+"événement."
 
-#: templates/events/home.html:95
+#: templates/events/home.html:124
 msgid "Entertainment"
 msgstr "Divertissement"
 
-#: templates/events/home.html:96
+#: templates/events/home.html:125
 msgid ""
 "DJs, live music, and entertainment to keep your guests engaged all night "
 "long."
 msgstr ""
-"DJs, musique live et divertissements pour garder vos invités captivés toute la nuit."
+"DJs, musique live et divertissements pour garder vos invités captivés toute "
+"la nuit."
 
-#: templates/events/home.html:103
+#: templates/events/home.html:132
 msgid "View All Services"
 msgstr "Voir tous les services"
 
-#: templates/events/home.html:115
+#: templates/events/home.html:145
 msgid "Events Completed"
 msgstr "Événements terminés"
 
-#: templates/events/home.html:119
+#: templates/events/home.html:151
 msgid "Services Available"
 msgstr "Services disponibles"
 
-#: templates/events/home.html:123
+#: templates/events/home.html:157
 msgid "Client Satisfaction"
 msgstr "Satisfaction des clients"
 
-#: templates/events/home.html:135
+#: templates/events/home.html:170
 msgid "CLIENT TESTIMONIALS"
 msgstr "TÉMOIGNAGES DES CLIENTS"
 
-#: templates/events/home.html:138
+#: templates/events/home.html:173
 msgid "What our clients say about us"
 msgstr "Ce que nos clients disent de nous"
 
-#: templates/events/home.html:174
+#: templates/events/home.html:209
 msgid "View All Testimonials"
 msgstr "Voir tous les témoignages"
 
-#: templates/events/home.html:185
+#: templates/events/home.html:220
 msgid "Ready to Create Your Perfect Event?"
 msgstr "Prêt à créer votre événement parfait ?"
 
-#: templates/events/home.html:188
+#: templates/events/home.html:223
 msgid ""
 "Join thousands of satisfied clients who trusted us with their special "
 "moments."
 msgstr ""
-"Rejoignez des milliers de clients satisfaits qui nous ont fait confiance pour leurs moments spéciaux."
+"Rejoignez des milliers de clients satisfaits qui nous ont fait confiance "
+"pour leurs moments spéciaux."
 
-#: templates/events/home.html:192
+#: templates/events/home.html:227
 msgid "Get Started Today"
 msgstr "Commencez aujourd'hui"
 
-#: templates/events/send_choice.html:6
+#: templates/events/send_choice.html:10
 msgid "Envoyer les détails de l'événement"
 msgstr "Envoyer les détails de l'événement"
 
-#: templates/events/send_choice.html:7
+#: templates/events/send_choice.html:13
 msgid "Voici les détails qui seront envoyés à l'agence :"
 msgstr "Voici les détails qui seront envoyés à l'agence :"
 
-#: templates/events/send_choice.html:9
+#: templates/events/send_choice.html:23
 msgid "Choisissez comment envoyer :"
 msgstr "Choisissez comment envoyer :"
 
-#: templates/events/send_choice.html:13
+#: templates/events/send_choice.html:29
 msgid "Mode d'envoi"
 msgstr "Mode d'envoi"
 
-#: templates/events/send_choice.html:15
+#: templates/events/send_choice.html:33
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
-#: templates/events/send_choice.html:16
-msgid "Email"
-msgstr "E-mail"
-
-#: templates/events/send_choice.html:19
+#: templates/events/send_choice.html:41
 msgid "Envoyer"
 msgstr "Envoyer"
 
-#: templates/events/send_choice.html:21
+#: templates/events/send_choice.html:48
 msgid "Retour"
 msgstr "Retour"
 
-#: templates/events/success.html:7
+#: templates/events/success.html:15
 msgid ""
 "L'agence a reçu les détails de votre événement. Vous serez contacté sous peu."
 msgstr ""
 "L'agence a reçu les détails de votre événement. Vous serez contacté sous peu."
 
-#: templates/events/success.html:8
+#: templates/events/success.html:21
 msgid "Retour au dashboard"
 msgstr "Retour au tableau de bord"
 
-#: templates/services/service_detail.html:12
-#: templates/services/services_list.html:45
+#: templates/services/service_detail.html:8
+#, fuzzy
+#| msgid "Services"
+msgid "Service"
+msgstr "Services"
+
+#: templates/services/service_detail.html:18
+#: templates/services/services_list.html:48
 msgid "Category"
 msgstr "Catégorie"
 
-#: templates/services/service_detail.html:14
-#: templates/services/services_list.html:42
-#: templates/services/services_list.html:81
+#: templates/services/service_detail.html:20
+#: templates/services/services_list.html:45
+#: templates/services/services_list.html:85
 msgid "Price"
 msgstr "Prix"
 
-#: templates/services/service_detail.html:15
+#: templates/services/service_detail.html:21
 msgid "Active"
 msgstr "Actif"
 
-#: templates/services/service_detail.html:15
+#: templates/services/service_detail.html:21
 msgid "Inactive"
 msgstr "Inactif"
 
-#: templates/services/service_detail.html:16
+#: templates/services/service_detail.html:24
 msgid "Back to Services"
 msgstr "Retour aux services"
 
-#: templates/services/services_list.html:3
+#: templates/services/services_list.html:4
 msgid "Services - Glow Gracious Events"
 msgstr "Services - Glow Gracious Events"
 
-#: templates/services/services_list.html:8
+#: templates/services/services_list.html:11
 msgid "Our Services"
 msgstr "Nos services"
 
-#: templates/services/services_list.html:15
+#: templates/services/services_list.html:18
 msgid "All Categories"
 msgstr "Toutes les catégories"
 
-#: templates/services/services_list.html:23
+#: templates/services/services_list.html:26
 msgid "Filter"
 msgstr "Filtrer"
 
-#: templates/services/services_list.html:31
+#: templates/services/services_list.html:34
 msgid "Featured Services"
 msgstr "Services en vedette"
 
-#: templates/services/services_list.html:48
-#: templates/services/services_list.html:84
+#: templates/services/services_list.html:51
+#: templates/services/services_list.html:88
 msgid "View Details"
 msgstr "Voir les détails"
 
-#: templates/services/services_list.html:54
+#: templates/services/services_list.html:57
 msgid "No featured services available."
 msgstr "Aucun service en vedette disponible."
 
-#: templates/services/services_list.html:60
+#: templates/services/services_list.html:63
 msgid "Service Categories"
 msgstr "Catégories de services"
 
-#: templates/services/services_list.html:90
+#: templates/services/services_list.html:94
 msgid "No services in this category."
 msgstr "Aucun service dans cette catégorie."
 
-#: templates/services/services_list.html:96
+#: templates/services/services_list.html:100
 msgid "No service categories available."
 msgstr "Aucune catégorie de services disponible."
 
@@ -691,48 +914,60 @@ msgid "Add Testimonial - Glow Gracious Events"
 msgstr "Ajouter un témoignage - Glow Gracious Events"
 
 #: templates/testimonials/add_testimonial.html:8
-msgid "Add a Testimonial"
-msgstr "Ajouter un témoignage"
+msgid "Add a"
+msgstr "Ajouter un"
 
-#: templates/testimonials/add_testimonial.html:15
-msgid "Please correct the errors below:"
-msgstr "Veuillez corriger les erreurs ci-dessous :"
-
-#: templates/testimonials/add_testimonial.html:29
-msgid "Title"
-msgstr "Titre"
-
-#: templates/testimonials/add_testimonial.html:33
+#: templates/testimonials/add_testimonial.html:9
+#: templates/testimonials/add_testimonial.html:39
 msgid "Testimonial"
 msgstr "Témoignage"
 
-#: templates/testimonials/add_testimonial.html:37
+#: templates/testimonials/add_testimonial.html:18
+msgid "Please correct the errors below:"
+msgstr "Veuillez corriger les erreurs ci-dessous :"
+
+#: templates/testimonials/add_testimonial.html:33
+msgid "Title"
+msgstr "Titre"
+
+#: templates/testimonials/add_testimonial.html:45
 msgid "Rating (1-5)"
 msgstr "Note (1-5)"
 
-#: templates/testimonials/add_testimonial.html:40
+#: templates/testimonials/add_testimonial.html:51
 msgid "Submit Testimonial"
 msgstr "Soumettre le témoignage"
+
+#: templates/testimonials/testimonials_list.html:12
+msgid "CLIENT"
+msgstr "CLIENT"
+
+#: templates/testimonials/testimonials_list.html:13
+#, fuzzy
+#| msgid "CLIENT TESTIMONIALS"
+msgid "TESTIMONIALS"
+msgstr "TÉMOIGNAGES DES CLIENTS"
 
 #: templates/testimonials/testimonials_list.html:16
 msgid ""
 "Hear what our clients have to say about their amazing experiences with us"
 msgstr ""
-"Découvrez ce que nos clients disent de leurs expériences incroyables avec nous"
+"Découvrez ce que nos clients disent de leurs expériences incroyables avec "
+"nous"
 
-#: templates/testimonials/testimonials_list.html:21
+#: templates/testimonials/testimonials_list.html:22
 msgid "Share Your Experience"
 msgstr "Partagez votre expérience"
 
-#: templates/testimonials/testimonials_list.html:109
+#: templates/testimonials/testimonials_list.html:110
 msgid "No testimonials yet"
 msgstr "Aucun témoignage pour le moment"
 
-#: templates/testimonials/testimonials_list.html:110
+#: templates/testimonials/testimonials_list.html:111
 msgid "Be the first to share your experience"
 msgstr "Soyez le premier à partager votre expérience"
 
-#: templates/testimonials/testimonials_list.html:113
+#: templates/testimonials/testimonials_list.html:115
 msgid "Add Testimonial"
 msgstr "Ajouter un témoignage"
 
@@ -807,7 +1042,8 @@ msgid ""
 "Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
 "hyphens."
 msgstr ""
-"Entrez un « slug » valide composé de lettres Unicode, chiffres, tirets bas ou tirets."
+"Entrez un « slug » valide composé de lettres Unicode, chiffres, tirets bas "
+"ou tirets."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:309
 #: venv/lib/python3.10/site-packages/django/core/validators.py:318
@@ -837,22 +1073,27 @@ msgstr "Entrez uniquement des chiffres séparés par des virgules."
 #: venv/lib/python3.10/site-packages/django/core/validators.py:381
 #, python-format
 msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr "Assurez-vous que cette valeur est %(limit_value)s (elle est %(show_value)s)."
+msgstr ""
+"Assurez-vous que cette valeur est %(limit_value)s (elle est %(show_value)s)."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:416
 #, python-format
 msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr "Assurez-vous que cette valeur est inférieure ou égale à %(limit_value)s."
+msgstr ""
+"Assurez-vous que cette valeur est inférieure ou égale à %(limit_value)s."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:425
 #, python-format
 msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr "Assurez-vous que cette valeur est supérieure ou égale à %(limit_value)s."
+msgstr ""
+"Assurez-vous que cette valeur est supérieure ou égale à %(limit_value)s."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:434
 #, python-format
 msgid "Ensure this value is a multiple of step size %(limit_value)s."
-msgstr "Assurez-vous que cette valeur est un multiple de la taille de pas %(limit_value)s."
+msgstr ""
+"Assurez-vous que cette valeur est un multiple de la taille de pas "
+"%(limit_value)s."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:441
 #, python-format
@@ -860,8 +1101,9 @@ msgid ""
 "Ensure this value is a multiple of step size %(limit_value)s, starting from "
 "%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
 msgstr ""
-"Assurez-vous que cette valeur est un multiple de la taille de pas %(limit_value)s, à partir de "
-"%(offset)s, par exemple %(offset)s, %(valid_value1)s, %(valid_value2)s, etc."
+"Assurez-vous que cette valeur est un multiple de la taille de pas "
+"%(limit_value)s, à partir de %(offset)s, par exemple %(offset)s, "
+"%(valid_value1)s, %(valid_value2)s, etc."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:473
 #, python-format
@@ -872,9 +1114,11 @@ msgid_plural ""
 "Ensure this value has at least %(limit_value)d characters (it has "
 "%(show_value)d)."
 msgstr[0] ""
-"Assurez-vous que cette valeur a au moins %(limit_value)d caractère (elle en a %(show_value)d)."
+"Assurez-vous que cette valeur a au moins %(limit_value)d caractère (elle en "
+"a %(show_value)d)."
 msgstr[1] ""
-"Assurez-vous que cette valeur a au moins %(limit_value)d caractères (elle en a %(show_value)d)."
+"Assurez-vous que cette valeur a au moins %(limit_value)d caractères (elle en "
+"a %(show_value)d)."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:491
 #, python-format
@@ -885,9 +1129,11 @@ msgid_plural ""
 "Ensure this value has at most %(limit_value)d characters (it has "
 "%(show_value)d)."
 msgstr[0] ""
-"Assurez-vous que cette valeur a au plus %(limit_value)d caractère (elle en a %(show_value)d)."
+"Assurez-vous que cette valeur a au plus %(limit_value)d caractère (elle en a "
+"%(show_value)d)."
 msgstr[1] ""
-"Assurez-vous que cette valeur a au plus %(limit_value)d caractères (elle en a %(show_value)d)."
+"Assurez-vous que cette valeur a au plus %(limit_value)d caractères (elle en "
+"a %(show_value)d)."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:514
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:366
@@ -926,7 +1172,8 @@ msgid ""
 "File extension “%(extension)s” is not allowed. Allowed extensions are: "
 "%(allowed_extensions)s."
 msgstr ""
-"L'extension de fichier « %(extension)s » n'est pas autorisée. Les extensions autorisées sont : %(allowed_extensions)s."
+"L'extension de fichier « %(extension)s » n'est pas autorisée. Les extensions "
+"autorisées sont : %(allowed_extensions)s."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:659
 msgid "Null characters are not allowed."
@@ -1012,7 +1259,8 @@ msgid ""
 "“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
 "format."
 msgstr ""
-"La valeur « %(value)s » a un format de date invalide. Elle doit être au format AAAA-MM-JJ."
+"La valeur « %(value)s » a un format de date invalide. Elle doit être au "
+"format AAAA-MM-JJ."
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1431
 #: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1566
@@ -1021,7 +1269,8 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
 "date."
 msgstr ""
-"La valeur « %(value)s » a le bon format (AAAA-MM-JJ) mais c'est une date invalide."
+"La valeur « %(value)s » a le bon format (AAAA-MM-JJ) mais c'est une date "
+"invalide."
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1435
 msgid "Date (without time)"
@@ -1033,7 +1282,8 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
 "uuuuuu]][TZ] format."
 msgstr ""
-"La valeur « %(value)s » a un format invalide. Elle doit être au format AAAA-MM-JJ HH:MM[:ss[.uuuuuu]][TZ]."
+"La valeur « %(value)s » a un format invalide. Elle doit être au format AAAA-"
+"MM-JJ HH:MM[:ss[.uuuuuu]][TZ]."
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1570
 #, python-format
@@ -1041,7 +1291,8 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
 "[TZ]) but it is an invalid date/time."
 msgstr ""
-"La valeur « %(value)s » a le bon format (AAAA-MM-JJ HH:MM[:ss[.uuuuuu]][TZ]) mais c'est une date/heure invalide."
+"La valeur « %(value)s » a le bon format (AAAA-MM-JJ HH:MM[:ss[.uuuuuu]][TZ]) "
+"mais c'est une date/heure invalide."
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1575
 msgid "Date (with time)"
@@ -1062,7 +1313,8 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
 "uuuuuu] format."
 msgstr ""
-"La valeur « %(value)s » a un format invalide. Elle doit être au format [JJ] [[HH:]MM:]ss[.uuuuuu]."
+"La valeur « %(value)s » a un format invalide. Elle doit être au format [JJ] "
+"[[HH:]MM:]ss[.uuuuuu]."
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1868
 msgid "Duration"
@@ -1147,7 +1399,8 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
 "format."
 msgstr ""
-"La valeur « %(value)s » a un format invalide. Elle doit être au format HH:MM[:ss[.uuuuuu]]."
+"La valeur « %(value)s » a un format invalide. Elle doit être au format HH:"
+"MM[:ss[.uuuuuu]]."
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2530
 #, python-format
@@ -1155,7 +1408,8 @@ msgid ""
 "“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
 "invalid time."
 msgstr ""
-"La valeur « %(value)s » a le bon format (HH:MM[:ss[.uuuuuu]]) mais c'est une heure invalide."
+"La valeur « %(value)s » a le bon format (HH:MM[:ss[.uuuuuu]]) mais c'est une "
+"heure invalide."
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2534
 msgid "Time"
@@ -1197,7 +1451,8 @@ msgstr "La valeur doit être un JSON valide."
 #: venv/lib/python3.10/site-packages/django/db/models/fields/related.py:979
 #, python-format
 msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
-msgstr "L'instance %(model)s avec %(field)s %(value)r n'est pas un choix valide."
+msgstr ""
+"L'instance %(model)s avec %(field)s %(value)r n'est pas un choix valide."
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/related.py:982
 msgid "Foreign Key (type determined by related field)"
@@ -1260,7 +1515,8 @@ msgstr "Le nombre de jours doit être compris entre {min_days} et {max_days}."
 
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:640
 msgid "No file was submitted. Check the encoding type on the form."
-msgstr "Aucun fichier n'a été soumis. Vérifiez le type d'encodage du formulaire."
+msgstr ""
+"Aucun fichier n'a été soumis. Vérifiez le type d'encodage du formulaire."
 
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:641
 msgid "No file was submitted."
@@ -1276,27 +1532,33 @@ msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
-"Assurez-vous que le nom du fichier a au plus %(max)d caractère (il en a %(length)d)."
+"Assurez-vous que le nom du fichier a au plus %(max)d caractère (il en a "
+"%(length)d)."
 msgstr[1] ""
-"Assurez-vous que le nom du fichier a au plus %(max)d caractères (il en a %(length)d)."
+"Assurez-vous que le nom du fichier a au plus %(max)d caractères (il en a "
+"%(length)d)."
 
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:649
 msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr "Veuillez soit soumettre un fichier, soit cocher la case de suppression, pas les deux."
+msgstr ""
+"Veuillez soit soumettre un fichier, soit cocher la case de suppression, pas "
+"les deux."
 
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:717
 msgid ""
 "Upload a valid image. The file you uploaded was either not an image or a "
 "corrupted image."
 msgstr ""
-"Téléchargez une image valide. Le fichier que vous avez téléchargé n'est pas une image ou est corrompu."
+"Téléchargez une image valide. Le fichier que vous avez téléchargé n'est pas "
+"une image ou est corrompu."
 
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:889
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:975
 #: venv/lib/python3.10/site-packages/django/forms/models.py:1592
 #, python-format
 msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr "Sélectionnez un choix valide. %(value)s n'est pas l'un des choix disponibles."
+msgstr ""
+"Sélectionnez un choix valide. %(value)s n'est pas l'un des choix disponibles."
 
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:977
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:1096
@@ -1332,7 +1594,9 @@ msgid ""
 "ManagementForm data is missing or has been tampered with. Missing fields: "
 "%(field_names)s. You may need to file a bug report if the issue persists."
 msgstr ""
-"Les données du ManagementForm sont manquantes ou ont été altérées. Champs manquants : %(field_names)s. Vous devrez peut-être signaler un bogue si le problème persiste."
+"Les données du ManagementForm sont manquantes ou ont été altérées. Champs "
+"manquants : %(field_names)s. Vous devrez peut-être signaler un bogue si le "
+"problème persiste."
 
 #: venv/lib/python3.10/site-packages/django/forms/formsets.py:65
 #, python-format
@@ -1365,7 +1629,8 @@ msgstr "Veuillez corriger les données en double pour %(field)s."
 #: venv/lib/python3.10/site-packages/django/forms/models.py:906
 #, python-format
 msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr "Veuillez corriger les données en double pour %(field)s, qui doit être unique."
+msgstr ""
+"Veuillez corriger les données en double pour %(field)s, qui doit être unique."
 
 #: venv/lib/python3.10/site-packages/django/forms/models.py:913
 #, python-format
@@ -1373,7 +1638,8 @@ msgid ""
 "Please correct the duplicate data for %(field_name)s which must be unique "
 "for the %(lookup)s in %(date_field)s."
 msgstr ""
-"Veuillez corriger les données en double pour %(field_name)s qui doit être unique pour %(lookup)s dans %(date_field)s."
+"Veuillez corriger les données en double pour %(field_name)s qui doit être "
+"unique pour %(lookup)s dans %(date_field)s."
 
 #: venv/lib/python3.10/site-packages/django/forms/models.py:922
 msgid "Please correct the duplicate values below."
@@ -1385,7 +1651,8 @@ msgstr "La valeur en ligne ne correspond pas à l'instance parent."
 
 #: venv/lib/python3.10/site-packages/django/forms/models.py:1450
 msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr "Sélectionnez un choix valide. Ce choix n'est pas l'un des choix disponibles."
+msgstr ""
+"Sélectionnez un choix valide. Ce choix n'est pas l'un des choix disponibles."
 
 #: venv/lib/python3.10/site-packages/django/forms/models.py:1594
 #, python-format
@@ -1398,7 +1665,8 @@ msgid ""
 "%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
 "may be ambiguous or it may not exist."
 msgstr ""
-"%(datetime)s n'a pas pu être interprété dans le fuseau horaire %(current_timezone)s ; il peut être ambigu ou ne pas exister."
+"%(datetime)s n'a pas pu être interprété dans le fuseau horaire "
+"%(current_timezone)s ; il peut être ambigu ou ne pas exister."
 
 #: venv/lib/python3.10/site-packages/django/forms/widgets.py:527
 msgid "Clear"
@@ -1835,7 +2103,10 @@ msgid ""
 "required for security reasons, to ensure that your browser is not being "
 "hijacked by third parties."
 msgstr ""
-"Vous voyez ce message car ce site HTTPS nécessite un en-tête « Referer » envoyé par votre navigateur, mais aucun n'a été envoyé. Cet en-tête est requis pour des raisons de sécurité, afin de s'assurer que votre navigateur n'est pas piraté par des tiers."
+"Vous voyez ce message car ce site HTTPS nécessite un en-tête « Referer » "
+"envoyé par votre navigateur, mais aucun n'a été envoyé. Cet en-tête est "
+"requis pour des raisons de sécurité, afin de s'assurer que votre navigateur "
+"n'est pas piraté par des tiers."
 
 #: venv/lib/python3.10/site-packages/django/views/csrf.py:40
 msgid ""
@@ -1843,106 +2114,10 @@ msgid ""
 "enable them, at least for this site, or for HTTPS connections, or for “same-"
 "origin” requests."
 msgstr ""
-"Si vous avez configuré votre navigateur pour désactiver les en-têtes « Referer », veuillez les réactiver, au moins pour ce site, pour les connexions HTTPS ou pour les requêtes de « même origine »."
+"Si vous avez configuré votre navigateur pour désactiver les en-têtes « "
+"Referer », veuillez les réactiver, au moins pour ce site, pour les "
+"connexions HTTPS ou pour les requêtes de « même origine »."
 
 #: venv/lib/python3.10/site-packages/django/views/csrf.py:45
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a "
-"rel=\"noreferrer\" …> for links to third-party sites."
-msgstr ""
-"Si vous utilisez la balise <meta name=\"referrer\" content=\"no-referrer\"> ou incluez l'en-tête « Referrer-Policy: no-referrer », veuillez les supprimer. La protection CSRF nécessite l'en-tête « Referer » pour effectuer une vérification stricte du référent. Si vous êtes préoccupé par la confidentialité, utilisez des alternatives comme <a rel=\"noreferrer\" …> pour les liens vers des sites tiers."
-
-#: venv/lib/python3.10/site-packages/django/views/csrf.py:54
-msgid ""
-"You are seeing this message because this site requires a CSRF cookie when "
-"submitting forms. This cookie is required for security reasons, to ensure "
-"that your browser is not being hijacked by third parties."
-msgstr ""
-"Vous voyez ce message car ce site nécessite un cookie CSRF lors de la soumission de formulaires. Ce cookie est requis pour des raisons de sécurité, afin de s'assurer que votre navigateur n'est pas piraté par des tiers."
-
-#: venv/lib/python3.10/site-packages/django/views/csrf.py:60
-msgid ""
-"If you have configured your browser to disable cookies, please re-enable "
-"them, at least for this site, or for “same-origin” requests."
-msgstr ""
-"Si vous avez configuré votre navigateur pour désactiver les cookies, veuillez les réactiver, au moins pour ce site ou pour les requêtes de « même origine »."
-
-#: venv/lib/python3.10/site-packages/django/views/csrf.py:66
-msgid "More information is available with DEBUG=True."
-msgstr "Plus d'informations sont disponibles avec DEBUG=True."
-
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:44
-msgid "No year specified"
-msgstr "Aucune année spécifiée"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:64
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:115
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:214
-msgid "Date out of range"
-msgstr "Date hors de portée"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:94
-msgid "No month specified"
-msgstr "Aucun mois spécifié"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:147
-msgid "No day specified"
-msgstr "Aucun jour spécifié"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:194
-msgid "No week specified"
-msgstr "Aucune semaine spécifiée"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:353
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:384
-#, python-format
-msgid "No %(verbose_name_plural)s available"
-msgstr "Aucun %(verbose_name_plural)s disponible"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:680
-#, python-format
-msgid ""
-"Future %(verbose_name_plural)s not available because %(class_name)s."
-"allow_future is False."
-msgstr ""
-"Les %(verbose_name_plural)s futurs ne sont pas disponibles car %(class_name)s.allow_future est Faux."
-
-#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:720
-#, python-format
-msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
-msgstr "Chaîne de date invalide « %(datestr)s » pour le format « %(format)s »"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/detail.py:56
-#, python-format
-msgid "No %(verbose_name)s found matching the query"
-msgstr "Aucun %(verbose_name)s trouvé correspondant à la requête"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/list.py:70
-msgid "Page is not “last”, nor can it be converted to an int."
-msgstr "La page n'est pas « dernière », et ne peut pas être convertie en entier."
-
-#: venv/lib/python3.10/site-packages/django/views/generic/list.py:77
-#, python-format
-msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr "Page invalide (%(page_number)s) : %(message)s"
-
-#: venv/lib/python3.10/site-packages/django/views/generic/list.py:173
-#, python-format
-msgid "Empty list and “%(class_name)s.allow_empty” is False."
-msgstr "Liste vide et « %(class_name)s.allow_empty » est Faux."
-
-#: venv/lib/python3.10/site-packages/django/views/static.py:49
-msgid "Directory indexes are not allowed here."
-msgstr "Les index de répertoires ne sont pas autorisés ici."
-
-#: venv/lib/python3.10/site-packages/django/views/static.py:51
-#, python-format
-msgid "“%(path)s” does not exist"
-msgstr "« %(path)s » n'existe pas"
-
-#: venv/lib/python3.10/site-packages/django/views/static.py:68
-#: venv/lib/python3.10/site-packages/django/views/templates/directory_index.html:8
-#: venv/lib/python3.10/site-packages/django/views/templates
+"If you are using the <meta name=\"

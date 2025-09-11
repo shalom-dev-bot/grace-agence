@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _  # Ajout de l'import pour les traductions
+from django.utils import timezone  # Ajout pour utiliser timezone.now()
 from .models import EventType, InvitationCard, Event, EventService, EventVideo, Contact  # Ajout de Contact
 
 @admin.register(EventType)
