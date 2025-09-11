@@ -7,9 +7,10 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponseBadRequest
 from urllib.parse import quote
-from .models import Event, EventType, InvitationCard, EventService, EventVideo  # Ajout de EventVideo
+from .models import Event, EventType, InvitationCard, EventService, EventVideo, Contact  # Ajout de Contact
 from services.models import Service
 from testimonials.models import Testimonial
+from django.utils import timezone  # Ajout pour gérer les dates
 
 def home_view(request):
     featured_testimonials = Testimonial.objects.filter(is_approved=True, is_featured=True).select_related('user')[:3]
@@ -20,7 +21,7 @@ def home_view(request):
         'featured_testimonials': featured_testimonials,
         'recent_events_count': recent_events_count,
         'services_count': services_count,
-        'featured_videos': featured_videos,  # Remplace featured_video par featured_videos
+        'featured_videos': featured_videos,
     }
     return render(request, 'events/home.html', context)
 
@@ -180,3 +181,38 @@ def send_event_details(request, event_id):
 @login_required
 def success(request):
     return render(request, 'events/success.html')
+
+def contact_view(request):
+    """Handle contact form submission with dynamic user and event association."""
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        event_id = request.POST.get('event_id')  # Optionnel : lien avec un événement
+
+        if name and email and subject and message:
+            contact = Contact(
+                name=name,
+                email=email,
+                subject=subject,
+                message=message,
+                user=request.user if request.user.is_authenticated else None,
+                event=get_object_or_404(Event, id=event_id) if event_id else None
+            )
+            contact.save()
+
+            # Envoi d'email de confirmation
+            send_mail(
+                subject=f"New Contact from {name} - Glow Gracious Events",
+                message=f"From: {name} ({email})\nSubject: {subject}\n\nMessage:\n{message}",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=['shalomdev316@gmail.com'],  # Remplace par ton email
+                fail_silently=True,
+            )
+            messages.success(request, _('Your message has been sent successfully! Thank you for reaching out.'))
+            return redirect('contact')
+        else:
+            messages.error(request, _('Please fill in all required fields.'))
+
+    return render(request, 'events/contact.html', {'title': _('Contact Us')})

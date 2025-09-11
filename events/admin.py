@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import EventType, InvitationCard, Event, EventService, EventVideo  # Ajout de EventVideo
+from .models import EventType, InvitationCard, Event, EventService, EventVideo, Contact  # Ajout de Contact
 
 @admin.register(EventType)
 class EventTypeAdmin(admin.ModelAdmin):
@@ -37,3 +37,30 @@ class EventVideoAdmin(admin.ModelAdmin):
         # Optimisation pour charger les événements liés
         qs = super().get_queryset(request)
         return qs.select_related('event')
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    """Admin interface for managing contact messages with dynamic filtering and actions."""
+    list_display = ('name', 'email', 'subject', 'status', 'created_at', 'responded_at')
+    list_filter = ('status', 'created_at')
+    search_fields = ('name', 'email', 'subject', 'message')
+    date_hierarchy = 'created_at'
+    list_editable = ('status',)  # Permet de changer le statut directement dans la liste
+    actions = ['mark_as_responded', 'mark_as_closed']
+
+    def mark_as_responded(self, request, queryset):
+        """Mark selected contacts as responded and set the responded_at date."""
+        updated_count = queryset.update(status='responded', responded_at=timezone.now())
+        self.message_user(request, f"{updated_count} contact(s) marked as responded.")
+    mark_as_responded.short_description = _("Mark as Responded")
+
+    def mark_as_closed(self, request, queryset):
+        """Mark selected contacts as closed."""
+        updated_count = queryset.update(status='closed')
+        self.message_user(request, f"{updated_count} contact(s) marked as closed.")
+    mark_as_closed.short_description = _("Mark as Closed")
+
+    def get_queryset(self, request):
+        # Optimisation pour charger les utilisateurs et événements liés
+        qs = super().get_queryset(request)
+        return qs.select_related('user', 'event')
