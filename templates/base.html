@@ -31,6 +31,21 @@
     </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Ajout pour supporter les fichiers media en développement -->
+    {% if debug %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if (!window.location.href.includes('admin')) {
+                    var mediaLinks = document.querySelectorAll('video source');
+                    mediaLinks.forEach(function(link) {
+                        if (link.src && !link.src.startsWith('http')) {
+                            link.src = '{{ request.scheme }}://{{ request.get_host }}{{ link.src }}';
+                        }
+                    });
+                }
+            });
+        </script>
+    {% endif %}
 </head>
 <body class="bg-pink-100 text-pink-700 min-h-screen font-sans">
     <!-- Navigation -->
@@ -290,7 +305,7 @@
         bottom: -4px;
         width: 0%;
         height: 2px;
-        background-color: yellow-400;
+        background-color: #facc15; /* gge-yellow */
         transition: width 0.3s ease-in-out;
     }
     .nav-link:hover::after {

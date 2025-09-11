@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import EventType, InvitationCard, Event, EventService
+from .models import EventType, InvitationCard, Event, EventService, EventVideo  # Ajout de EventVideo
 
 @admin.register(EventType)
 class EventTypeAdmin(admin.ModelAdmin):
@@ -24,3 +24,16 @@ class EventAdmin(admin.ModelAdmin):
     inlines = [EventServiceInline]
     date_hierarchy = 'event_date'
     fields = ('user', 'title', 'description', 'event_type', 'event_date', 'location', 'guest_count', 'budget', 'invitation_card', 'status', 'image')  # Ajout du champ image
+
+@admin.register(EventVideo)
+class EventVideoAdmin(admin.ModelAdmin):
+    list_display = ('title', 'event', 'uploaded_at', 'is_featured')
+    list_filter = ('is_featured', 'uploaded_at')
+    search_fields = ('title', 'description', 'event__title')
+    date_hierarchy = 'uploaded_at'
+    list_editable = ('is_featured',)  # Permet de modifier is_featured directement dans la liste
+
+    def get_queryset(self, request):
+        # Optimisation pour charger les événements liés
+        qs = super().get_queryset(request)
+        return qs.select_related('event')

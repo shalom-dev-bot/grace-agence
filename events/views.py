@@ -15,12 +15,12 @@ def home_view(request):
     featured_testimonials = Testimonial.objects.filter(is_approved=True, is_featured=True).select_related('user')[:3]
     recent_events_count = Event.objects.filter(status='completed').count()
     services_count = Service.objects.filter(is_active=True).count()
-    featured_video = EventVideo.objects.filter(is_featured=True).first()  # Ajout de la vidéo en vedette
+    featured_videos = EventVideo.objects.filter(is_featured=True)[:3]  # Récupère jusqu'à 3 vidéos en vedette
     context = {
         'featured_testimonials': featured_testimonials,
         'recent_events_count': recent_events_count,
         'services_count': services_count,
-        'featured_video': featured_video,  # Ajout au contexte
+        'featured_videos': featured_videos,  # Remplace featured_video par featured_videos
     }
     return render(request, 'events/home.html', context)
 
