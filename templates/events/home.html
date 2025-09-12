@@ -109,27 +109,31 @@ setInterval(() => {
     showSlide(currentIndex);
 }, 7000);
 </script>
-
+<!--section 1 terminer-->
 
 <!-- Video Section -->
-<section class="py-20 bg-pink-50">
+<section class="py-20 bg-gradient-to-r from-pink-50 via-pink-100 to-pink-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold text-pink-700 mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-pink-700 mb-6 animate-fadeIn">
             {% trans "Watch Our Events in Action" %}
         </h2>
-        <p class="text-gray-800 mb-8 max-w-2xl mx-auto">
+        <p class="text-gray-800 mb-12 max-w-3xl mx-auto animate-fadeIn delay-200">
             {% trans "Get a glimpse of the magic we create with these highlight reels of our most memorable events." %}
         </p>
-        {% if featured_videos %} <!-- Changé de featured_video à featured_videos -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        {% if featured_videos %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {% for video in featured_videos %}
-                    <div class="relative w-full">
-                        <video controls class="w-full rounded-xl shadow-lg border border-pink-200">
+                    <div class="relative w-full overflow-hidden rounded-xl shadow-xl border border-pink-200 transform hover:scale-105 transition-transform duration-500">
+                        <video autoplay muted loop class="w-full h-full object-cover rounded-xl">
                             <source src="{{ video.video_file.url }}" type="video/mp4">
                             {% trans "Your browser does not support the video tag." %}
                         </video>
-                        <div class="absolute inset-0 flex items-center justify-center bg-pink-700/20 rounded-xl opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white text-lg font-semibold">{% trans "Hover to Preview" %}</span>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-pink-700/40 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white text-lg md:text-xl font-semibold animate-bounce">
+                                {% trans "Watch the Highlights" %}
+                            </span>
                         </div>
                     </div>
                 {% endfor %}
@@ -139,6 +143,7 @@ setInterval(() => {
         {% endif %}
     </div>
 </section>
+<!--section2 terminer-->
 
 <!-- Mission Section -->
 <section class="py-20">
