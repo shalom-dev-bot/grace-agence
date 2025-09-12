@@ -144,171 +144,293 @@ setInterval(() => {
     </div>
 </section>
 <!--section2 terminer-->
+{% load static %}
 
-<!-- Mission Section -->
-<section class="py-20">
-    <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-8">
-            {% trans "OUR MISSION" %}
-        </h2>
-        <p class="text-xl md:text-2xl text-gray-800 max-w-3xl mx-auto leading-relaxed">
-            {% trans "We bring elegance, creativity, and joy to every celebration, ensuring your memories last forever." %}
-        </p>
-    </div>
-</section>
+<!-- About Section -->
+<section class="relative py-24 bg-gradient-to-r from-pink-50 via-pink-100 to-pink-50 overflow-hidden">
+    <!-- Background decorative circles -->
+    <div class="absolute -top-20 -left-20 w-72 h-72 bg-pink-200 rounded-full opacity-30 animate-pulse-slow"></div>
+    <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-yellow-200 rounded-full opacity-20 animate-pulse-slow"></div>
 
-<!-- Services Preview -->
-<section class="py-20">
-    <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Section Header -->
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4">
-                {% trans "OUR SERVICES" %}
+            <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4 animate-fadeInDown">
+                {% trans "About Us" %}
             </h2>
-            <p class="text-xl text-gray-800">
-                {% trans "Everything you need for the perfect event" %}
+            <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto animate-fadeIn delay-100">
+                {% trans "Glow Gracious Events is your partner in creating unforgettable moments filled with elegance, creativity, and joy." %}
             </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="service-card">
-                <div class="bg-pink-50 p-8 rounded-2xl border border-pink-200 hover:border-yellow-400 transition-all duration-300 shadow-lg">
-                    <div class="w-16 h-16 bg-pink-700 rounded-full flex items-center justify-center mb-6">
-                        <i data-lucide="camera" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-pink-700 mb-4">{% trans "Photography" %}</h3>
-                    <p class="text-gray-800">{% trans "Professional photographers to capture every precious moment of your special day." %}</p>
-                </div>
-            </div>
+            <p class="text-xl md:text-2xl text-gray-800 max-w-3xl mx-auto leading-relaxed animate-fadeIn delay-200">
+                {% trans "At Glow Gracious Events, we craft unforgettable experiences by combining elegance, creativity, and meticulous attention to every detail. Our mission is to make every celebration magical, leaving memories that last a lifetime." %}
+            </p>
 
-            <div class="service-card">
-                <div class="bg-pink-50 p-8 rounded-2xl border border-pink-200 hover:border-yellow-400 transition-all duration-300 shadow-lg">
-                    <div class="w-16 h-16 bg-pink-700 rounded-full flex items-center justify-center mb-6">
-                        <i data-lucide="utensils" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-pink-700 mb-4">{% trans "Catering" %}</h3>
-                    <p class="text-gray-800">{% trans "Exquisite culinary experiences tailored to your taste and event style." %}</p>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="bg-pink-50 p-8 rounded-2xl border border-pink-200 hover:border-yellow-400 transition-all duration-300 shadow-lg">
-                    <div class="w-16 h-16 bg-pink-700 rounded-full flex items-center justify-center mb-6">
-                        <i data-lucide="music" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-pink-700 mb-4">{% trans "Entertainment" %}</h3>
-                    <p class="text-gray-800">{% trans "DJs, live music, and entertainment to keep your guests engaged all night long." %}</p>
-                </div>
+            <!-- See More Button -->
+            <div class="mt-8">
+                <a href="#" class="inline-block bg-pink-700 text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-pink-800 hover:scale-105 transition-all duration-300 animate-bounce">
+                    {% trans "See More" %}
+                </a>
             </div>
         </div>
-        
-        <div class="text-center mt-12">
-            <a href="{% url 'services_list' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
-                {% trans "View All Services" %}
-            </a>
+
+        <!-- Features / Values -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div class="bg-white rounded-xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-500 animate-fadeInUp delay-300">
+                <img src="{% static 'images/creativity-icon.png' %}" alt="Creativity" class="w-16 h-16 mx-auto mb-4">
+                <h3 class="text-2xl font-bold text-pink-700 mb-2">{% trans "Creativity" %}</h3>
+                <p class="text-gray-700">{% trans "We design events that are visually stunning and uniquely tailored to your style." %}</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-500 animate-fadeInUp delay-500">
+                <img src="{% static 'images/elegance-icon.png' %}" alt="Elegance" class="w-16 h-16 mx-auto mb-4">
+                <h3 class="text-2xl font-bold text-pink-700 mb-2">{% trans "Elegance" %}</h3>
+                <p class="text-gray-700">{% trans "From decor to catering, every detail is curated for sophistication and style." %}</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-500 animate-fadeInUp delay-700">
+                <img src="{% static 'images/memories-icon.png' %}" alt="Memories" class="w-16 h-16 mx-auto mb-4">
+                <h3 class="text-2xl font-bold text-pink-700 mb-2">{% trans "Memories" %}</h3>
+                <p class="text-gray-700">{% trans "We ensure each moment is unforgettable, creating memories that last forever." %}</p>
+            </div>
         </div>
     </div>
 </section>
+<!--section 3 terminer-->
+
+<!-- Services Section -->
+<section class="py-20">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4">
+        {% trans "OUR SERVICES" %}
+      </h2>
+      <p class="text-xl text-gray-800">
+        {% trans "Choose the perfect package that fits your event style" %}
+      </p>
+    </div>
+
+    <!-- Services Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Classique -->
+      <div class="bg-gray-50 p-8 rounded-2xl border-4 border-gray-400 shadow-lg hover:scale-105 transition-transform duration-300">
+        <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mb-6">
+          <i data-lucide="star" class="w-8 h-8 text-white"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">{% trans "Classic" %}</h3>
+        <p class="text-gray-600">{% trans "Essential services to make your event simple yet elegant." %}</p>
+      </div>
+
+      <!-- Moderne -->
+      <div class="bg-gray-50 p-8 rounded-2xl border-4 border-blue-400 shadow-lg hover:scale-105 transition-transform duration-300">
+        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+          <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-blue-600 mb-4">{% trans "Modern" %}</h3>
+        <p class="text-gray-600">{% trans "A balanced mix of style, innovation, and comfort for your guests." %}</p>
+      </div>
+
+      <!-- VIP -->
+      <div class="bg-gray-50 p-8 rounded-2xl border-4 border-yellow-500 shadow-lg hover:scale-105 transition-transform duration-300">
+        <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mb-6">
+          <i data-lucide="crown" class="w-8 h-8 text-white"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-yellow-600 mb-4">{% trans "VIP" %}</h3>
+        <p class="text-gray-600">{% trans "Exclusive services with premium details for a luxury experience." %}</p>
+      </div>
+
+    </div>
+
+    <!-- View More -->
+    <div class="text-center mt-12">
+      <a href="{% url 'services_list' %}" 
+         class="bg-pink-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
+        {% trans "View All Services" %}
+      </a>
+    </div>
+  </div>
+</section>
+<!--section 4 terminer-->
 
 <!-- Stats Section -->
 <section class="py-20 bg-pink-50">
-    <div class="w-full px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="stat-card">
-                <div class="bg-pink-50 p-6 rounded-2xl border border-pink-200 hover:border-yellow-400 transition-all duration-300 shadow-lg">
-                    <div class="text-4xl font-bold text-pink-700 mb-2">{{ recent_events_count }}+</div>
-                    <div class="text-gray-800">{% trans "Events Completed" %}</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="bg-pink-50 p-6 rounded-2xl border border-pink-200 hover:border-yellow-400 transition-all duration-300 shadow-lg">
-                    <div class="text-4xl font-bold text-pink-700 mb-2">{{ services_count }}+</div>
-                    <div class="text-gray-800">{% trans "Services Available" %}</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="bg-pink-50 p-6 rounded-2xl border border-pink-200 hover:border-yellow-400 transition-all duration-300 shadow-lg">
-                    <div class="text-4xl font-bold text-pink-700 mb-2">100%</div>
-                    <div class="text-gray-800">{% trans "Client Satisfaction" %}</div>
-                </div>
-            </div>
-        </div>
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    
+    <!-- Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4">
+        {% trans "Our Achievements" %}
+      </h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+        {% trans "Trusted by countless clients, our dedication and professionalism are reflected in these numbers." %}
+      </p>
     </div>
-</section>
 
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      
+      <!-- Events Completed -->
+      <div class="stat-card transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-white p-8 rounded-2xl border-4 border-pink-200 shadow-lg">
+          <div class="flex justify-center mb-4">
+            <i data-lucide="calendar-check" class="w-12 h-12 text-pink-700"></i>
+          </div>
+          <div class="text-5xl font-extrabold text-pink-700 mb-2">{{ recent_events_count }}+</div>
+          <div class="text-gray-800 font-medium">{% trans "Events Completed" %}</div>
+        </div>
+      </div>
+
+      <!-- Services Available -->
+      <div class="stat-card transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-white p-8 rounded-2xl border-4 border-pink-200 shadow-lg">
+          <div class="flex justify-center mb-4">
+            <i data-lucide="briefcase" class="w-12 h-12 text-pink-700"></i>
+          </div>
+          <div class="text-5xl font-extrabold text-pink-700 mb-2">{{ services_count }}+</div>
+          <div class="text-gray-800 font-medium">{% trans "Services Available" %}</div>
+        </div>
+      </div>
+
+      <!-- Client Satisfaction -->
+      <div class="stat-card transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-white p-8 rounded-2xl border-4 border-pink-200 shadow-lg">
+          <div class="flex justify-center mb-4">
+            <i data-lucide="smile" class="w-12 h-12 text-pink-700"></i>
+          </div>
+          <div class="text-5xl font-extrabold text-pink-700 mb-2">100%</div>
+          <div class="text-gray-800 font-medium">{% trans "Client Satisfaction" %}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!--section 5 terminer-->
 <!-- Featured Testimonials -->
 {% if featured_testimonials %}
-<section class="py-20 bg-pink-50">
-    <div class="w-full px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4">
-                {% trans "CLIENT TESTIMONIALS" %}
-            </h2>
-            <p class="text-xl text-gray-800">
-                {% trans "What our clients say about us" %}
-            </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {% for testimonial in featured_testimonials %}
-                <div class="testimonial-card bg-pink-50 p-6 rounded-2xl border border-pink-200 hover:border-yellow-400 transition-all duration-300 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        {% if testimonial.user.profile_picture %}
-                            <img src="{{ testimonial.user.profile_picture.url }}" alt="{{ testimonial.user.first_name }}" class="w-12 h-12 rounded-full object-cover mr-4 border border-pink-200">
-                        {% else %}
-                            <div class="w-12 h-12 bg-pink-700 rounded-full flex items-center justify-center mr-4 border border-pink-200">
-                                <span class="text-white font-semibold">{{ testimonial.user.first_name.0|upper }}</span>
-                            </div>
-                        {% endif %}
-                        <div>
-                            <h4 class="font-semibold text-gray-800">{{ testimonial.user.first_name }} {{ testimonial.user.last_name }}</h4>
-                            <div class="flex text-pink-700">
-                                {% for i in testimonial.star_range %}
-                                    {% if i <= testimonial.rating %}
-                                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
-                                    {% else %}
-                                        <i data-lucide="star" class="w-4 h-4"></i>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <h5 class="font-semibold text-gray-800 mb-2">{{ testimonial.title }}</h5>
-                    <p class="text-gray-800">{{ testimonial.content|truncatewords:20 }}</p>
-                </div>
-            {% endfor %}
-        </div>
-        
-        <div class="text-center mt-12">
-            <a href="{% url 'testimonials_list' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
-                {% trans "View All Testimonials" %}
-            </a>
-        </div>
+<section class="py-20 bg-gradient-to-b from-pink-50 to-white relative overflow-hidden">
+  <div class="w-full px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4 animate-fadeIn">
+        {% trans "What Our Clients Say" %}
+      </h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto animate-fadeIn delay-200">
+        {% trans "We are proud to have built unforgettable moments for our clients. Here’s what they have to share." %}
+      </p>
     </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for testimonial in featured_testimonials %}
+      <div class="testimonial-card bg-white p-8 rounded-2xl border-4 border-pink-200 shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
+        
+        <!-- Quote Icon -->
+        <div class="flex justify-start mb-4">
+          <i data-lucide="quote" class="w-10 h-10 text-pink-200"></i>
+        </div>
+        
+        <!-- Content -->
+        <p class="text-gray-700 italic mb-6">"{{ testimonial.content|truncatewords:25 }}"</p>
+        
+        <!-- User Info -->
+        <div class="flex items-center">
+          {% if testimonial.user.profile_picture %}
+          <img src="{{ testimonial.user.profile_picture.url }}" alt="{{ testimonial.user.first_name }}" class="w-12 h-12 rounded-full object-cover mr-4 border border-pink-200">
+          {% else %}
+          <div class="w-12 h-12 bg-pink-700 rounded-full flex items-center justify-center mr-4 border border-pink-200">
+            <span class="text-white font-semibold">{{ testimonial.user.first_name.0|upper }}</span>
+          </div>
+          {% endif %}
+          <div>
+            <h4 class="font-semibold text-gray-800">{{ testimonial.user.first_name }} {{ testimonial.user.last_name }}</h4>
+            <div class="flex">
+              {% for i in testimonial.star_range %}
+              {% if i <= testimonial.rating %}
+              <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+              {% else %}
+              <i data-lucide="star" class="w-5 h-5 text-gray-300"></i>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-12">
+      <a href="{% url 'testimonials_list' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
+        {% trans "Read More Testimonials" %}
+      </a>
+    </div>
+  </div>
 </section>
 {% endif %}
+<!--section 6 terminer-->
 
 <!-- CTA Section -->
-<section class="py-20 bg-gradient-to-r from-pink-100 via-yellow-400/30 to-pink-200">
-    <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-6">
-            {% trans "Ready to Create Your Perfect Event?" %}
-        </h2>
-        <p class="text-xl text-gray-800 mb-8">
-            {% trans "Join thousands of satisfied clients who trusted us with their special moments." %}
-        </p>
-        {% if not user.is_authenticated %}
-            <a href="{% url 'register' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300 inline-flex items-center">
-                {% trans "Get Started Today" %}
-                <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
-            </a>
-        {% else %}
-            <a href="{% url 'create_event' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300 inline-flex items-center">
-                {% trans "Create Your Event" %}
-                <i data-lucide="plus" class="w-5 h-5 ml-2"></i>
-            </a>
-        {% endif %}
-    </div>
+<section class="py-20 bg-gradient-to-r from-pink-100 via-yellow-200/50 to-pink-100">
+  <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
+    
+    <!-- Title -->
+    <h2 
+      class="text-4xl md:text-5xl font-extrabold text-pink-700 mb-6 
+             animate-fadeInUp">
+      {% trans "Ready to Create Your Perfect Event?" %}
+    </h2>
+    
+    <!-- Subtitle -->
+    <p 
+      class="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto 
+             leading-relaxed animate-fadeInUp delay-200">
+      {% trans "Join thousands of satisfied clients who trusted us to make their special day unforgettable." %}
+    </p>
+    
+    <!-- Call-to-action button -->
+    {% if not user.is_authenticated %}
+      <a href="{% url 'register' %}" 
+         class="inline-flex items-center gap-2 
+                px-5 py-2 rounded-full 
+                bg-pink-700 text-white text-base font-semibold 
+                shadow-md animate-pulse
+                hover:bg-pink-800 hover:scale-105 
+                transition-all duration-300">
+        <i data-lucide="sparkles" class="w-5 h-5 text-yellow-300"></i>
+        {% trans "Get Started Today" %}
+      </a>
+    {% else %}
+      <a href="{% url 'create_event' %}" 
+         class="inline-flex items-center gap-2 
+                px-5 py-2 rounded-full 
+                bg-pink-700 text-white text-base font-semibold 
+                shadow-md animate-pulse
+                hover:bg-pink-800 hover:scale-105 
+                transition-all duration-300">
+        <i data-lucide="calendar-plus" class="w-5 h-5 text-yellow-300"></i>
+        {% trans "Create Your Event" %}
+      </a>
+    {% endif %}
+    
+  </div>
 </section>
+
+<!-- Extra CSS animations -->
+<style>
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeInUp { 
+  animation: fadeInUp 1s ease-out forwards; 
+}
+
+.delay-200 { 
+  animation-delay: 0.2s; 
+}
+</style>
+
 
 <!-- Back to Top Button -->
 <div id="back-to-top" class="fixed bottom-6 right-6 bg-pink-700 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-pink-800 hover:scale-110 cursor-pointer hidden">
