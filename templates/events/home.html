@@ -5,42 +5,111 @@
 {% block title %}{% trans "Home" %} - Glow Gracious Events{% endblock %}
 
 {% block content %}
+
 <!-- Hero Section -->
-<section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-100 via-yellow-400/50 to-pink-200">
-    <div class="text-center w-full px-4 sm:px-6 lg:px-8">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6">
-            <span class="text-pink-700">GLOW</span>
-            <span class="text-yellow-400">GRACIOUS</span>
-        </h1>
-        <h2 class="text-2xl md:text-4xl font-light mb-8 text-gray-800">
-            {% trans "EVENTS" %}
-        </h2>
-        <p class="text-xl md:text-2xl text-gray-800 mb-12 leading-relaxed">
-            {% trans "Crafting your dream event with" %} 
-            <span class="text-pink-700 font-semibold">{% trans "elegance" %}</span>, 
-            <span class="text-pink-700 font-semibold">{% trans "style" %}</span> & 
-            <span class="text-pink-700 font-semibold">{% trans "unforgettable memories" %}</span>
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            {% if user.is_authenticated %}
-                <a href="{% url 'create_event' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
-                    {% trans "Create Event" %}
-                </a>
-                <a href="{% url 'dashboard' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
-                    {% trans "My Dashboard" %}
-                </a>
-            {% else %}
-                <a href="{% url 'register' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
-                    {% trans "Get Started" %}
-                </a>
-                <a href="{% url 'gallery' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
-                    {% trans "Explore Gallery" %}
-                </a>
-            {% endif %}
+<section class="relative w-full h-[80vh] overflow-hidden">
+    <!-- Carousel Images -->
+    <div id="hero-carousel" class="absolute inset-0 w-full h-full">
+        <!-- Slide 1: Zoom -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-100" style="background-image: url('{% static "images/slide1.jpg" %}');" data-index="0">
+            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-pink-700 animate-fadeIn">Welcome to <span class="text-yellow-400">Glow Gracious</span></h1>
+                <p class="text-xl md:text-2xl text-white mt-4 animate-fadeIn delay-200">Crafting your dream events with <span class="font-semibold">elegance</span> & <span class="font-semibold">style</span></p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Zoom -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('{% static "images/slide2.jpg" %}');" data-index="1">
+            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-yellow-400 animate-fadeIn">Stunning Decorations</h1>
+                <p class="text-xl md:text-2xl text-white mt-4 animate-fadeIn delay-200">We make your events visually unforgettable</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: From Left -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform -translate-x-full" style="background-image: url('{% static "images/slide3.jpg" %}');" data-index="2">
+            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-pink-500 animate-slideInLeft">Delicious Catering</h1>
+                <p class="text-xl md:text-2xl text-white mt-4 animate-slideInLeft delay-200">Savor exquisite flavors crafted for your events</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: From Top -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform -translate-y-full" style="background-image: url('{% static "images/slide4.jpg" %}');" data-index="3">
+            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-pink-700 animate-slideInDown">Capture Memories</h1>
+                <p class="text-xl md:text-2xl text-white mt-4 animate-slideInDown delay-200">Our photography makes every moment unforgettable</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: From Right -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform translate-x-full" style="background-image: url('{% static "images/slide5.jpg" %}');" data-index="4">
+            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-yellow-400 animate-slideInRight">Unforgettable Events</h1>
+                <p class="text-xl md:text-2xl text-white mt-4 animate-slideInRight delay-200">Experience events designed to impress and inspire</p>
+            </div>
         </div>
     </div>
+
+    <!-- Buttons -->
+    <div class="absolute bottom-10 w-full flex justify-center gap-4 z-20">
+        <a href="{% url 'register' %}" class="bg-pink-700 text-white px-3 py-1.5 rounded-md text-base font-semibold hover:bg-pink-800 animate-bounce transition-all duration-300">
+            {% trans "Get Started" %}
+        </a>
+        <a href="{% url 'gallery' %}" class="bg-pink-700 text-white px-3 py-1.5 rounded-md text-base font-semibold hover:bg-pink-800 animate-bounce transition-all duration-300">
+            {% trans "Explore Gallery" %}
+        </a>
+    </div>
 </section>
+
+<!-- JS Carousel with Custom Animations -->
+<script>
+const slides = document.querySelectorAll('#hero-carousel > div');
+let currentIndex = 0;
+
+function showSlide(index){
+    slides.forEach((slide, i) => {
+        slide.style.opacity = '0';
+        slide.style.transition = 'none';
+
+        if(i === 2) slide.style.transform = 'translateX(-100%)';
+        else if(i === 3) slide.style.transform = 'translateY(-100%)';
+        else if(i === 4) slide.style.transform = 'translateX(100%)';
+        else slide.style.transform = 'scale(1)';
+    });
+
+    const active = slides[index];
+
+    // Force reflow pour que transition fonctionne
+    void active.offsetWidth;
+
+    active.style.transition = 'transform 1s ease, opacity 1s ease';
+
+    switch(index){
+        case 0: // Zoom
+        case 1:
+            active.style.transform = 'scale(1.05)';
+            active.style.opacity = '1';
+            break;
+        case 2: // From Left
+        case 3: // From Top
+        case 4: // From Right
+            active.style.transform = 'translateX(0) translateY(0)';
+            active.style.opacity = '1';
+            break;
+    }
+}
+
+// Initial
+showSlide(currentIndex);
+
+// Change slide every 7 seconds
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}, 7000);
+</script>
+
 
 <!-- Video Section -->
 <section class="py-20 bg-pink-50">
