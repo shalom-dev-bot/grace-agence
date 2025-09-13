@@ -6,56 +6,56 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="relative w-full h-[80vh] overflow-hidden">
+<section class="relative w-full h-[80vh] min-h-[400px] max-h-[800px] overflow-hidden">
     <!-- Carousel Images -->
     <div id="hero-carousel" class="absolute inset-0 w-full h-full">
-        <!-- Slide 1: Zoom -->
+        <!-- Slide 1: Fade -->
         <div class="absolute inset-0 bg-cover bg-center opacity-100 slide1" data-index="0">
-            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
-                <h1 class="text-5xl md:text-7xl font-bold text-pink-700 animate-fadeIn">Welcome to <span class="text-yellow-400">Glow Gracious</span></h1>
-                <p class="text-xl md:text-2xl text-white mt-4 animate-fadeIn delay-200">Crafting your dream events with <span class="font-semibold">elegance</span> & <span class="font-semibold">style</span></p>
+            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-2 sm:px-4 md:px-6">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-pink-700 animate-fadeIn">Welcome to <span class="text-yellow-400">Glow Gracious</span></h1>
+                <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-white mt-3 sm:mt-4 animate-fadeIn delay-200">Crafting your dream events with <span class="font-semibold">elegance</span> & <span class="font-semibold">style</span></p>
             </div>
         </div>
 
-        <!-- Slide 2: Zoom -->
+        <!-- Slide 2: Fade -->
         <div class="absolute inset-0 bg-cover bg-center opacity-0 slide2" data-index="1">
-            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
-                <h1 class="text-5xl md:text-7xl font-bold text-pink-700 animate-fadeIn">Stunning Decorations</h1>
-                <p class="text-xl md:text-2xl text-white mt-4 animate-fadeIn delay-200">We make your events visually unforgettable</p>
+            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-2 sm:px-4 md:px-6">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-pink-700 animate-fadeIn">Stunning Decorations</h1>
+                <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-white mt-3 sm:mt-4 animate-fadeIn delay-200">We make your events visually unforgettable</p>
             </div>
         </div>
 
-        <!-- Slide 3: From Left -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform -translate-x-full slide3" data-index="2">
-            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
-                <h1 class="text-5xl md:text-7xl font-bold text-yellow-500 animate-slideInLeft">Delicious Catering</h1>
-                <p class="text-xl md:text-2xl text-white mt-4 animate-slideInLeft delay-200">Savor exquisite flavors crafted for your events</p>
+        <!-- Slide 3: Staircase (Top-Left) -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 slide3" data-index="2">
+            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-2 sm:px-4 md:px-6">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-400 animate-staircase">Delicious Catering</h1>
+                <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-white mt-3 sm:mt-4 animate-staircase delay-200">Savor exquisite flavors crafted for your events</p>
             </div>
         </div>
 
-        <!-- Slide 4: From Top -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform -translate-y-full slide4" data-index="3">
-            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
-                <h1 class="text-5xl md:text-7xl font-bold text-pink-700 animate-slideInDown">Capture Memories</h1>
-                <p class="text-xl md:text-2xl text-white mt-4 animate-slideInDown delay-200">Our photography makes every moment unforgettable</p>
+        <!-- Slide 4: Staircase (Bottom-Right) -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 slide4" data-index="3">
+            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-2 sm:px-4 md:px-6">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-pink-700 animate-staircase">Capture Memories</h1>
+                <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-white mt-3 sm:mt-4 animate-staircase delay-200">Our photography makes every moment unforgettable</p>
             </div>
         </div>
 
-        <!-- Slide 5: From Right -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform translate-x-full slide5" data-index="4">
-            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
-                <h1 class="text-5xl md:text-7xl font-bold text-yellow-400 animate-slideInRight">Unforgettable Events</h1>
-                <p class="text-xl md:text-2xl text-white mt-4 animate-slideInRight delay-200">Experience events designed to impress and inspire</p>
+        <!-- Slide 5: Staircase (Top-Right) -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 slide5" data-index="4">
+            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-2 sm:px-4 md:px-6">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-400 animate-staircase">Unforgettable Events</h1>
+                <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-white mt-3 sm:mt-4 animate-staircase delay-200">Experience events designed to impress and inspire</p>
             </div>
         </div>
     </div>
 
     <!-- Buttons -->
-    <div class="absolute bottom-10 w-full flex justify-center gap-4 z-20">
-        <a href="{% url 'register' %}" class="bg-pink-700 text-white px-3 py-1.5 rounded-md text-base font-semibold hover:bg-pink-800 animate-bounce transition-all duration-300">
+    <div class="absolute bottom-3 sm:bottom-4 w-full flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 px-2 sm:px-4 z-20">
+        <a href="{% url 'register' %}" class="bg-gradient-to-r from-yellow-400 to-pink-700 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-md text-xs sm:text-sm md:text-base font-semibold hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl transition-all duration-300 animate-pulse">
             {% trans "Get Started" %}
         </a>
-        <a href="{% url 'gallery' %}" class="bg-pink-700 text-white px-3 py-1.5 rounded-md text-base font-semibold hover:bg-pink-800 animate-bounce transition-all duration-300">
+        <a href="{% url 'gallery' %}" class="bg-gradient-to-r from-yellow-400 to-pink-700 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-md text-xs sm:text-sm md:text-base font-semibold hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl transition-all duration-300 animate-pulse">
             {% trans "Explore Gallery" %}
         </a>
     </div>
@@ -63,93 +63,80 @@
 
 <!-- CSS for Background Images -->
 <style>
-    .slide1 {
-        background-image: url('{% static "images/slider7.jpeg" %}');
+    .slide1 { background-image: url('{% static "images/slider7.jpeg" %}'); }
+    .slide2 { background-image: url('{% static "images/slider5.jpeg" %}'); }
+    .slide3 { background-image: url('{% static "images/slide1.jpeg" %}'); }
+    .slide4 { background-image: url('{% static "images/slider8.jpeg" %}'); }
+    .slide5 { background-image: url('{% static "images/slider6.jpeg" %}'); }
+
+    /* Ensure images cover properly */
+    #hero-carousel > div {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
-    .slide2 {
-        background-image: url('{% static "images/slider5.jpeg" %}');
-    }
-    .slide3 {
-        background-image: url('{% static "images/slide1.jpeg" %}');
-    }
-    .slide4 {
-        background-image: url('{% static "images/slider8.jpeg" %}');
-    }
-    .slide5 {
-        background-image: url('{% static "images/slider6.jpeg" %}');
+
+    /* Responsive text adjustments */
+    @media (max-width: 640px) {
+        #hero-carousel .bg-black\/50 { background-color: rgba(0, 0, 0, 0.65); }
+        #hero-carousel h1, #hero-carousel p { max-width: 95%; word-wrap: break-word; }
     }
 </style>
 
-<!-- JS Carousel with Custom Animations -->
+<!-- JS Carousel with Staircase Animation -->
 <script>
 const slides = document.querySelectorAll('#hero-carousel > div');
 let currentIndex = 0;
 
-function showSlide(index){
+function showSlide(index) {
     slides.forEach((slide, i) => {
         slide.style.opacity = '0';
         slide.style.transition = 'none';
-
-        if(i === 2) slide.style.transform = 'translateX(-100%)';
-        else if(i === 3) slide.style.transform = 'translateY(-100%)';
-        else if(i === 4) slide.style.transform = 'translateX(100%)';
+        if (i === 2) slide.style.transform = 'translate(-10%, -10%)';
+        else if (i === 3) slide.style.transform = 'translate(10%, 10%)';
+        else if (i === 4) slide.style.transform = 'translate(10%, -10%)';
         else slide.style.transform = 'scale(1)';
     });
 
     const active = slides[index];
-
-    // Force reflow pour que transition fonctionne
     void active.offsetWidth;
-
-    active.style.transition = 'transform 1s ease, opacity 1s ease';
-
-    switch(index){
-        case 0: // Zoom
-        case 1:
-            active.style.transform = 'scale(1.05)';
-            active.style.opacity = '1';
-            break;
-        case 2: // From Left
-        case 3: // From Top
-        case 4: // From Right
-            active.style.transform = 'translateX(0) translateY(0)';
-            active.style.opacity = '1';
-            break;
+    active.style.transition = 'opacity 2s ease, transform 2s ease';
+    active.style.opacity = '1';
+    if (index === 2 || index === 3 || index === 4) {
+        active.style.transform = 'translate(0, 0)';
+    } else {
+        active.style.transform = 'scale(1.1)';
     }
 }
 
-// Initial
 showSlide(currentIndex);
-
-// Change slide every 7 seconds
 setInterval(() => {
     currentIndex = (currentIndex + 1) % slides.length;
     showSlide(currentIndex);
-}, 7000);
+}, 10000);
 </script>
-<!--terminer-->
 
 <!-- Video Section -->
-<section class="py-20 bg-gradient-to-r from-pink-50 via-pink-100 to-pink-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-pink-700 mb-6 animate-fadeIn">
+<section class="py-8 sm:py-12 bg-gradient-to-r from-pink-50 via-pink-100 to-pink-50">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 text-center">
+        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-pink-700 mb-4 sm:mb-6 animate-fadeIn">
             {% trans "Watch Our Events in Action" %}
         </h2>
-        <p class="text-gray-800 mb-12 max-w-3xl mx-auto animate-fadeIn delay-200">
+        <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 max-w-3xl mx-auto animate-fadeIn delay-200">
             {% trans "Get a glimpse of the magic we create with these highlight reels of our most memorable events." %}
         </p>
 
         {% if featured_videos %}
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {% for video in featured_videos %}
-                    <div class="relative w-full overflow-hidden rounded-xl shadow-xl border border-pink-200 transform hover:scale-105 transition-transform duration-500">
-                        <video autoplay muted loop class="w-full h-full object-cover rounded-xl">
+                    <div class="relative w-full overflow-hidden rounded-xl shadow-md border border-pink-200 transform hover:scale-105 hover:shadow-xl transition-all duration-500">
+                        <video autoplay muted loop class="w-full h-40 sm:h-56 md:h-72 object-cover rounded-xl">
                             <source src="{{ video.video_file.url }}" type="video/mp4">
                             {% trans "Your browser does not support the video tag." %}
                         </video>
                         <!-- Overlay -->
                         <div class="absolute inset-0 bg-pink-700/40 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white text-lg md:text-xl font-semibold animate-bounce">
+                            <span class="bg-gradient-to-r from-yellow-400 to-pink-700 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-md text-xs sm:text-sm md:text-base font-semibold hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl transition-all duration-300 animate-pulse">
                                 {% trans "Watch the Highlights" %}
                             </span>
                         </div>
@@ -157,333 +144,329 @@ setInterval(() => {
                 {% endfor %}
             </div>
         {% else %}
-            <p class="text-gray-800">{% trans "No featured videos available yet. Check back soon!" %}</p>
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-800">{% trans "No featured videos available yet. Check back soon!" %}</p>
         {% endif %}
     </div>
 </section>
-<!--section2 terminer-->
-{% load static %}
 
 <!-- About Section -->
-<section class="relative py-24 bg-gradient-to-r from-pink-50 via-pink-100 to-pink-50 overflow-hidden">
+<section class="relative py-8 sm:py-12 bg-gradient-to-r from-pink-50 via-pink-100 to-pink-50 overflow-hidden">
     <!-- Background decorative circles -->
-    <div class="absolute -top-20 -left-20 w-72 h-72 bg-pink-200 rounded-full opacity-30 animate-pulse-slow"></div>
-    <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-yellow-200 rounded-full opacity-20 animate-pulse-slow"></div>
+    <div class="absolute -top-16 -left-16 w-40 sm:w-56 h-40 sm:h-56 bg-pink-200 rounded-full opacity-30 animate-pulse-slow"></div>
+    <div class="absolute -bottom-16 -right-16 w-48 sm:w-72 h-48 sm:h-72 bg-yellow-200 rounded-full opacity-20 animate-pulse-slow"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
         <!-- Section Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4 animate-fadeInDown">
+        <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-pink-700 mb-4 animate-fadeInDown">
                 {% trans "About Us" %}
             </h2>
-            <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto animate-fadeIn delay-100">
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-700 mb-4 sm:mb-6 max-w-2xl mx-auto animate-fadeIn delay-100">
                 {% trans "Glow Gracious Events is your partner in creating unforgettable moments filled with elegance, creativity, and joy." %}
             </p>
-            <p class="text-xl md:text-2xl text-gray-800 max-w-3xl mx-auto leading-relaxed animate-fadeIn delay-200">
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed animate-fadeIn delay-200">
                 {% trans "At Glow Gracious Events, we craft unforgettable experiences by combining elegance, creativity, and meticulous attention to every detail. Our mission is to make every celebration magical, leaving memories that last a lifetime." %}
             </p>
 
             <!-- See More Button -->
-            <div class="mt-8">
-                <a href="#" class="inline-block bg-pink-700 text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-pink-800 hover:scale-105 transition-all duration-300 animate-bounce">
+            <div class="mt-4 sm:mt-6">
+                <a href="#" class="inline-block bg-gradient-to-r from-yellow-400 to-pink-700 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full text-xs sm:text-sm md:text-base lg:text-lg font-semibold hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl transition-all duration-300 animate-pulse">
                     {% trans "See More" %}
                 </a>
             </div>
         </div>
 
         <!-- Features / Values -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div class="bg-white rounded-xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-500 animate-fadeInUp delay-300">
-                <img src="{% static 'images/creativity-icon.png' %}" alt="Creativity" class="w-16 h-16 mx-auto mb-4">
-                <h3 class="text-2xl font-bold text-pink-700 mb-2">{% trans "Creativity" %}</h3>
-                <p class="text-gray-700">{% trans "We design events that are visually stunning and uniquely tailored to your style." %}</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div class="bg-white rounded-xl shadow-md p-4 sm:p-6 transform hover:scale-105 hover:shadow-xl transition-all duration-500 animate-fadeInUp delay-300">
+                <img src="{% static 'images/creativity-icon.png' %}" alt="Creativity" class="w-8 sm:w-10 h-8 sm:h-10 mx-auto mb-4">
+                <h3 class="text-base sm:text-lg md:text-xl font-bold text-pink-700 mb-2">{% trans "Creativity" %}</h3>
+                <p class="text-xs sm:text-sm text-gray-700">{% trans "We design events that are visually stunning and uniquely tailored to your style." %}</p>
             </div>
-            <div class="bg-white rounded-xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-500 animate-fadeInUp delay-500">
-                <img src="{% static 'images/elegance-icon.png' %}" alt="Elegance" class="w-16 h-16 mx-auto mb-4">
-                <h3 class="text-2xl font-bold text-pink-700 mb-2">{% trans "Elegance" %}</h3>
-                <p class="text-gray-700">{% trans "From decor to catering, every detail is curated for sophistication and style." %}</p>
+            <div class="bg-white rounded-xl shadow-md p-4 sm:p-6 transform hover:scale-105 hover:shadow-xl transition-all duration-500 animate-fadeInUp delay-500">
+                <img src="{% static 'images/elegance-icon.png' %}" alt="Elegance" class="w-8 sm:w-10 h-8 sm:h-10 mx-auto mb-4">
+                <h3 class="text-base sm:text-lg md:text-xl font-bold text-pink-700 mb-2">{% trans "Elegance" %}</h3>
+                <p class="text-xs sm:text-sm text-gray-700">{% trans "From decor to catering, every detail is curated for sophistication and style." %}</p>
             </div>
-            <div class="bg-white rounded-xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-500 animate-fadeInUp delay-700">
-                <img src="{% static 'images/memories-icon.png' %}" alt="Memories" class="w-16 h-16 mx-auto mb-4">
-                <h3 class="text-2xl font-bold text-pink-700 mb-2">{% trans "Memories" %}</h3>
-                <p class="text-gray-700">{% trans "We ensure each moment is unforgettable, creating memories that last forever." %}</p>
+            <div class="bg-white rounded-xl shadow-md p-4 sm:p-6 transform hover:scale-105 hover:shadow-xl transition-all duration-500 animate-fadeInUp delay-700">
+                <img src="{% static 'images/memories-icon.png' %}" alt="Memories" class="w-8 sm:w-10 h-8 sm:h-10 mx-auto mb-4">
+                <h3 class="text-base sm:text-lg md:text-xl font-bold text-pink-700 mb-2">{% trans "Memories" %}</h3>
+                <p class="text-xs sm:text-sm text-gray-700">{% trans "We ensure each moment is unforgettable, creating memories that last forever." %}</p>
             </div>
         </div>
     </div>
 </section>
-<!--section 3 terminer-->
 
 <!-- Services Section -->
-<section class="py-20">
-  <div class="w-full px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4">
-        {% trans "OUR SERVICES" %}
-      </h2>
-      <p class="text-xl text-gray-800">
-        {% trans "Choose the perfect package that fits your event style" %}
-      </p>
-    </div>
-
-    <!-- Services Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <!-- Classique -->
-      <div class="bg-gray-50 p-8 rounded-2xl border-4 border-gray-400 shadow-lg hover:scale-105 transition-transform duration-300">
-        <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mb-6">
-          <i data-lucide="star" class="w-8 h-8 text-white"></i>
+<section class="py-8 sm:py-12">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+        <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-pink-700 mb-4">
+                {% trans "OUR SERVICES" %}
+            </h2>
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-800">
+                {% trans "Choose the perfect package that fits your event style" %}
+            </p>
         </div>
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">{% trans "Classic" %}</h3>
-        <p class="text-gray-600">{% trans "Essential services to make your event simple yet elegant." %}</p>
-      </div>
 
-      <!-- Moderne -->
-      <div class="bg-gray-50 p-8 rounded-2xl border-4 border-blue-400 shadow-lg hover:scale-105 transition-transform duration-300">
-        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-          <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
+        <!-- Services Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Classic -->
+            <div class="bg-pink-50 p-4 sm:p-6 rounded-3xl border-4 border-pink-300 shadow-md hover:scale-105 hover:shadow-xl transition-all duration-500">
+                <div class="w-10 sm:w-12 h-10 sm:h-12 bg-pink-600 rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                    <i data-lucide="star" class="w-5 sm:w-6 h-5 sm:h-6 text-white"></i>
+                </div>
+                <h3 class="text-base sm:text-lg md:text-xl font-bold text-pink-700 mb-4">{% trans "Classic" %}</h3>
+                <p class="text-xs sm:text-sm text-gray-600">{% trans "Essential services to make your event simple yet elegant." %}</p>
+            </div>
+
+            <!-- Modern -->
+            <div class="bg-yellow-50 p-4 sm:p-6 rounded-3xl border-4 border-yellow-300 shadow-md hover:scale-105 hover:shadow-xl transition-all duration-500">
+                <div class="w-10 sm:w-12 h-10 sm:h-12 bg-yellow-500 rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                    <i data-lucide="sparkles" class="w-5 sm:w-6 h-5 sm:h-6 text-white"></i>
+                </div>
+                <h3 class="text-base sm:text-lg md:text-xl font-bold text-yellow-700 mb-4">{% trans "Modern" %}</h3>
+                <p class="text-xs sm:text-sm text-gray-600">{% trans "A balanced mix of style, innovation, and comfort for your guests." %}</p>
+            </div>
+
+            <!-- VIP -->
+            <div class="bg-gradient-to-r from-yellow-200 to-pink-200 p-4 sm:p-6 rounded-3xl border-4 border-pink-400 shadow-md hover:scale-105 hover:shadow-xl transition-all duration-500">
+                <div class="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-yellow-400 to-pink-700 rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                    <i data-lucide="crown" class="w-5 sm:w-6 h-5 sm:h-6 text-white"></i>
+                </div>
+                <h3 class="text-base sm:text-lg md:text-xl font-bold text-pink-700 mb-4">{% trans "VIP" %}</h3>
+                <p class="text-xs sm:text-sm text-gray-600">{% trans "Exclusive services with premium details for a luxury experience." %}</p>
+            </div>
         </div>
-        <h3 class="text-2xl font-bold text-blue-600 mb-4">{% trans "Modern" %}</h3>
-        <p class="text-gray-600">{% trans "A balanced mix of style, innovation, and comfort for your guests." %}</p>
-      </div>
 
-      <!-- VIP -->
-      <div class="bg-gray-50 p-8 rounded-2xl border-4 border-yellow-500 shadow-lg hover:scale-105 transition-transform duration-300">
-        <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mb-6">
-          <i data-lucide="crown" class="w-8 h-8 text-white"></i>
+        <!-- View More -->
+        <div class="text-center mt-6 sm:mt-8">
+            <a href="{% url 'services_list' %}" class="bg-gradient-to-r from-yellow-400 to-pink-700 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg font-semibold hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl transition-all duration-300 animate-pulse">
+                {% trans "View All Services" %}
+            </a>
         </div>
-        <h3 class="text-2xl font-bold text-yellow-600 mb-4">{% trans "VIP" %}</h3>
-        <p class="text-gray-600">{% trans "Exclusive services with premium details for a luxury experience." %}</p>
-      </div>
-
     </div>
-
-    <!-- View More -->
-    <div class="text-center mt-12">
-      <a href="{% url 'services_list' %}" 
-         class="bg-pink-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
-        {% trans "View All Services" %}
-      </a>
-    </div>
-  </div>
 </section>
-<!--section 4 terminer-->
 
 <!-- Stats Section -->
-<section class="py-20 bg-pink-50">
-  <div class="w-full px-4 sm:px-6 lg:px-8">
-    
-    <!-- Title -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4">
-        {% trans "Our Achievements" %}
-      </h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-        {% trans "Trusted by countless clients, our dedication and professionalism are reflected in these numbers." %}
-      </p>
+<section class="py-8 sm:py-12 bg-pink-50">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+        <!-- Title -->
+        <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-pink-700 mb-4">
+                {% trans "Our Achievements" %}
+            </h2>
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto">
+                {% trans "Trusted by countless clients, our dedication and professionalism are reflected in these numbers." %}
+            </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Events Completed -->
+            <div class="stat-card transform hover:scale-105 hover:shadow-xl transition-all duration-500">
+                <div class="bg-green-100 p-4 sm:p-6 rounded-3xl border-4 border-green-300 shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <i data-lucide="calendar-check" class="w-8 sm:w-10 h-8 sm:h-10 text-green-700"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-green-700 mb-2">{{ recent_events_count }}+</div>
+                    <div class="text-xs sm:text-sm md:text-base text-gray-800 font-medium">{% trans "Events Completed" %}</div>
+                </div>
+            </div>
+
+            <!-- Services Available -->
+            <div class="stat-card transform hover:scale-105 hover:shadow-xl transition-all duration-500">
+                <div class="bg-blue-100 p-4 sm:p-6 rounded-3xl border-4 border-blue-300 shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <i data-lucide="briefcase" class="w-8 sm:w-10 h-8 sm:h-10 text-blue-700"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-700 mb-2">{{ services_count }}+</div>
+                    <div class="text-xs sm:text-sm md:text-base text-gray-800 font-medium">{% trans "Services Available" %}</div>
+                </div>
+            </div>
+
+            <!-- Client Satisfaction -->
+            <div class="stat-card transform hover:scale-105 hover:shadow-xl transition-all duration-500">
+                <div class="bg-yellow-100 p-4 sm:p-6 rounded-3xl border-4 border-yellow-300 shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <i data-lucide="smile" class="w-8 sm:w-10 h-8 sm:h-10 text-yellow-700"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-yellow-700 mb-2">100%</div>
+                    <div class="text-xs sm:text-sm md:text-base text-gray-800 font-medium">{% trans "Client Satisfaction" %}</div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Stats -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      
-      <!-- Events Completed -->
-      <div class="stat-card transform hover:scale-105 transition-transform duration-300">
-        <div class="bg-white p-8 rounded-2xl border-4 border-pink-200 shadow-lg">
-          <div class="flex justify-center mb-4">
-            <i data-lucide="calendar-check" class="w-12 h-12 text-pink-700"></i>
-          </div>
-          <div class="text-5xl font-extrabold text-pink-700 mb-2">{{ recent_events_count }}+</div>
-          <div class="text-gray-800 font-medium">{% trans "Events Completed" %}</div>
-        </div>
-      </div>
-
-      <!-- Services Available -->
-      <div class="stat-card transform hover:scale-105 transition-transform duration-300">
-        <div class="bg-white p-8 rounded-2xl border-4 border-pink-200 shadow-lg">
-          <div class="flex justify-center mb-4">
-            <i data-lucide="briefcase" class="w-12 h-12 text-pink-700"></i>
-          </div>
-          <div class="text-5xl font-extrabold text-pink-700 mb-2">{{ services_count }}+</div>
-          <div class="text-gray-800 font-medium">{% trans "Services Available" %}</div>
-        </div>
-      </div>
-
-      <!-- Client Satisfaction -->
-      <div class="stat-card transform hover:scale-105 transition-transform duration-300">
-        <div class="bg-white p-8 rounded-2xl border-4 border-pink-200 shadow-lg">
-          <div class="flex justify-center mb-4">
-            <i data-lucide="smile" class="w-12 h-12 text-pink-700"></i>
-          </div>
-          <div class="text-5xl font-extrabold text-pink-700 mb-2">100%</div>
-          <div class="text-gray-800 font-medium">{% trans "Client Satisfaction" %}</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </section>
-<!--section 5 terminer-->
+
 <!-- Featured Testimonials -->
 {% if featured_testimonials %}
-<section class="py-20 bg-gradient-to-b from-pink-50 to-white relative overflow-hidden">
-  <div class="w-full px-4 sm:px-6 lg:px-8 relative z-10">
-    
-    <!-- Title -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-pink-700 mb-4 animate-fadeIn">
-        {% trans "What Our Clients Say" %}
-      </h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto animate-fadeIn delay-200">
-        {% trans "We are proud to have built unforgettable moments for our clients. Here’s what they have to share." %}
-      </p>
-    </div>
-
-    <!-- Testimonials Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {% for testimonial in featured_testimonials %}
-      <div class="testimonial-card bg-white p-8 rounded-2xl border-4 border-pink-200 shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
-        
-        <!-- Quote Icon -->
-        <div class="flex justify-start mb-4">
-          <i data-lucide="quote" class="w-10 h-10 text-pink-200"></i>
+<section class="py-8 sm:py-12 bg-gradient-to-b from-pink-50 to-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
+        <!-- Title -->
+        <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-pink-700 mb-4 animate-fadeIn">
+                {% trans "What Our Clients Say" %}
+            </h2>
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto animate-fadeIn delay-200">
+                {% trans "We are proud to have built unforgettable moments for our clients. Here’s what they have to share." %}
+            </p>
         </div>
-        
-        <!-- Content -->
-        <p class="text-gray-700 italic mb-6">"{{ testimonial.content|truncatewords:25 }}"</p>
-        
-        <!-- User Info -->
-        <div class="flex items-center">
-          {% if testimonial.user.profile_picture %}
-          <img src="{{ testimonial.user.profile_picture.url }}" alt="{{ testimonial.user.first_name }}" class="w-12 h-12 rounded-full object-cover mr-4 border border-pink-200">
-          {% else %}
-          <div class="w-12 h-12 bg-pink-700 rounded-full flex items-center justify-center mr-4 border border-pink-200">
-            <span class="text-white font-semibold">{{ testimonial.user.first_name.0|upper }}</span>
-          </div>
-          {% endif %}
-          <div>
-            <h4 class="font-semibold text-gray-800">{{ testimonial.user.first_name }} {{ testimonial.user.last_name }}</h4>
-            <div class="flex">
-              {% for i in testimonial.star_range %}
-              {% if i <= testimonial.rating %}
-              <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-              {% else %}
-              <i data-lucide="star" class="w-5 h-5 text-gray-300"></i>
-              {% endif %}
-              {% endfor %}
+
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {% for testimonial in featured_testimonials %}
+            <div class="testimonial-card bg-white p-4 sm:p-6 rounded-3xl border-4 border-pink-200 shadow-md transform hover:-translate-y-2 hover:shadow-xl transition-all duration-500">
+                <!-- Quote Icon -->
+                <div class="flex justify-start mb-4">
+                    <i data-lucide="quote" class="w-6 sm:w-8 h-6 sm:h-8 text-pink-200"></i>
+                </div>
+                <!-- Content -->
+                <p class="text-xs sm:text-sm md:text-base text-gray-700 italic mb-4 sm:mb-6">"{{ testimonial.content|truncatewords:25 }}"</p>
+                <!-- User Info -->
+                <div class="flex items-center">
+                    {% if testimonial.user.profile_picture %}
+                    <img src="{{ testimonial.user.profile_picture.url }}" alt="{{ testimonial.user.first_name }}" class="w-8 sm:w-10 h-8 sm:h-10 rounded-full object-cover mr-3 sm:mr-4 border border-pink-200">
+                    {% else %}
+                    <div class="w-8 sm:w-10 h-8 sm:h-10 bg-pink-700 rounded-full flex items-center justify-center mr-3 sm:mr-4 border border-pink-200">
+                        <span class="text-white font-semibold text-xs sm:text-sm">{{ testimonial.user.first_name.0|upper }}</span>
+                    </div>
+                    {% endif %}
+                    <div>
+                        <h4 class="text-xs sm:text-sm md:text-base font-semibold text-gray-800">{{ testimonial.user.first_name }} {{ testimonial.user.last_name }}</h4>
+                        <div class="flex">
+                            {% for i in testimonial.star_range %}
+                            {% if i <= testimonial.rating %}
+                            <i data-lucide="star" class="w-3 sm:w-4 h-3 sm:h-4 text-yellow-400 fill-yellow-400"></i>
+                            {% else %}
+                            <i data-lucide="star" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-300"></i>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            {% endfor %}
         </div>
-      </div>
-      {% endfor %}
-    </div>
 
-    <!-- CTA Button -->
-    <div class="text-center mt-12">
-      <a href="{% url 'testimonials_list' %}" class="bg-pink-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-pink-800 hover:scale-105 transition-all duration-300">
-        {% trans "Read More Testimonials" %}
-      </a>
+        <!-- CTA Button -->
+        <div class="text-center mt-6 sm:mt-8">
+            <a href="{% url 'testimonials_list' %}" class="bg-gradient-to-r from-yellow-400 to-pink-700 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg font-semibold hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl transition-all duration-300 animate-pulse">
+                {% trans "Read More Testimonials" %}
+            </a>
+        </div>
     </div>
-  </div>
 </section>
 {% endif %}
-<!--section 6 terminer-->
 
 <!-- CTA Section -->
-<section class="py-20 bg-gradient-to-r from-pink-100 via-yellow-200/50 to-pink-100">
-  <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
-    
-    <!-- Title -->
-    <h2 
-      class="text-4xl md:text-5xl font-extrabold text-pink-700 mb-6 
-             animate-fadeInUp">
-      {% trans "Ready to Create Your Perfect Event?" %}
-    </h2>
-    
-    <!-- Subtitle -->
-    <p 
-      class="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto 
-             leading-relaxed animate-fadeInUp delay-200">
-      {% trans "Join thousands of satisfied clients who trusted us to make their special day unforgettable." %}
-    </p>
-    
-    <!-- Call-to-action button -->
-    {% if not user.is_authenticated %}
-      <a href="{% url 'register' %}" 
-         class="inline-flex items-center gap-2 
-                px-5 py-2 rounded-full 
-                bg-pink-700 text-white text-base font-semibold 
-                shadow-md animate-pulse
-                hover:bg-pink-800 hover:scale-105 
-                transition-all duration-300">
-        <i data-lucide="sparkles" class="w-5 h-5 text-yellow-300"></i>
-        {% trans "Get Started Today" %}
-      </a>
-    {% else %}
-      <a href="{% url 'create_event' %}" 
-         class="inline-flex items-center gap-2 
-                px-5 py-2 rounded-full 
-                bg-pink-700 text-white text-base font-semibold 
-                shadow-md animate-pulse
-                hover:bg-pink-800 hover:scale-105 
-                transition-all duration-300">
-        <i data-lucide="calendar-plus" class="w-5 h-5 text-yellow-300"></i>
-        {% trans "Create Your Event" %}
-      </a>
-    {% endif %}
-    
-  </div>
+<section class="py-8 sm:py-12 bg-gradient-to-r from-pink-100 via-yellow-200/50 to-pink-100">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 text-center">
+        <!-- Title -->
+        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-pink-700 mb-4 sm:mb-6 animate-fadeInUp">
+            {% trans "Ready to Create Your Perfect Event?" %}
+        </h2>
+        <!-- Subtitle -->
+        <p class="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed animate-fadeInUp delay-200">
+            {% trans "Join thousands of satisfied clients who trusted us to make their special day unforgettable." %}
+        </p>
+        <!-- Call-to-action button -->
+        {% if not user.is_authenticated %}
+        <a href="{% url 'register' %}" class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-pink-700 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full text-xs sm:text-sm md:text-base lg:text-lg font-semibold shadow-md animate-pulse hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl transition-all duration-300">
+            <i data-lucide="sparkles" class="w-3 sm:w-4 h-3 sm:h-4 text-white"></i>
+            {% trans "Get Started Today" %}
+        </a>
+        {% else %}
+        <a href="{% url 'create_event' %}" class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-pink-700 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full text-xs sm:text-sm md:text-base lg:text-lg font-semibold shadow-md animate-pulse hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl transition-all duration-300">
+            <i data-lucide="calendar-plus" class="w-3 sm:w-4 h-3 sm:h-4 text-white"></i>
+            {% trans "Create Your Event" %}
+        </a>
+        {% endif %}
+    </div>
 </section>
 
-<!-- Extra CSS animations -->
-<style>
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fadeInUp { 
-  animation: fadeInUp 1s ease-out forwards; 
-}
-
-.delay-200 { 
-  animation-delay: 0.2s; 
-}
-</style>
-
-
 <!-- Back to Top Button -->
-<div id="back-to-top" class="fixed bottom-6 right-6 bg-pink-700 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-pink-800 hover:scale-110 cursor-pointer hidden">
-    <i data-lucide="arrow-up" class="w-6 h-6 animate-pulse"></i>
+<div id="back-to-top" class="fixed bottom-3 sm:bottom-4 right-3 sm:right-4 bg-gradient-to-r from-yellow-400 to-pink-700 text-white p-2 sm:p-3 rounded-full shadow-md opacity-0 transition-all duration-300 hover:from-yellow-300 hover:to-pink-600 hover:shadow-xl hover:scale-110 cursor-pointer hidden">
+    <i data-lucide="arrow-up" class="w-4 sm:w-5 h-4 sm:h-5 animate-pulse"></i>
 </div>
 
-<!-- Animations -->
+<!-- Animations and Responsive CSS -->
 <style>
-    @keyframes pulse {
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes staircase {
+        from { opacity: 0; transform: translate(-10%, -10%) scale(0.95); }
+        to { opacity: 1; transform: translate(0, 0) scale(1); }
+    }
+    @keyframes pulse-slow {
         0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-    }
-    .animate-pulse {
-        animation: pulse 2s ease-in-out infinite;
+        50% { transform: scale(1.05); }
     }
 
-    #back-to-top {
-        z-index: 1000;
-    }
-    #back-to-top.visible {
-        opacity: 1;
-        visibility: visible;
-    }
+    .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+    .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-staircase { animation: staircase 2s ease-out forwards; }
+    .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-700 { animation-delay: 0.7s; }
 
+    #back-to-top { z-index: 1000; }
+    #back-to-top.visible { opacity: 1; visibility: visible; }
+
+    /* Responsive adjustments */
     @media (max-width: 640px) {
-        h1 { font-size: 3rem; }
-        h2 { font-size: 1.5rem; }
-        .text-2xl { font-size: 1.25rem; }
-        .text-xl { font-size: 1rem; }
-        .py-20 { padding-top: 2rem; padding-bottom: 2rem; }
+        .min-h-screen { padding-top: 1rem; padding-bottom: 1rem; }
+        .max-w-7xl { max-width: 95%; margin: 0 auto; }
+        .py-8 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .py-12 { padding-top: 2rem; padding-bottom: 2rem; }
+        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+        .py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.75rem; }
+        .text-4xl { font-size: 2rem; }
+        .text-5xl { font-size: 2.25rem; }
+        .text-xs { font-size: 0.75rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .w-8 { width: 1.5rem; height: 1.5rem; }
+        .w-10 { width: 2rem; height: 2rem; }
+        .w-12 { width: 2.5rem; height: 2.5rem; }
+        .h-8 { height: 1.5rem; }
+        .h-10 { height: 2rem; }
+        .h-12 { height: 2.5rem; }
+        .w-40 { width: 6rem; height: 6rem; }
+        .w-56 { width: 8rem; height: 8rem; }
+        .w-72 { width: 10rem; height: 10rem; }
+        .h-40 { height: 8rem; }
+        .h-56 { height: 10rem; }
+        .h-72 { height: 12rem; }
+        .grid-cols-2 { grid-template-columns: 1fr; }
         .grid-cols-3 { grid-template-columns: 1fr; }
-        .w-16 { width: 12px; height: 12px; }
-        .h-16 { height: 12px; }
-        .px-6 { padding-left: 1rem; padding-right: 1rem; }
-        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        #hero-carousel > div { transform: scale(1) !important; }
+    }
+
+    @media (min-width: 641px) and (max-width: 768px) {
+        .max-w-7xl { max-width: 90%; }
+        .text-2xl { font-size: 1.75rem; }
+        .text-3xl { font-size: 2rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .text-5xl { font-size: 2.5rem; }
+        .h-56 { height: 11rem; }
+        .h-72 { height: 14rem; }
     }
 </style>
 
