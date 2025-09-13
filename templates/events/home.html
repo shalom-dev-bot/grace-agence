@@ -5,13 +5,12 @@
 {% block title %}{% trans "Home" %} - Glow Gracious Events{% endblock %}
 
 {% block content %}
-
 <!-- Hero Section -->
 <section class="relative w-full h-[80vh] overflow-hidden">
     <!-- Carousel Images -->
     <div id="hero-carousel" class="absolute inset-0 w-full h-full">
         <!-- Slide 1: Zoom -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-100" style="background-image: url('{% static "images/slide1.jpg" %}');" data-index="0">
+        <div class="absolute inset-0 bg-cover bg-center opacity-100 slide1" data-index="0">
             <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
                 <h1 class="text-5xl md:text-7xl font-bold text-pink-700 animate-fadeIn">Welcome to <span class="text-yellow-400">Glow Gracious</span></h1>
                 <p class="text-xl md:text-2xl text-white mt-4 animate-fadeIn delay-200">Crafting your dream events with <span class="font-semibold">elegance</span> & <span class="font-semibold">style</span></p>
@@ -19,7 +18,7 @@
         </div>
 
         <!-- Slide 2: Zoom -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('{% static "images/slide2.jpg" %}');" data-index="1">
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 slide2" data-index="1">
             <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
                 <h1 class="text-5xl md:text-7xl font-bold text-yellow-400 animate-fadeIn">Stunning Decorations</h1>
                 <p class="text-xl md:text-2xl text-white mt-4 animate-fadeIn delay-200">We make your events visually unforgettable</p>
@@ -27,7 +26,7 @@
         </div>
 
         <!-- Slide 3: From Left -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform -translate-x-full" style="background-image: url('{% static "images/slide3.jpg" %}');" data-index="2">
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform -translate-x-full slide3" data-index="2">
             <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
                 <h1 class="text-5xl md:text-7xl font-bold text-pink-500 animate-slideInLeft">Delicious Catering</h1>
                 <p class="text-xl md:text-2xl text-white mt-4 animate-slideInLeft delay-200">Savor exquisite flavors crafted for your events</p>
@@ -35,7 +34,7 @@
         </div>
 
         <!-- Slide 4: From Top -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform -translate-y-full" style="background-image: url('{% static "images/slide4.jpg" %}');" data-index="3">
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform -translate-y-full slide4" data-index="3">
             <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
                 <h1 class="text-5xl md:text-7xl font-bold text-pink-700 animate-slideInDown">Capture Memories</h1>
                 <p class="text-xl md:text-2xl text-white mt-4 animate-slideInDown delay-200">Our photography makes every moment unforgettable</p>
@@ -43,7 +42,7 @@
         </div>
 
         <!-- Slide 5: From Right -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform translate-x-full" style="background-image: url('{% static "images/slide5.jpg" %}');" data-index="4">
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 transform translate-x-full slide5" data-index="4">
             <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
                 <h1 class="text-5xl md:text-7xl font-bold text-yellow-400 animate-slideInRight">Unforgettable Events</h1>
                 <p class="text-xl md:text-2xl text-white mt-4 animate-slideInRight delay-200">Experience events designed to impress and inspire</p>
@@ -61,6 +60,25 @@
         </a>
     </div>
 </section>
+
+<!-- CSS for Background Images -->
+<style>
+    .slide1 {
+        background-image: url('{% static "images/slide1.jpeg" %}');
+    }
+    .slide2 {
+        background-image: url('{% static "images/slide2.jpeg" %}');
+    }
+    .slide3 {
+        background-image: url('{% static "images/slide3.jpeg" %}');
+    }
+    .slide4 {
+        background-image: url('{% static "images/slide4.jpeg" %}');
+    }
+    .slide5 {
+        background-image: url('{% static "images/slider5.jpeg" %}');
+    }
+</style>
 
 <!-- JS Carousel with Custom Animations -->
 <script>
@@ -109,7 +127,7 @@ setInterval(() => {
     showSlide(currentIndex);
 }, 7000);
 </script>
-<!--section 1 terminer-->
+<!--terminer-->
 
 <!-- Video Section -->
 <section class="py-20 bg-gradient-to-r from-pink-50 via-pink-100 to-pink-50">
